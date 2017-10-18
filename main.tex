@@ -160,101 +160,121 @@ Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 \begin{proof}
 	$\forall$ $l>p$ on a $||∑_{n=l}^p||^2=(∑_n=e^p x_n | ∑_n=e^p x_n)=∑_n,n'=l(x_n|x_n')=∑_n=l^p||x_n||^2$ Alors $(x_n)_{n\in \N}$ est de Cauchy $\Leftrightarrow$ $(||x_n||^2)_{n\in \N}$ est de Couchy dans $\R$.
 
-D'aute peut $S_N=∑_{n≥0}^N x_n$ => $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
+D'aute peut $S_N=∑_{n≥0}^N x_n$ $\Rightarrow$  $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
 Alors $S=lim S_N=∑x_n$ $||S||^2=||lim N S_N||^2=lim ||S_N||^2$ par continite de la $||•||$ et donc $||S||^2=lim_N∑_n≥0^N||x_n||^2=∑_{n≥0}||x_n||^2$
 \end{proof}
 
-\section{Sases hilberienes} % section #3
-\ifcomment
+\section{Bases Hilbertiennes} % section #3
 
 \begin{definition}
-	On appelle base hilbertienne, une suite de vecteur x_n)_{n\in \N} telle que 
+	On appelle \textsc{Base Hilbertienne}, une suite de vecteur $(x_n)_{n\in \N}$ telle que 
 	\begin{enumerate}
-		\item $\forall n,m (x_n|x_m)=δ_nm$
-		\item \vect\{(x_n)_n\in\N\}=H $\Leftrightarrow$ vect{...}^\perp=\{0_H\} $\Leftrightarrow$ $(s_n)$ est totale
+		\item $\forall n, m (x_n|x_m)=δ_{nm}$,
+		\item $\vect\{(x_n)_n\in\N\}=H$ $\Leftrightarrow$ $\vect{(x_n)_{n\in \N}}^\perp=\{0_H\}$ $\Leftrightarrow$ $(x_n)_{n\in \N}$ est totale.
 	\end{enumerate}
 \end{definition}
 
-\begin{theoreme}[Inegalite de Bessel]
-	Soit $(x_n)$ une suite orthonormale dans H. Alors $\forall x\in H ∑|(x|x_n)|$ est convergente et $∑|(x|x_n)^2≤||x||^2$.
-\end{theoreme}
+\begin{theorem}[Inégalité de Bessel]
+	Soit $(x_n)$ une suite \texttt{orthonormale} ($\forall n, m (x_n|x_m)=δ_{nm}$) dans $H$. Alors $\forall x\in H ∑_{n≥0}|(x|x_n)|^2$ est convergente et $∑_{n≥0}|(x|x_n)|^2≤||x||^2$.
+\end{theorem}
 
-Exp: H=l^2(\N). $(e_n|e_m)=∑_{k≥0}e_n(k)\overline{e_m(k)}=∑_{k≥0}s_{nk}s_{mk}=s_{nm}$. En fait on montre que $∑|(e_n|x)|^2=||x||^2$ cature bore hilbertcenne.
+\textbf{Exemple:} $H=l^2(\N)$. $(e_n|e_m)=∑_{k≥0}e_n(k)\overline{e_m(k)}=∑_{k≥0}δ_{nk}δ_{mk}=δ_{nm}$. En fait on montre que $∑_{n≥0}|(e_n|x)|^2=||x||^2$ c'est une base Hilbertienne.
 \begin{proof}
-	Sait $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ => $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
+	Sait $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ $\Rightarrow$  $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
 	(autrement =0)
+
+Dans ces conditions puisque $||y_i||^2=|(x|e_i)|^2$. Alors $(Z_n|y_i)=0$ $\Rightarrow$  $(Z_N|Y_N)=0$ cas $Y_n=∑_{i=0}^Ny_i$ $\Rightarrow$  $||x||^2=||Z_n||^2+||Z_N||^2$ $(x=Zn+Yn et Z_n\perp Y_n)$
+$\Rightarrow$  $||y_n||^2=∑||y_n||^2≤||x||^2$
+
+La seuie $∑^N||y_n||^2$ est positive, majerée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$. QED
+
 \end{proof}
 
-Dans ces conditions puisque $||y_i||^2=|(x|e_i)|^2$. Alors $(Z_n|y_i)=0$ => $(Z_N|Y_N)=0$ cas $Y_n=∑_{i=0}^Ny_i$ => $||x||^2=||Z_n||^2+||Z_N||^2$ $(x=Zn+Yn et Z_n\perp Y_n)$
-=> $||y_n||^2=∑||y_n||^2≤||x||^2$
 
-La seuie $∑^N||y_n||^2$ est positive, majerée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$.
-
-\begin{theoreme}[Egalité de Parseval]
-	Soit $(e_n)$ une base Hilbertienre de $H$ alors 
+\begin{theorem}[Egalité de Parseval]
+	Soit $(e_n)$ une base Hilbertienne de $H$ alors 
 	\begin{enumerate}
-		\item La seuite ∑|(x|e_n)|^2 est convergente et $||X||^2=∑_{n≥0}|(x|e_n)|^2$
-		\item Ls seuie ∑(x|e_i)e_i est convergente dans H et $∑_{i≥0}(x|e_i)e_i=x$
+		\item La série $∑_{n≥0}|(x|e_n)|^2$ est convergente et $||X||^2=∑_{n≥0}|(x|e_n)|^2$,
+		\item Ls série $∑_{n≥0}(x|e_i)e_i$ est convergente dans $H$ et $∑_{i≥0}(x|e_i)e_i=x$.
 	\end{enumerate}
-\end{theoreme}
+\end{theorem}
 \begin{proof}
-	Envilelisant le theoreme precedent alors $∑|(x|e_i)|^2$ est convergent on utilise l'identite de la mediane: ∑(x|e_i)e_i et convergente dans H (||(x|e_i)e_i||^2 =|(x|e_i)|^2).
-	On pose $y=∑_{i≥0}(x|e_i)e_i$ alors $||y||^2 =∑_{i≥0}|(x|e_i)|^2)$ mais (y|e_j)=(∑(x|ei)ei|e_j)=∑(x|e_i)(e_i|e_j)=(x|e_j) ...|)|)|)|)
-	Conclusion \forall j\in \N (x|e_j)=(y|e_j) $\Leftrightarrow$ (x-y|e_j)=0 x-y\in\vect {(e_n)_{n\in\N}^\perp  
-	=> x-y=0_H $\Leftrightarrow$ x=y=∑(x|e_i) e_i ||x||^2=∑|(x|e_i)|^2 
+	En utilisant le théorème précédent alors $∑|(x|e_i)|^2$ est convergent on utilise l'identité de la médiane: $∑(x|e_i)e_i$ et convergente dans $H$ $(||(x|e_i)e_i||^2 =|(x|e_i)|^2)$.
+	On pose $y=∑_{i≥0}(x|e_i)e_i$ alors $||y||^2 =∑_{i≥0}|(x|e_i)|^2)$ mais $(y|e_j)=(∑(x|ei)ei|e_j)=∑(x|e_i)(e_i|e_j)=(x|e_j)$ ...
+	Conclusion $\forall j\in \N (x|e_j)=(y|e_j)$ $\Leftrightarrow$
+	$ (x-y|e_j)=0$ $\Rightarrow$  $x-y\in\vect((e_n)_{n\in\N})^\perp$
+	$\Rightarrow$  $x-y=0_H$ $\Leftrightarrow$ $x=y=∑(x|e_i) e_i ||x||^2=∑_{i≥0}|(x|e_i)|^2$
 \end{proof}
 \begin{remark}
-	Si $(e_n)$ est une seuite orthonormal t.q. forall x\in H x=∑_{i≥0}(x|e_i)e_i: x=lim_N ∑_0^N a_ie_i \in vect\{(e_n)_n\in \N\}; a_i=(x|e_i) => vect\{(e_n)_n\in\N\}=H. $(e_n)_n\in \N$ est une base hilbetienv.
-	ii)>> $(e_n)_n\in\N$ est base helbertien de H $\Leftrightarrow$ \forall x\in H $∑(x|e_i)e_i=x$ 
-	• ∑(x|e_i)e_i=x $\Leftrightarrow$ ∑|(x|e_i)|^2=||x||^2 i >> (e_n) est une base helbertiene de H $\Leftrightarrow$ ∑|(x|e_i)|^2=||x||^2 \forall x\in H
+	Si $(e_n)_{n\in \N}$ est une suite orthonormal telle que $\forall x\in H x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ 
+	
+	
+	$\in \vect\{(e_n)_n\in \N\}; a_i=(x|e_i)$ $\Rightarrow$  $\vect\{(e_n)_n\in\N\}=H$. $(e_n)_n\in \N$ est une base Hilbertienne.
+	ii)>> $(e_n)_n\in\N$ est base Hilbertienne de $H$ $\Leftrightarrow$ $\forall x\in H:\ ∑(x|e_i)e_i=x $
+	$∑(x|e_i)e_i=x$ $\Leftrightarrow$ $∑|(x|e_i)|^2=||x||^2 $i $>>$ $(e_n)$ est une base Hilbertienne de $H$ $\Leftrightarrow$ $∑|(x|e_i)|^2=||x||^2 \forall x\in H$
 \end{remark}
 
-exemple:
-H=l^2(\N) (e_n)_{n\in \N} t.q. e_n(k) =s_nk. u\in H $\Leftrightarrow$ ∑_{n≥0} |u(n)|^2=||u||^2 mais u(n)=(u|e_n)=∑u(k)e_n(k) $\Leftrightarrow$ ∑_n≥0 |(u|e_n)|^2=||u||^2 eait une base helbetire.
 
-\section{Dval d'un espacde de Hilbert (H)} % (fold)
-\label{sec:dval_d_un_espacde_de_hilbert_h}
+Exemple (suite):
+$H=l^2(\N)$. $(e_n)_{n\in \N} t.q. e_n(k) =δ_{nk}$.
 
-% section dval_d_un_espacde_de_hilbert_h (end)
-On rapppele que si xC et un e.v.n. une forme linieire sur X.  Une application liniere de X->\CC(\R) soit l;-> \cc\froall d \in \cc \foall x,y\in X l9x+dy)=l(x)+dl(y)
-l'ensemble sdes famer linearied ou x: est un espace vectoriel X^*. On considere X' dual topologique c'est el'espace vecteriel des formes lineairs continues sur X: l:(X,||•||_X)->(\CC, |•|)
+$u\in H$ $\Leftrightarrow$ $∑_{n≥0} |u(n)|^2=||u||^2$ mais $u(n)=(u|e_n)=∑u(k)e_n(k)$ $\Leftrightarrow$ $∑_n≥0 |(u|e_n)|^2=||u||^2$, $\Rightarrow$  c'est une base Hilbertienne. !?
 
-Ex l'et contineue $\Leftrightarrow$ $x \forall x\in\CC, |l(x)|≤C||x||$.
+\section{Dual d'un espace de Hilbert} % (fold)
 
-On definit l\in X', ||l||=\inf\{x>0 tx * est satisfait\} = \sup\{ |l(x)|, ||x||=1\}
-(X', ||•||) est un espace de Borach (un e.v.n. complet)
+On rappelle que si $S$ est un e.v.n. une \textsc{Forme Linière} sur $X$ --- une application linière de $X$ dans $\C$ soit $l: X \rightarrow  \C:\ \forall d \in \C\ \forall x, y\in X l(x+dy)=l(x)+dl(y)$. L'ensemble des formes linéaires de $X$: est un espace vectoriel $X^*$. On considère $X'$ dual topologique: c'est l'espace vectoriel des formes linéaires continues sur $X:\ \{l:(X,||•||_X)\rightarrow (\C, |•|)\}$.
 
-\begin{theorem}
-	Theoreme de representationj de Riez. Soit H est un espace de Hilbert H' son dual topologique On definit I :H->h" par \forall x\in H I(x__=(•|x) AAlors I set un isomorphisme isometrique de h-> H'.
+\begin{exercise}	
+	$l$ est continue $\Leftrightarrow$ 
+	\[\exists C>0\ x \forall x\in X, |l(x)|≤C||x||\label{eq:cont} \tag{\textasteriskcentered}\]
+\end{exercise}
+
+On définit $l\in X'$, $||l||=\inf\{C>0 \text{ t.q. \eqref{eq:cont} est satisfait}\} = \sup\{ |l(x)|\ |\ ||x||=1\}$.
+$(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet})
+
+
+
+\begin{theorem}[Théorème de représentation de Riez]. Soit $H$ est un espace de Hilbert $H'$ son dual topologique. On définit $I :H\rightarrow H"$ par $\forall x\in H I(x)=(•|x)$. Alors $I$ set un isomorphisme isométrique de $H\rightarrow H'$.
 \end{theorem}
-Remarque H=\R^n, une forme lineaire sur \R^n: l 
-l(x1-x^n)=∑_{i=1}Yn a_ix_i\ a_i\in \CC
-|l(x)|-|∑_i=qYna_ix_i|≤sup\{\ai|\{, ||x||_\RYn
 
-Ia X'=X8^*
+\begin{remark}
+	$H=\C^n$, une forme linéaire sur $\C^n$: $l$. 
+	$l(x_1,...\, ,x_n)=∑_{i=1}^n a_ix_i,\ a_i\in \C$
+	$|l(x)|=|∑_{i=1}^na_ix_i|≤sup\{a_i|\}•||x||_{\R^n}$. Ici $X^*=X'$ !?
 
-l(x)-(a1,a2... a)n)(x_1\\x_2...\\x_n)
-=(a|x) \forall x\in \C^n
-\forallc\in X', \exists a\in \CYntq l(x)=(a|)k)
-Generale a le deue quelconque c'at le theoreme de titx.
-\forall c\in H', \exists a\in H  \fforall x\in H l(x)=(x|a)|
+	$$l(x)=(a_1,a_2,...\,, a_n)\mqty({x_1\\ x_2\\ \vdots\\ x_n})$$
+	$=(\bar a|x) \forall x\in \C^n$
+	$\forall l\in X',\ \exists a\in \C:\quad l(x)=(x|\bar a)$
+	Généralisation à la dimension quelconque c'est le théorème de Riez:
+	$\forall l\in H'\ \exists a\in H\  \forall x\in H:\ l(x)=(x|a)|$
+\end{remark}
+ 
 
 \begin{proof}
-	Soit l\in H' l≠0_h' $\Leftrightarrow$ lei l≠H pueque \exists \in tq l(x)≠0_h On Satit que ker l est ferme sait (x_n)_n\in|N une suiti de kei l convergente dans H: x_n->x\in Hmais latren time: l(x_n)-> l(l(x) mais l(x_n)=0 \forall n. => l(x)=0 x\in ker Alors H=ker l \oplus (ker l )^perp (thm propilere
-	puisque (ker l)≠H => ker lY\perp–\{0--_h]) Soit x\in ker \phi ^\perp, ||x||=1|)| x≠0_H
 	
-	\forall y\in H soit z=-l(x)y_l)y)x\in H et l(lx)=-l(x_l(y)+l(y)l(x)=0 x\in rerl => (x|z)=0
 	
-	=> )x|-l(x)y+l(y)x) => l(x) -> l(x)(y|x)=l(y)(X|X) => \forall y\in H l(y)=(y|\overline{l(x)X)|)|))
+	
+	Soit $l\in H'$ $l≠0_h'$ $\Leftrightarrow$ 
+	
+\ifcomment
+	lei $l≠H$ pueque $\exists \in tq l(x)≠0_h$ On Satit que $ker l$ est ferme sait $(x_n)_n\in|N$ une suiti de kei $l$ convergente dans $H$: $x_n\rightarrow x\in H$ mais latren time: $l(x_n)\rightarrow  l(l(x)$ mais l(x_n)=0 \forall n. $\Rightarrow$  l(x)=0 x\in ker Alors H=ker l \oplus (ker l )^perp (thm propilere
+	puisque (ker l)≠H $\Rightarrow$  ker lY\perp–\{0--_h]) Soit x\in ker \phi ^\perp, ||x||=1|)| x≠0_H
+	
+	\forall y\in H soit z=-l(x)y_l)y)x\in H et l(lx)=-l(x_l(y)+l(y)l(x)=0 x\in rerl $\Rightarrow$  (x|z)=0
+	
+	$\Rightarrow$  )x|-l(x)y+l(y)x) $\Rightarrow$  l(x) \rightarrow  l(x)(y|x)=l(y)(X|X) $\Rightarrow$  \forall y\in H l(y)=(y|\overline{l(x)X)|)|))
 	
 	\forall l\in H' \exists a\in H t.q. \forall x\in H l(x)=(x|a)| I est surjectiveMoutrers que I est injective.
-	Soit x\in H t.q. I(x)=O_H' $\Leftrightarrow$ \forall y\in H I(x)(y)=(y|x)=0 => x\perp H => X=0_H ker I=\{O_h\{ I est injective dond bijective.|)
-\end{proof}
+	Soit x\in H t.q. I(x)=O_H' $\Leftrightarrow$ \forall y\in H I(x)(y)=(y|x)=0 $\Rightarrow$  x\perp H $\Rightarrow$  X=0_H ker I=\{O_h\{ I est injective dond bijective.|)
+
 
 En fin: ||I(x)||=sup\P|(y|x)|, ||y||=1\} -||x|| isometrie.)|
 
 Parce que |(y|x)|≤||y|| ||x||=||x|| y=\frac x{||x||} ||y||=1 |(y|x)|=||x||
 
-\begin{remark}
-	Si l est antilineaire : \forall d\in \CC \forall x,y\in H l(x+dy)=l(x_+\bar d l(y) et \exists u t.q. \forall x\in H l(x)=(u|x( )|))
 \fi
+
+\end{proof}
+\begin{remark}
+	Si l est anti-linéaire: $\forall d\in \C\ \forall x,y\in H\ l(x+dy)=l(x)+\bar d l(y)$ et $\exists u $ t.q. $\forall x\in H:\  l(x)=(u|x)$
+\end{remark}
