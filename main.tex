@@ -84,12 +84,12 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 \end{theorem}
 \begin{proof}
 	\begin{itemize}
-		\item $F$ est convexe puisque $\forall \alpha,\beta\in\C \forall x, y\in F\ \alpha x+\beta y\in F$ $\Rightarrow$ Celaeitvnai.. $\alpha = t,\ \beta=1-t\ t\in[0,1]$.
+		\item $F$ est convexe puisque $\forall \alpha,\beta\in\C \forall x, y\in F\ \alpha x+\beta y\in F$ $\Rightarrow$ Cela est vrai si $\alpha = t,\ \beta=1-t\ t\in[0,1]$.
 	
-	On peut lu applieuer le Thm 1:
-		\item On a tanga.. $F+F^\perp \subset H$ et $F+F^\perp = F\bigoplus F^\perp$ onu si $x\in F\cap F^\perp$ $\Rightarrow$ $(x|x)=0=||x||^2$ $\Rightarrow$ $x=0_H$
+	On peut ceci appliquer le Thm 1:
+		\item On a toujours $F+F^\perp \subset H$ et $F+F^\perp = F\bigoplus F^\perp$ car si $x\in F\cap F^\perp$ $\Rightarrow$ $(x|x)=0=||x||^2$ $\Rightarrow$ $x=0_H$
 		
-		Soit $x\in H$, et $y_0\in F$ sa projectien an Thegerale: $\forall d\in \C, y\in F, y_0+dy\in F$ et donc $Re(x-y_0| y_0+dy-y_0)\leq 0$ $\Rightarrow$ $Re(x-y_0|dy)\leq 0$
+		Soit $x\in H$, et $y_0\in F$ sa projection orthogoale: $\forall d\in \C, y\in F, y_0+dy\in F$ et donc $Re(x-y_0| y_0+dy-y_0)\leq 0$ $\Rightarrow$ $Re(x-y_0|dy)\leq 0$
 		
 		$d=(x-y_0|y)$ $\Rightarrow$ $(x-y_0)$
 		...
@@ -99,7 +99,7 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 \end{proof}
 
 \begin{definition}
-	Dans ces condition, l'application $P:x\in H, x=x_1+x_2, x_1\in F, x_2\in F^\perp \overset{P}{\mapsto} x_1\in F$. est le \textsc{Projection Orthogonal} sur $F$.
+	Dans ces conditions, l'application $P:x\in H, x=x_1+x_2, x_1\in F, x_2\in F^\perp \overset{P}{\mapsto} x_1\in F$. est le \textsc{Projecteur Orthogonal} sur $F$.
 \end{definition}
 
 \begin{examplebox}
@@ -120,7 +120,7 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 	Soit $H$ un espace de Hilbert et $A\subset H$:
 	\begin{enumerate}
 		\item $\overline{vect(A)}=(A^\perp)^\perp$
-		\item $A$ est on sous-espace alors $(A^\perp)^\perp=\bar A$
+		\item $A$ est un sous-espace alors $(A^\perp)^\perp=\bar A$
 		\item $A$ est totale $\Leftrightarrow$ $A^\perp=\{0_H\}$
 	\end{enumerate}
 \end{theorem}
@@ -130,7 +130,7 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 \begin{definition}
 	On appelle \textsc{Série} de terme général $u_n\in E$ la suite $(S_N)_{N\in \N}$ de $E$ t.q.  $S_N=\sum\limits_{n=0}^Nu_n$.
-	La série est \textsc{Convergente} dans $(E, ||\cdot||_E)$ si le suite $(S_N)_{N\in\N}$ admet une limite dans $E$: $S$ --- toute la somme de la somme la série.
+	La série est \textsc{Convergente} dans $(E, ||\cdot||_E)$ si la suite $(S_N)_{N\in\N}$ admet une limite dans $E$: $S$ --- c'est la somme de la série.
 \end{definition}
 
 
@@ -143,31 +143,31 @@ Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 	Si $E$ est \texttt{complet} (espace de Banach/Hilbert) Alors toute série AC est convergente et $||\sum\limits_{n=0}^\infty||\leq \sum\limits_{n=0}^\infty||u_n||$. !?
 \end{theorem}
 \begin{proof}
-	$J_n=\sum\limits_{n=0}^N||u_n||$ et convergente $\Leftrightarrow$ $(J_n)_{N\in\N}$ est de Cauchy $\forall \eps >0\ \exists K\ t.q.\ \forall N>P\geq K\Rightarrow |J_n-J_p|\leq \eps$. $\sum_{j=p+1}^N||u_j||\leq \eps$. meus $||S_n-S_p||=||\sum_{j=p+1}^Nu_j||\leq\sum_{j=p+1}^N ||u_j||$ Tnegalite trianguler.
+	$J_n=\sum\limits_{n=0}^N||u_n||$ et convergente $\Leftrightarrow$ $(J_n)_{N\in\N}$ est de Cauchy $\forall \eps >0\ \exists K\ t.q.\ \forall N>P\geq K\Rightarrow |J_n-J_p|\leq \eps$. $\sum_{j=p+1}^N||u_j||\leq \eps$. meus $||S_n-S_p||=||\sum_{j=p+1}^Nu_j||\leq\sum_{j=p+1}^N ||u_j||$ inégalité triangulaire.
 	
 	$\Rightarrow N>p\leq K\Rightarrow ||S_N-S_P||\leq \eps \Leftrightarrow (S_N)_{N\in \N}$ est de Cauchy dans $E$ et donc convergente.
 	
-	D'au the peut $||S_n||=||\sum_{j=0}^n u_j||\leq\sum_{j=0}^n\leq \sum_{j=0}||u_j||$ $\Rightarrow\ ||\sum_{j=0}u_j||\leq \sum_{j=0}||u_j||$. Cqfd.
+	D'autre part $||S_n||=||\sum_{j=0}^n u_j||\leq\sum_{j=0}^n\leq \sum_{j=0}||u_j||$ $\Rightarrow\ ||\sum_{j=0}u_j||\leq \sum_{j=0}||u_j||$. Cfd.
 \end{proof}
 
 \begin{definition}
-	Une suite $(x_n)_{n\in \N}$ de H est dite \textsc{Orthogonal} si $(x_i|x_j)=0\ \forall i≠j$.
+	Une suite $(x_n)_{n\in \N}$ de H est dite \textsc{Orthogonale} si $(x_i|x_j)=0\ \forall i≠j$.
 \end{definition}
 
 \begin{theorem}
-	Soit $(a_n)_{n\in \Z}$ une suite orthogonal dans un espace de Hilbert $H$. Alors le série $∑x_n$ est convergente $\Longleftrightarrow$ $∑_{n≥0}||x_n||_H^2$ est convergente et \[ ||∑_{n≥0}x_n||^2_H=∑_{n≥0}||x_n||_H^2.\]
+	Soit $(a_n)_{n\in \Z}$ une suite orthogonale dans un espace de Hilbert $H$. Alors la série $∑x_n$ est convergente $\Longleftrightarrow$ $∑_{n≥0}||x_n||_H^2$ est convergente et \[ ||∑_{n≥0}x_n||^2_H=∑_{n≥0}||x_n||_H^2.\]
 \end{theorem}
 \begin{proof}
 	$\forall$ $l>p$ on a $||∑_{n=l}^p||^2=(∑_n=e^p x_n | ∑_n=e^p x_n)=∑_n,n'=l(x_n|x_n')=∑_n=l^p||x_n||^2$ Alors $(x_n)_{n\in \N}$ est de Cauchy $\Leftrightarrow$ $(||x_n||^2)_{n\in \N}$ est de Couchy dans $\R$.
 
-D'aute peut $S_N=∑_{n≥0}^N x_n$ $\Rightarrow$  $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
-Alors $S=lim S_N=∑x_n$ $||S||^2=||lim N S_N||^2=lim ||S_N||^2$ par continite de la $||•||$ et donc $||S||^2=lim_N∑_n≥0^N||x_n||^2=∑_{n≥0}||x_n||^2$
+D'autre part $S_N=∑_{n≥0}^N x_n$ $\Rightarrow$  $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
+Alors $S=lim S_N=∑x_n$ $||S||^2=||lim N S_N||^2=lim ||S_N||^2$ par continuité de la $||•||$ et donc $||S||^2=lim_N∑_n≥0^N||x_n||^2=∑_{n≥0}||x_n||^2$
 \end{proof}
 
 \section{Bases Hilbertiennes} % section #3
 
 \begin{definition}
-	On appelle \textsc{Base Hilbertienne}, une suite de vecteur $(x_n)_{n\in \N}$ telle que 
+	On appelle \textsc{Base Hilbertienne}, une suite de vecteurs $(x_n)_{n\in \N}$ telle que 
 	\begin{enumerate}
 		\item $\forall n, m (x_n|x_m)=δ_{nm}$,
 		\item $\vect\{(x_n)_n\in\N\}=H$ $\Leftrightarrow$ $\vect{(x_n)_{n\in \N}}^\perp=\{0_H\}$ $\Leftrightarrow$ $(x_n)_{n\in \N}$ est totale.
@@ -180,13 +180,13 @@ Alors $S=lim S_N=∑x_n$ $||S||^2=||lim N S_N||^2=lim ||S_N||^2$ par continite d
 
 \textbf{Exemple:} $H=l^2(\N)$. $(e_n|e_m)=∑_{k≥0}e_n(k)\overline{e_m(k)}=∑_{k≥0}δ_{nk}δ_{mk}=δ_{nm}$. En fait on montre que $∑_{n≥0}|(e_n|x)|^2=||x||^2$ c'est une base Hilbertienne.
 \begin{proof}
-	Sait $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ $\Rightarrow$  $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
+	Soit $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ $\Rightarrow$  $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
 	(autrement =0)
 
 Dans ces conditions puisque $||y_i||^2=|(x|e_i)|^2$. Alors $(Z_n|y_i)=0$ $\Rightarrow$  $(Z_N|Y_N)=0$ cas $Y_n=∑_{i=0}^Ny_i$ $\Rightarrow$  $||x||^2=||Z_n||^2+||Z_N||^2$ $(x=Zn+Yn et Z_n\perp Y_n)$
 $\Rightarrow$  $||y_n||^2=∑||y_n||^2≤||x||^2$
 
-La seuie $∑^N||y_n||^2$ est positive, majerée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$. QED
+La série $∑^N||y_n||^2$ est positive, majorée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$. QED
 
 \end{proof}
 
@@ -195,18 +195,18 @@ La seuie $∑^N||y_n||^2$ est positive, majerée donc convergente et par passage
 	Soit $(e_n)$ une base Hilbertienne de $H$ alors 
 	\begin{enumerate}
 		\item La série $∑_{n≥0}|(x|e_n)|^2$ est convergente et $||X||^2=∑_{n≥0}|(x|e_n)|^2$,
-		\item Ls série $∑_{n≥0}(x|e_i)e_i$ est convergente dans $H$ et $∑_{i≥0}(x|e_i)e_i=x$.
+		\item La série $∑_{n≥0}(x|e_i)e_i$ est convergente dans $H$ et $∑_{i≥0}(x|e_i)e_i=x$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
-	En utilisant le théorème précédent alors $∑|(x|e_i)|^2$ est convergent on utilise l'identité de la médiane: $∑(x|e_i)e_i$ et convergente dans $H$ $(||(x|e_i)e_i||^2 =|(x|e_i)|^2)$.
+	En utilisant le théorème précédent alors $∑|(x|e_i)|^2$ est convergent. On utilise l'identité de la médiane: $∑(x|e_i)e_i$ est convergente dans $H$ $(||(x|e_i)e_i||^2 =|(x|e_i)|^2)$.
 	On pose $y=∑_{i≥0}(x|e_i)e_i$ alors $||y||^2 =∑_{i≥0}|(x|e_i)|^2)$ mais $(y|e_j)=(∑(x|ei)ei|e_j)=∑(x|e_i)(e_i|e_j)=(x|e_j)$ ...
 	Conclusion $\forall j\in \N (x|e_j)=(y|e_j)$ $\Leftrightarrow$
 	$ (x-y|e_j)=0$ $\Rightarrow$  $x-y\in\vect((e_n)_{n\in\N})^\perp$
 	$\Rightarrow$  $x-y=0_H$ $\Leftrightarrow$ $x=y=∑(x|e_i) e_i ||x||^2=∑_{i≥0}|(x|e_i)|^2$
 \end{proof}
 \begin{remark}
-	Si $(e_n)_{n\in \N}$ est une suite orthonormal telle que $\forall x\in H x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ 
+	Si $(e_n)_{n\in \N}$ est une suite orthonormale telle que $\forall x\in H x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ 
 	
 	
 	$\in \vect\{(e_n)_n\in \N\}; a_i=(x|e_i)$ $\Rightarrow$  $\vect\{(e_n)_n\in\N\}=H$. $(e_n)_n\in \N$ est une base Hilbertienne.
@@ -222,7 +222,7 @@ $u\in H$ $\Leftrightarrow$ $∑_{n≥0} |u(n)|^2=||u||^2$ mais $u(n)=(u|e_n)=∑
 
 \section{Dual d'un espace de Hilbert} % (fold)
 
-On rappelle que si $S$ est un e.v.n. une \textsc{Forme Linière} sur $X$ --- une application linière de $X$ dans $\C$ soit $l: X \rightarrow  \C:\ \forall d \in \C\ \forall x, y\in X l(x+dy)=l(x)+dl(y)$. L'ensemble des formes linéaires de $X$: est un espace vectoriel $X^*$. On considère $X'$ dual topologique: c'est l'espace vectoriel des formes linéaires continues sur $X:\ \{l:(X,||•||_X)\rightarrow (\C, |•|)\}$.
+On rappelle que si $S$ est un e.v.n. une \textsc{Forme Linéaire} sur $X$ est une application linéaire de $X$ dans $\C$. Soit $l: X \rightarrow  \C:\ \forall d \in \C\ \forall x, y\in X l(x+dy)=l(x)+dl(y)$. L'ensemble des formes linéaires de $X$: est un espace vectoriel $X^*$. On considère $X'$ dual topologique: c'est l'espace vectoriel des formes linéaires continues sur $X:\ \{l:(X,||•||_X)\rightarrow (\C, |•|)\}$.
 
 \begin{exercise}	
 	$l$ est continue $\Leftrightarrow$ 
@@ -234,7 +234,7 @@ $(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet})
 
 
 
-\begin{theorem}[Théorème de représentation de Riez]. Soit $H$ est un espace de Hilbert $H'$ son dual topologique. On définit $I :H\rightarrow H"$ par $\forall x\in H I(x)=(•|x)$. Alors $I$ set un isomorphisme isométrique de $H\rightarrow H'$.
+\begin{theorem}[Théorème de représentation de Riez]. Soit $H$ un espace de Hilbert $H'$ son dual topologique. On définit $I :H\rightarrow H"$ par $\forall x\in H I(x)=(•|x)$. Alors $I$ est un isomorphisme isométrique de $H\rightarrow H'$.
 \end{theorem}
 
 \begin{remark}
@@ -257,21 +257,19 @@ $(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet})
 	Soit $l\in H'$ $l≠0_h'$ $\Leftrightarrow$ 
 	
 \ifcomment
-	lei $l≠H$ pueque $\exists \in tq l(x)≠0_h$ On Satit que $ker l$ est ferme sait $(x_n)_n\in|N$ une suiti de kei $l$ convergente dans $H$: $x_n\rightarrow x\in H$ mais latren time: $l(x_n)\rightarrow  l(l(x)$ mais l(x_n)=0 \forall n. $\Rightarrow$  l(x)=0 x\in ker Alors H=ker l \oplus (ker l )^perp (thm propilere
-	puisque (ker l)≠H $\Rightarrow$  ker lY\perp–\{0--_h]) Soit x\in ker \phi ^\perp, ||x||=1|)| x≠0_H
+	$ker l≠H$ puisque $\exists \in tq l(x)≠0_h$ On sait que $ker l$ est fermé: soit $(x_n)_n\in|N$ une suite de ker $l$ convergente dans $H$: $x_n\rightarrow x\in H$ mais l est continue: $l(x_n)\rightarrow  l(l(x)$ mais l(x_n)=0 \forall n. $\Rightarrow$  l(x)=0 x\in ker Alors H=ker l \oplus (ker l )^perp (thm projection).
+	Puisque (ker l)≠H $\Rightarrow$  ker lY\perp–\{0--_h]) Soit x\in ker \phi ^\perp, ||x||=1|)| x≠0_H
 	
 	\forall y\in H soit z=-l(x)y_l)y)x\in H et l(lx)=-l(x_l(y)+l(y)l(x)=0 x\in rerl $\Rightarrow$  (x|z)=0
 	
 	$\Rightarrow$  )x|-l(x)y+l(y)x) $\Rightarrow$  l(x) \rightarrow  l(x)(y|x)=l(y)(X|X) $\Rightarrow$  \forall y\in H l(y)=(y|\overline{l(x)X)|)|))
 	
-	\forall l\in H' \exists a\in H t.q. \forall x\in H l(x)=(x|a)| I est surjective Moutrers que I est injective.
-	Soit x\in H t.q. I(x)=O_H' $\Leftrightarrow$ \forall y\in H I(x)(y)=(y|x)=0 $\Rightarrow$  x\perp H $\Rightarrow$  X=0_H \ker I=\{O_h\{ I est injective donc bijection.|)
-	
-	Some change here...
+	\forall l\in H' \exists a\in H t.q. \forall x\in H l(x)=(x|a)| I est surjective. Montrons que I est injective.
+	Soit x\in H t.q. I(x)=O_H' $\Leftrightarrow$ \forall y\in H I(x)(y)=(y|x)=0 $\Rightarrow$  x\perp H $\Rightarrow$  X=0_H \ker I=\{O_h\{ I est injective donc bijective.|)
 
-adfa
 
-En fin: $||I(x)||=\sup\P|(y|x)|, ||y||=1\} -||x|| isométrie.)|$
+
+Enfin: $||I(x)||=\sup\P|(y|x)|, ||y||=1\} -||x|| isométrie.)|$
 
 Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=||x||$
 
