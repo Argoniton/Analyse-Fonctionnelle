@@ -1,9 +1,8 @@
-$l^2(\N)$ = l2n
-\chapter{cha} % (fold)
+\chapter{Initiation} % (fold)
 \label{cha:cha}
 
 % chapter cha (end)
-\section{sec} % (fold)
+\section{Définitions} % (fold)
 \label{sec:sec}
 
 % section sec (end)
@@ -263,14 +262,13 @@ $(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet})
 	
 	$\Rightarrow$  )x|-l(x)y+l(y)x) $\Rightarrow$  l(x) \rightarrow  l(x)(y|x)=l(y)(X|X) $\Rightarrow$  \forall y\in H l(y)=(y|\overline{l(x)X)|)|))
 	
-	\forall l\in H' \exists a\in H t.q. \forall x\in H l(x)=(x|a)| I est surjective. Montres que I est injective.
-	Soit x\in H t.q. I(x)=O_H' $\Leftrightarrow$ \forall y\in H I(x)(y)=(y|x)=0 $\Rightarrow$  x\perp H $\Rightarrow$  X=0_H \ker I=\{O_h\{ I est injective donc bijection.|)
+	$\forall l\in H' \exists a\in H$ t.q. $\forall x\in H l(x)=(x|a)|$ I est surjective. Montres que I est injective.
+	Soit $x\in H$ t.q. $I(x)=O_H'$ $\Leftrightarrow$ $\forall y\in H I(x)(y)=(y|x)=0$ $\Rightarrow$  $x\perp H$ $\Rightarrow$  $X=0_H$ $\ker I=\{O_h\}$ $I$ est injective donc bijection.
 
 
 En fin: $||I(x)||=\sup\P|(y|x)|, ||y||=1\} -||x|| isométrie.)|$
 
 Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=||x||$
-
 \fi
 
 \end{proof}
@@ -289,18 +287,18 @@ Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=
 Exp. $H=l^2(\N)$, $x_n\in l^2(\N^*)$ t.q. $x_n(j)=δ_{nj}$.
 
 $(x_n)_{n\in\N}n\in\N$ est une base hilbertienne de H. On regarde la convergence faible. Soit $y\in l^2(\N^*)$ on doit calculer $\lim_{n\to +∞}(x_n|y)$, $(x_n|y)=∑_j x_n(j)\overline{y(j)}=\overline{y(n)}$. $|(x_n|y)|≤|y(n)|$ on sait $∑_j|y(j)|^2<+∞$ => $|y(j)|\to 0$ qd $j\to+∞$ et donc $|(x_n|y)|=|y(n)|\to 0$ qd $n\to +∞$. On ercit $0=(0_H|y)$ alors $\lim_n(x_n|y)=(0_H|y)$. $0_H$ est une limite de la suite $(x_n)_{n\in\N}{n\in \N}$ (On montrera la limite faible est unique).
-$\norm(x_n)^2=∑_j|x_n(j)|^2=1$ => $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. $0_H$ n'est pas limite de la suite $(x_n)_{n\in\N}$.
+$\norm{x_n}^2=∑_j|x_n(j)|^2=1$ => $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. $0_H$ n'est pas limite de la suite $(x_n)_{n\in\N}$.
 
 \begin{proposition}
 	La limite faible, si elle existe elle est unique.
 \end{proposition}
 \begin{proof}
-	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons x\neq x' <=> x-x'≠0_H => \exists y\in H t.q. (x|y)≠(x'|y) (*)
+	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons $x\neq x'$ <=> $x-x'≠0_H$ => $\exists y\in H$ t.q. $(x|y)≠(x'|y)$ (*)
 		\begin{remark}
 			On suppose (*) faux: $\forall y\in H (x|y)=(x'|y)$ <=> $(x-x'|y)=0$ => $x-x'\perp H$ => $x-x'=0_H$ c'est Absurde.
 		\end{remark}
 	On pose $u_n=(x_n|y)$ $u=(x|y)$ $u'=(x'|y)$
-	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frao{|u-u'|}2$ => $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ => $|u_n-u'|\not\to 0$ <=> $u_n\not\to u'$ QED.
+	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frac{|u-u'|}2$ => $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ => $|u_n-u'|\not\to 0$ <=> $u_n\not\to u'$ QED.
 \end{proof}
 Dans l'exemple précédent $0_H$ est la limite unique de la suite $(x_n)_{n\in\N}$
 
@@ -350,17 +348,17 @@ $ψ\in L^2(\R)$ => $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\to +∞$. $
 	Si $x_n\rightharpoonup x$ dans $H$ alors $\lim_{n\to + ∞}\inf\norm{x_n}≥\norm{x}$.
 \end{proposition}
 \begin{remark}
-	Si $(x_n)_{n\in\N}$ converge $\esixts x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ => \lim_{n\to ∞}\norm{x_n}=\norm{x}.
+	Si $(x_n)_{n\in\N}$ converge $\exists x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ => $\lim_{n\to ∞}\norm{x_n}=\norm{x}$.
 	Mais si on a que $x_n\rightharpoonup x$ on ne sait pas que la suite $\norm{x_n}$ converge, c.a.d. que la limite existe par contre $\lim_n\inf\norm{x_n}$ = $\lim_{n\to ∞}\inf\{\norm{x_k}, k≥n\}$ et $\lim_n\sup\norm{x_n}-\lim_{n\to +∞} \sup\{\norm{x_k}, k≥n\}$ existe toujours.
 \end{remark}
 \begin{proof}
 	Puisque $x_n\rightharpoonup x$, alors $(x_n|x)\to (x|x)=\norm{x}^2$ en utilisant Cauchy Schwartz $|(x_n|x)|≤\norm{x_n}{x}$.
 	=> $\norm{x}^2≤\norm{x_n}\norm{x}$ <=> $\norm{x}≤\norm{x_n} => \norm{x}≤\lim_{n\to∞}\inf\norm{x_n}$.
 \end{proof}
-\begin{propositon}
+\begin{proposition}
 	Soit $(x_n)_{n\in\N}$ une suite dans $H$. Alors 
-		$\item x_n\to x$ <=> $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
-\end{propositon}
+		$x_n\to x$ <=> $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
+\end{proposition}
 \begin{proof}
 	(=>) $x_n\to x$ => $x_n\rightharpoonup x_n$ et $\norm{x_n}\to \norm{x}$
 	(<=) $\norm{x-x_n}^2 = \norm{x}^2+\norm{x_n}^2 - 2\Re (x|x_n)$
