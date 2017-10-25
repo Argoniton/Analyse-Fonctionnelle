@@ -2,7 +2,7 @@
 \label{cha:cha}
 
 % chapter cha (end)
-\section{Définitions} % (fold)
+\section{Definitions} % (fold)
 \label{sec:sec}
 
 % section sec (end)
@@ -282,23 +282,23 @@ Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=
 \label{sub:definition_et_premieres_proprietes}
 
 \begin{definition}
-	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}{n\in \N}$ de $H$ est dit \textsc{Converge Faiblement vers} $X\in H$ si $\forall y\in H (x_n|y)->(x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}{n\in \N}$.
+	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}{n\in \N}$ de $H$ est dit \textsc{Converge Faiblement vers} $X\in H$ si $\forall y\in H (x_n|y)ightarrow (x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}{n\in \N}$.
 \end{definition}
 Exp. $H=l^2(\N)$, $x_n\in l^2(\N^*)$ t.q. $x_n(j)=δ_{nj}$.
 
-$(x_n)_{n\in\N}n\in\N$ est une base hilbertienne de H. On regarde la convergence faible. Soit $y\in l^2(\N^*)$ on doit calculer $\lim_{n\to +∞}(x_n|y)$, $(x_n|y)=∑_j x_n(j)\overline{y(j)}=\overline{y(n)}$. $|(x_n|y)|≤|y(n)|$ on sait $∑_j|y(j)|^2<+∞$ => $|y(j)|\to 0$ qd $j\to+∞$ et donc $|(x_n|y)|=|y(n)|\to 0$ qd $n\to +∞$. On ercit $0=(0_H|y)$ alors $\lim_n(x_n|y)=(0_H|y)$. $0_H$ est une limite de la suite $(x_n)_{n\in\N}{n\in \N}$ (On montrera la limite faible est unique).
-$\norm{x_n}^2=∑_j|x_n(j)|^2=1$ => $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. $0_H$ n'est pas limite de la suite $(x_n)_{n\in\N}$.
+$(x_n)_{n\in\N}n\in\N$ est une base hilbertienne de H. On regarde la convergence faible. Soit $y\in l^2(\N^*)$ on doit calculer $\lim_{n\to +∞}(x_n|y)$, $(x_n|y)=∑_j x_n(j)\overline{y(j)}=\overline{y(n)}$. $|(x_n|y)|≤|y(n)|$ on sait $∑_j|y(j)|^2<+∞$ $\Rightarrow$ $|y(j)|\to 0$ qd $j\to+∞$ et donc $|(x_n|y)|=|y(n)|\to 0$ qd $n\to +∞$. On ercit $0=(0_H|y)$ alors $\lim_n(x_n|y)=(0_H|y)$. $0_H$ est une limite de la suite $(x_n)_{n\in\N}{n\in \N}$ (On montrera la limite faible est unique).
+$\norm{x_n}^2=∑_j|x_n(j)|^2=1$ $\Rightarrow$ $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. $0_H$ n'est pas limite de la suite $(x_n)_{n\in\N}$.
 
 \begin{proposition}
 	La limite faible, si elle existe elle est unique.
 \end{proposition}
 \begin{proof}
-	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons $x\neq x'$ <=> $x-x'≠0_H$ => $\exists y\in H$ t.q. $(x|y)≠(x'|y)$ (*)
+	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons $x\neq x'$ $\Leftrightarrow$ $x-x'≠0_H$ $\Rightarrow$ $\exists y\in H$ t.q. $(x|y)≠(x'|y)$ (*)
 		\begin{remark}
-			On suppose (*) faux: $\forall y\in H (x|y)=(x'|y)$ <=> $(x-x'|y)=0$ => $x-x'\perp H$ => $x-x'=0_H$ c'est Absurde.
+			On suppose (*) faux: $\forall y\in H (x|y)=(x'|y)$ $\Leftrightarrow$ $(x-x'|y)=0$ $\Rightarrow$ $x-x'\perp H$ $\Rightarrow$ $x-x'=0_H$ c'est Absurde.
 		\end{remark}
 	On pose $u_n=(x_n|y)$ $u=(x|y)$ $u'=(x'|y)$
-	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frac{|u-u'|}2$ => $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ => $|u_n-u'|\not\to 0$ <=> $u_n\not\to u'$ QED.
+	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frac{|u-u'|}2$ $\Rightarrow$ $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ $\Rightarrow$ $|u_n-u'|\not\to 0$ $\Leftrightarrow$ $u_n\not\to u'$ QED.
 \end{proof}
 Dans l'exemple précédent $0_H$ est la limite unique de la suite $(x_n)_{n\in\N}$
 
@@ -306,10 +306,10 @@ Exemple. $H=L^2(\R)$. Soit $H_0\in C^∞_c(\R)$ On pose $\forall n\in \N$, $φ_n
 
 \begin{rappel}
 	
-	$C_c^∞(\R)$ ensemble des fonctions $f:\R|-> \C$. \\
+	$C_c^∞(\R)$ ensemble des fonctions $f:\R\mapsto  \C$. \\
 	* support $f$ compact : borne et ferme.\\
 	* $f\in C^n_(\R)$
-	<=> $f\in C_X^∞(\R)$
+	$\Leftrightarrow$ $f\in C_X^∞(\R)$
 	support $f=\overline{\{x\in \R, f(x)≠0\}}$
 	
 	$L^2(\R)=\overline{C_x^∞(\R)}|_{\norm{•}_{L^2(\R)}}$
@@ -317,57 +317,57 @@ Exemple. $H=L^2(\R)$. Soit $H_0\in C^∞_c(\R)$ On pose $\forall n\in \N$, $φ_n
 
 $φ_0\in C_C^∞(\R)$, $\forall n\in\N φ_n(x)=φ_0(x-n)$.
 
-$\forall \psi\in L^2(\R)$: $(φ_n|\psi) \to 0=(0_H|\psi)$ $(φ_n|ψ) = ∫_\R \dd{x} φ_n(x) \overline{ψ(x)} = ∫_{n-1}^{n+1} \dd{x} φ_0(x-n)\bar ψ(x)$.  $|(.|.)|_{L^2((n-1,n+1))}≤\norm{•}\norm{•}$ -> $∫_{n-1}^{n+1} |φ_0(x-n)|^2 \dd{x} = ∫_{-1}^{+1} |φ_0(t)|^2 \dd{t} =1$ => $|(φ_n|ψ)|≤(∫_{n-1}^{n+1}|ψ(x)|^2\dd{x})^{\frac 12}$
+$\forall \psi\in L^2(\R)$: $(φ_n|\psi) \to 0=(0_H|\psi)$ $(φ_n|ψ) = ∫_\R \dd{x} φ_n(x) \overline{ψ(x)} = ∫_{n-1}^{n+1} \dd{x} φ_0(x-n)\bar ψ(x)$.  $|(.|.)|_{L^2((n-1,n+1))}≤\norm{•}\norm{•}$ $\Rightarrow$  $∫_{n-1}^{n+1} |φ_0(x-n)|^2 \dd{x} = ∫_{-1}^{+1} |φ_0(t)|^2 \dd{t} =1$ $\Rightarrow$ $|(φ_n|ψ)|≤(∫_{n-1}^{n+1}|ψ(x)|^2\dd{x})^{\frac 12}$
 
-$ψ\in L^2(\R)$ => $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\to +∞$. $\norm{ψ}=∑_n∫_{n-1}^{n+1}$ $|ψ|^2\dd{t}<∞$.
+$ψ\in L^2(\R)$ $\Rightarrow$ $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\to +∞$. $\norm{ψ}=∑_n∫_{n-1}^{n+1}$ $|ψ|^2\dd{t}<∞$.
 
 \begin{proposition}
 	\begin{enumerate}
 		\item soit $(x_n)_{n\in\N}$ t.q. $x_n\rightharpoonup x \in H $alors $(x_{k(n))})_{n\in\N}$ Converge faiblement et $x_{k(n)}\rightharpoonup x$
 		\item si $(x_n)_n\in\N$ et $(y_n)_{n\in\N}$ sait deux suites t.q. $x_n\rightharpoonup x$ et $y_n \rightharpoonup y$ alors $x_n+y_n\rightharpoonup x+y$
-		\item si $x_n\rightharpoonup x$ et soit $(d_n)_{n\in\N}$ une suite des $\C$ t.q. $d_n\to d \in \C$ => $d_nx_n\rightharpoonup dx$.
+		\item si $x_n\rightharpoonup x$ et soit $(d_n)_{n\in\N}$ une suite des $\C$ t.q. $d_n\to d \in \C$ $\Rightarrow$ $d_nx_n\rightharpoonup dx$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
 	\begin{enumerate}
-		\item i est évident $\forall y\in H$ si $u_n=(y|x_n)$ => $u=(y|x)$ => $u_{k(n)}\to u$ => i)
+		\item i est évident $\forall y\in H$ si $u_n=(y|x_n)$ $\Rightarrow$ $u=(y|x)$ $\Rightarrow$ $u_{k(n)}\to u$ $\Rightarrow$ i)
 		\item $\forall y\in H (y|x_n+z_n)=(y|x_n)+ (y|x_n) \to (y|x)+(y|z)=(y|x+z)$.
 		\item On suppose $\forall y\in H (x_n|y)\to (x|y)$ et $d_n\to d$.
-		$(d_nx_n-dx|y)=(d_nx_n-dx_n+dx_n-dx|y)=(d_n-d)(x_n|y)+d(x_n-x|y)$ => $|(d_nx_n-dx|y)|≤|d_n-d||(x_n|y)|+|d||(x_n-x|y)|$
+		$(d_nx_n-dx|y)=(d_nx_n-dx_n+dx_n-dx|y)=(d_n-d)(x_n|y)+d(x_n-x|y)$ $\Rightarrow$ $|(d_nx_n-dx|y)|≤|d_n-d||(x_n|y)|+|d||(x_n-x|y)|$
 		\begin{enumerate}
-			\item $(x_n|y)\to (x|y)$ => $\exists M$ t.q. $|(x_n|y)|≤M\ \forall n\in\N$ => $|d_n-d||(x_n|x)|≤|d_n-d|M\to 0 qd n\to +∞$. 
+			\item $(x_n|y)\to (x|y)$ $\Rightarrow$ $\exists M$ t.q. $|(x_n|y)|≤M\ \forall n\in\N$ $\Rightarrow$ $|d_n-d||(x_n|x)|≤|d_n-d|M\to 0 qd n\to +∞$. 
 			$|(x_n-x|y)|\to 0 qd n\to +∞$ par (*) la proposition est démontrer.
 		\end{enumerate}
 	\end{enumerate}
 \end{proof}
 \begin{remark}
-	On a toujours que $|(x_n-x|y)|≤\norm{x_n-x}_H\norm{y}_H$. Si $\lim_n\norm{x_n-x}=0$ <=> $\lim_n x_n=x$ => $x_n\rightharpoonup x$
+	On a toujours que $|(x_n-x|y)|≤\norm{x_n-x}_H\norm{y}_H$. Si $\lim_n\norm{x_n-x}=0$ $\Leftrightarrow$ $\lim_n x_n=x$ $\Rightarrow$ $x_n\rightharpoonup x$
 	! l'inverse est faux en général.
 \end{remark}
 \begin{proposition}
 	Si $x_n\rightharpoonup x$ dans $H$ alors $\lim_{n\to + ∞}\inf\norm{x_n}≥\norm{x}$.
 \end{proposition}
 \begin{remark}
-	Si $(x_n)_{n\in\N}$ converge $\exists x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ => $\lim_{n\to ∞}\norm{x_n}=\norm{x}$.
+	Si $(x_n)_{n\in\N}$ converge $\exists x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ $\Rightarrow$ $\lim_{n\to ∞}\norm{x_n}=\norm{x}$.
 	Mais si on a que $x_n\rightharpoonup x$ on ne sait pas que la suite $\norm{x_n}$ converge, c.a.d. que la limite existe par contre $\lim_n\inf\norm{x_n}$ = $\lim_{n\to ∞}\inf\{\norm{x_k}, k≥n\}$ et $\lim_n\sup\norm{x_n}-\lim_{n\to +∞} \sup\{\norm{x_k}, k≥n\}$ existe toujours.
 \end{remark}
 \begin{proof}
 	Puisque $x_n\rightharpoonup x$, alors $(x_n|x)\to (x|x)=\norm{x}^2$ en utilisant Cauchy Schwartz $|(x_n|x)|≤\norm{x_n}{x}$.
-	=> $\norm{x}^2≤\norm{x_n}\norm{x}$ <=> $\norm{x}≤\norm{x_n} => \norm{x}≤\lim_{n\to∞}\inf\norm{x_n}$.
+	$\Rightarrow$ $\norm{x}^2≤\norm{x_n}\norm{x}$ $\Leftrightarrow$ $\norm{x}≤\norm{x_n}$ $\Rightarrow$ $\norm{x}≤\lim_{n\to∞}\inf\norm{x_n}$.
 \end{proof}
 \begin{proposition}
 	Soit $(x_n)_{n\in\N}$ une suite dans $H$. Alors 
-		$x_n\to x$ <=> $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
+		$x_n\to x$ $\Leftrightarrow$ $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
 \end{proposition}
 \begin{proof}
-	(=>) $x_n\to x$ => $x_n\rightharpoonup x_n$ et $\norm{x_n}\to \norm{x}$
-	(<=) $\norm{x-x_n}^2 = \norm{x}^2+\norm{x_n}^2 - 2\Re (x|x_n)$
+	($\Rightarrow$) $x_n\to x$ $\Rightarrow$ $x_n\rightharpoonup x_n$ et $\norm{x_n}\to \norm{x}$
+	($\Leftarrow$) $\norm{x-x_n}^2 = \norm{x}^2+\norm{x_n}^2 - 2\Re (x|x_n)$
 	$\lim_n\sup \norm{x-x_n}^2≤ \norm{x}^2+\lim_n\sup\norm{x_n}^2 - 2\norm{x}^2$.
 	$\lim_n\sup \norm{x-x_n}^2≤\lim_n\sup \norm{x_n}^2-\norm{x}^2 ≤0$
-	=> $\lim_n\sup \norm{x-x_n}^2=0 ≥\lim_n\inf \norm{x-x_n}^2≥0$
-	=> $\lim_n\sup \norm{x-x_n}^2 =\lim_n\inf\norm{x-x_n}^2=\lim_n\norm{x}$
+	$\Rightarrow$ $\lim_n\sup \norm{x-x_n}^2=0 ≥\lim_n\inf \norm{x-x_n}^2≥0$
+	$\Rightarrow$ $\lim_n\sup \norm{x-x_n}^2 =\lim_n\inf\norm{x-x_n}^2=\lim_n\norm{x}$
 \end{proof}
 
 \begin{example}
-	Soit $(x_n)_{n\in\N}$ une suite bornée de H. Soit $D\subset H$ dense ($\bar D=H$). Alors $x_n\rightharpoonup x$ sur $H$ <=> $(x_n|y)\to (x|y)\ \forall y\in D$.
+	Soit $(x_n)_{n\in\N}$ une suite bornée de H. Soit $D\subset H$ dense ($\bar D=H$). Alors $x_n\rightharpoonup x$ sur $H$ $\Leftrightarrow$ $(x_n|y)\to (x|y)\ \forall y\in D$.
 \end{example}
