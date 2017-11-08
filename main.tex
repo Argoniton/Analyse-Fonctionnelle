@@ -1,11 +1,42 @@
 \chapter{Initiation} % (fold)
-\label{cha:cha}
 
 % chapter cha (end)
-\section{Definitions} % (fold)
-\label{sec:sec}
+\section{Les espaces de Hilbert} % (fold)
+$\mathbb{K}=\C$ ou $\mathbb{K}=\R$.
+\begin{definition}
+	Soit $E$ un $\mathbb{K}$ espace vectoriel. Une application $φ:E\times E -> \R$ est une \textsc{Forme Hermitienne}
+	\begin{enumerate}
+		\item $\forall y\in E$: $φ(•,y):E->\R$ est linéaire
+		\item $\forall(x,y)\in E\times E$: $φ(x,y)=\overline{φ(y,x)}$
+	\end{enumerate}
+\end{definition}
 
-% section sec (end)
+\begin{definition}
+	Un \textsc{Produit Scalaire} est une forme hermitienne \texttt{définie positive}: $\forall e\in E\ φ(x,x)≥0$; $φ(x,x)=0$ <=> $x=0_E$. Notation:
+		$$φ(x,y):=(x|y)$$
+\end{definition}
+\begin{definition}
+	Le couple $(E,(•|•))$ s'appelle un \textsc{Espace Préhilbertien}.
+\end{definition}
+\begin{definition}
+	On définit la \textsc{Norme} sur $E$: $\forall x\in E\ \norm{x}_E=(x|x)^{\frac12}$.
+\end{definition}
+\begin{remark}
+	En particulier on a l'inégalité de Cauchy-Schwartz:
+	$$\forall(x,y)\in E^2\ |(x|y)|≤\norm{x}\norm{y}.$$
+	Donc inégalité triangulaire. Ainsi c'est vraiment une norme. 
+\end{remark}
+
+\begin{definition}
+	$x,y\in E$ sont dits \textsc{Orthogonaux} si $(x|y)=0$. Nous dénotons cela comme $x\perp y$.
+\end{definition}
+
+\begin{definition}
+	$(E, \norm{•})$ est dit \textsc{Complet} si toutes les suites de Cauchy de $E$ convergent dans $E$.
+\end{definition}
+\begin{definition}
+	Une Espace de Hilbert est un espace préhilbertien complet pour la distance $\norm{•-•}=(•-•|•-•)^{\frac12}$.
+\end{definition}
 
 \begin{example}
 	$l^2(\N)=\{n\in \mathbb{N}\mapsto f(n)\in\C$ t.q. $\sum_{n\geq 0}|f(n)|^2 < \infty\}$
@@ -29,7 +60,7 @@ Conclusion: $\forall \eps>0\ \exists N$ telle que $\forall n\geq N\ ||f_n-f||<\e
 
 Mais $f\overset{\text?}\in l^2(\N)$.
 
-Vérifions que $f\in l^2(\N)$:\\$( \sum_{j\geq 0}|f(j)|^2 )^{1/2}=(\sum_{j\geq 0} |f_n(j)-f(j)+f(j)|^2)^\frac 12=||\underbrace{f-f_n}_{\in l2n }+\underbrace{f_n}_{\in l2n}||\leq ||f-f_n||+||f_n||<+∞$.
+Vérifions que $f\in l^2(\N)$:\\$( \sum_{j\geq 0}|f(j)|^2 )^{1/2}=(\sum_{j\geq 0} |f_n(j)-f(j)+f(j)|^2)^\frac 12=||\underbrace{f-f_n}_{\in l^2(\N) }+\underbrace{f_n}_{\in l^2(\N)}||\leq ||f-f_n||+||f_n||<+∞$.
 \end{example}
 
 
@@ -38,7 +69,7 @@ Vérifions que $f\in l^2(\N)$:\\$( \sum_{j\geq 0}|f(j)|^2 )^{1/2}=(\sum_{j\geq 0
 	Soit $H$ un espace de Hilbert et $C$ une partie \texttt{convexe} \texttt{fermée} et \texttt{non vide} de $H$. Alors $\forall x\in H\ \exists ! y_0\in C$ t.q.
 	\begin{enumerate}
 		\item $\dist(x, C):=\inf\{d(x,y), y\in C\}=\inf\{||x-y||_H, y\in C\} = ||x-y_0||_H$
-		\item $\forall y\in C\ \Re(x-y_0| y-y_0)\leq 0$ !?
+		\item $\forall y\in C\ \Re(x-y_0| y-y_0)\leq 0$ \question{why in the world would scalar product have values other than real}
 	\end{enumerate} 
 	$y_0$ est la projection orthogonale de $x$ sur $C$.
 	
@@ -73,13 +104,13 @@ $H$ est complet et $C\subset H_x$ $c$ est fermé. $C$ est un espace métrique co
 $y_0\in\cup_n C_n\ d^2\leq ||x-y_0||^2\leq d^2+\frac1n\ \forall n\in\N*=\N\\\{0\}$
 $\Rightarrow ||x-y_0||=d^2$.
 
-Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)}_{\in C}-x||^2 = ||y_0-x||^2+2tRe(y_0-x|y-y_0)+t^2||y-y_0||^2$. $\phi(0)=d^2\leq \phi(t)\ \forall t\in(0,1]$ $\Rightarrow \phi'(0)\geq 0$. $\phi'(t)=2Re(y_0-x|y-y_0)+2t||y-y_0||^2$. $\phi'(0)\leq 0 \Rightarrow 2Re(y_0-x|y-y_0)\leq 0\Rightarrow (i)$.
+Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)}_{\in C}-x||^2 = ||y_0-x||^2+2tRe(y_0-x|y-y_0)+t^2||y-y_0||^2$. $\phi(0)=d^2\leq \phi(t)\ \forall t\in(0,1]$ $\Rightarrow \phi'(0)\geq 0$. $\phi'(t)=2Re(y_0-x|y-y_0)+2t||y-y_0||^2$. $\phi'(0)\leq 0 \Rightarrow 2Re(y_0-x|y-y_0)\leq 0\Rightarrow (i)$.
 
 \end{proof}
 
 
 \begin{theorem}[corollaire]
-	Soit $F$ un sous-espace \textsc{fermé} de $H$ alors: $H=F\bigoplus F^\perp$.
+	Soit $F$ un sous-espace \textsc{fermé} de $H$ alors: $H=F\oplus F^\perp$.
 \end{theorem}
 \begin{proof}
 	\begin{itemize}
@@ -98,7 +129,7 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 \end{proof}
 
 \begin{definition}
-	Dans ces conditions, l'application $P:x\in H, x=x_1+x_2, x_1\in F, x_2\in F^\perp \overset{P}{\mapsto} x_1\in F$. est le \textsc{Projecteur Orthogonal} sur $F$.
+	Dans ces conditions, l'application $P:x\in H, x=x_1+x_2, x_1\in F, x_2\in F^\perp $ $$x \overset{P}{\mapsto} x_1\in F$$ est le \textsc{Projecteur Orthogonal} sur $F$.
 \end{definition}
 
 \begin{examplebox}
@@ -112,7 +143,7 @@ Aadff ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)
 \end{definition}
 
 \begin{example}
-	$H=l^2(\N): \mathcal{F}=\{e_0, e_1, ...\}$ avec $e_j(i)=\delta_{ij}\to (0,0,..., 0,1,0,... 0)$. $\mathcal{F}$ est totale. Elle est dénombrable, $l2n$ est séparable.
+	$H=l^2(\N): \mathcal{F}=\{e_0, e_1, ...\}$ avec $e_j(i)=\delta_{ij}\to (0,0,..., 0,1,0,... 0)$. $\mathcal{F}$ est totale. Elle est dénombrable, $l^2(\N)$ est séparable.
 \end{example}
 
 \begin{theorem}
@@ -139,7 +170,7 @@ Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 \end{definition}
 
 \begin{theorem}
-	Si $E$ est \texttt{complet} (espace de Banach/Hilbert) Alors toute série AC est convergente et $||\sum\limits_{n=0}^\infty||\leq \sum\limits_{n=0}^\infty||u_n||$. !?
+	Si $E$ est \texttt{complet} (espace de Banach/Hilbert) Alors toute série AC est convergente et $||\sum\limits_{n=0}^\infty||\leq \sum\limits_{n=0}^\infty||u_n||$.
 \end{theorem}
 \begin{proof}
 	$J_n=\sum\limits_{n=0}^N||u_n||$ et convergente $\Leftrightarrow$ $(J_n)_{N\in\N}$ est de Cauchy $\forall \eps >0\ \exists K\ t.q.\ \forall N>P\geq K\Rightarrow |J_n-J_p|\leq \eps$. $\sum_{j=p+1}^N||u_j||\leq \eps$. meus $||S_n-S_p||=||\sum_{j=p+1}^Nu_j||\leq\sum_{j=p+1}^N ||u_j||$ inégalité triangulaire.
@@ -293,7 +324,7 @@ Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=
 \label{sub:definition_et_premieres_proprietes}
 
 \begin{definition}
-	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}{n\in \N}$ de $H$ est dit \textsc{Converge Faiblement vers} $X\in H$ si $\forall y\in H (x_n|y)ightarrow (x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}{n\in \N}$.
+	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}{n\in \N}$ de $H$ est dit \textsc{Converge Faiblement vers} $X\in H$ si $\forall y\in H (x_n|y)\rightarrow (x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}{n\in \N}$.
 \end{definition}
 Exp. $H=l^2(\N)$, $x_n\in l^2(\N^*)$ t.q. $x_n(j)=δ_{nj}$.
 
@@ -383,3 +414,81 @@ $ψ\in L^2(\R)$ $\Rightarrow$ $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\
 	Soit $(x_n)_{n\in\N}$ une suite bornée de H. Soit $D\subset H$ dense ($\bar D=H$). Alors $x_n\rightharpoonup x$ sur $H$ $\Leftrightarrow$ $(x_n|y)\to (x|y)\ \forall y\in D$.
 \end{example}
 
+\begin{exercise}
+	On considère $H=L^2(\R, dx)$, soit $φ\in H $<=> $∫_\R|φ|^2\dd{x}=\norm{φ}^2_{L^2(\R)}$. $H=\overline{C_c^∞(\R)}$
+\end{exercise}
+Soit $φ_0\in C_0^∞(\R)$ tq $\norm{φ_0}_{L^2(\R)}=1$ (sinon on pose $φ=\frac{φ_0}{\norm{φ_0}}, \norm{φ}=1$)
+On pose $φ_n(x)=φ_0(x-n)$, on veut montrer que $φ_n\rightharpoonup φ\in L^2(\R)$
+On remarque que:
+$\norm{φ_n}^2=∫_\R|φ_0(x-n)|^2\dd{x}$
+On pose $u=x-n$:
+$\norm{φ_n}^2=∫_\R\dd{u}|φ_0(u)|^2=1$
+$φ_n\not\to0 \norm{f_n-0}=1$.
+
+Est ce que la suite conv faiblement?
+$\exists φ\in H, (φ_n|ψ)->(φ|ψ)\forall ψ\in H.$
+
+Soit $ψ$: $ψ(x)=1$ ssi $x\in[-1,1]$ $ψ(x)=0$ sinon.
+$∫_\R|ψ(x)|^2\dd{x}=∫_{-1}^11\dd{x}=2$
+On choisit $n≥N$ avec $N$ tq $a+N≥$
+=> $∫_\Rφ_nψ\dd{x}=0$
+On a montré $(f_c|ψ)->0=(0|ψ)$. Question $φ_n\rightharpoonup 0_{L^2(\R)}$?
+
+\begin{proposition}
+	Soit $H$ un espace de Hilbert $D\subset H$ dense dans $H$: $\bar D=H$. Alors soit $(x_n)_{n\in\N}$ une suite borné dans $H$, $x_n\rightharpoonup x\in H$ <=> $(x_n|y)\to(x|y)$ $\forall y\in D$.
+\end{proposition}
+Exercice(suite) On doit monter que $\forall ψ\in C^2(\R)$: $(φ_n|ψ)\to0$. On remarque que $\norm{φ_n}=1$ $\forall n\in\N $donc elle est bornée.
+(Suite bornée: $\exists Π tq\forall n \norm{x_n}≤Π$)
+Il suffit de montrer $(φ_n|φ)\to 0 \forall ψ\in C_0^∞(\R)$.
+Montrons a dernier point:
+$∫_\Rψ(x)φ_n(x)\dd{x}$; $\exists a,b \in \R, supp ψ\subset[A,B]$.
+On chοisit $Ν$ tq supp $φ_N=[a+N,b+N]$, $a+Ν>Β$
+=> $∫_\Rψφ_n=0$ => $\lim_n(ψ|φ_n)=0=(ψ|0)$
+\begin{proof}
+	Si $φ_n\rightharpoonup φ$ dans $H$ => $φ_n\rightharpoonup φ$ dans $D$. Supposons que $(φ_n|ψ)\to (φ|ψ)\forall ψ\in D$.
+	Soit $η\in H \exists(η_k)_{k\in\N}$ suite de $D$ tq $\lim_n\norm{η_k-η}=0$.
+	On calcul $(φ_n|η)=(φ_n|η_k)+(φ_n|η-η_k)$.
+	Soit $ε >0$, $\exists K$ tq si $k>K \norm{η-η_k}≤\fracε2$
+	alors $|(φ_n|η-η_k)|≤\norm{φ_ν}\norm{η-η_k}≤Πε$. On fixe un tel $k$.
+	On conclut que $\forallε>0$, $\exists N$ tq si $n≥N$; $|(φ_n|η)|≤(Π+1)ε$ => $(φ_n|η)\to 0$.
+\end{proof}
+\begin{theorem}[1]
+	Toute suite faiblement convergente dans un espace de Hilbert est \texttt{bornée}.
+\end{theorem}
+\begin{theorem}[2, Banach-Alaoglu-Bourbaki]
+	Une espace de Hilbert vérifie la propriété de Bolzano-Weierstrass faible. De toute suite bornée de $H$, en peut extraire une sous suite.
+\end{theorem}
+\begin{remark}
+	Dans $\R$, de toute suite borné on peut extraire une sous-suite c.v. (B.W.) c'est vrai si $p<+∞$. Mais c'est faux en dimension quelconque. Le Thm 2 \~> c'est vrai au sous faible.
+\end{remark}
+\begin{proof}
+	Soit $(x_n)n\in N$ une suite borné dans $H$: $\exists L>0$ tq $\forall n\in \norm{x_n}≤L$. Soit $M=\overline{\vect(x_n)}$. Si $M$ est de dimension fini, alors $(x_n)_{n\in \N}\subset B_f(0_M,L)\subset M$. qui est compact <=> elle satisfait la propriété de B.W. $\exists (X_{k(n)})_{n\in\N}$ sous suite et $x\in B_f(0, L)$ tq $\lim_n\norm{x_{k(n)}-x}\to 0$ => $x_{k(n)}\rightharpoonup x$ dans $H$. Alors le Theoreme 2 est démontré.
+	Supponons que $M$ n'est pas de dimension finie.
+	$M$ est un espace Hilbert (sous espace ferme de $H$) Soit $(φ_k)_{k\in\N}$ une base hilbertiere de $M$. La suite $((x_n|e-1))_{n\in\N}$ est bornee car $|(x_n|e_1)|≤\norm{x_n}\norm{e_1}≤L•1=L$
+	On appleque la proprieté de B.W. dans $\C$: $\exists(a_{k(n)})_{n\in\N}$ et $c_1\in\C$ tq $a_{k(n)}\to c_1$ qd $n\to+∞$ on réécrit: $a_{k(n)}$ on pose $x_{k(n)}=x_n'$. $\forall n\in\N$ alors $(x_n^1|e_1)\to c_1$ qd $n\to+∞$.
+	2 la suite $(x_n'|e_2)$ est borné, $\exists$ une sous suite $(x_n^2)_{n\in\N}$ et $c_2\in\C$ tq $(x_n^2|e_2)\to c_2$ qd $n\to+∞$ etc...
+	
+	Canclusion: On a construit des sous suité
+	$(x_n)_{n\in\N}\subset(x^1_n)_{n\in\N}\subset...(x^k_n)_{n\in\N}...$
+	et des complexes $C_k$, $k=1,2,3...$ tq $(x_n^k|e_k)\to c_k$ qd $n\to+∞$.
+	(présidé deogonal de Cantor): on pose $z_n=x_n^n$.
+	Montrer que $z_n\rightharpoonup ∑_kc_ke_k$ si $∑_kc_ke_k$ est conv dans $H$. Le thm 2 est démontré. Montrons que $∑_kc_ke_k=z\in M$ i.e (*).
+	Puisque $M$ est complet alors il faut montrer $S_n=∑_{k=1}^nc_ke_k$ est de Cauchy: $\norm{s_n-s_m}^2=\norm{∑_{k=n+1}^mc_ke_k}^2=∑_{k=n+1}^m|c_k|^2$ (Parseval).
+	$S_n$ est de Cauchy <=> $\tilde S_n=∑_{k=1}^n|c_k|^2$ est de Cauchy <=> $\tilde S_n$ est convergent dans $\C$.
+	Montrons ce dernier point. On utilise l'inégalité de Bessel. 
+	$∑_{k=1}^N|(x_n|e_k)|^2≤\norm{z_n}^2≤L^2$ mais: $(z_n|e_k)+(x_n^n|e_k)\to c_k$ qd $n\to+∞$. puisque $(x_n^n)_{n\in\N}$ est une sous suite de $(x_n^k)_{n\in\N}$ pour $n≥k$.
+	
+	$(x_n)_{n\in\N}\subset(x_n^2)_{n\in\N}\subset...(x_n^k)_{n\in\N}\subset(x_n^{k+1})_{n\in\N}...$
+	$x_1^1$	$x_2^2$ 		... $x_k^k$
+	alors $\lim_{n\to+∞}(x_n^n|e_k)=c_k$. Alors
+	$∑_{k=1}^N|c_k|^2=∑_{k=1}^N\lim_n|(x_n^n|e_k)|^2 = \lim_n∑_{k=1}^N|(x_n^n|e_k)|^2=\lim_n ∑_{k=1}^N|(z_n|e_k)|^2$
+	 on utilisant (*) alors $∑_{k=1}^N|c_k|^2≤L^2$ (par passage à la limite)
+	 Par conséquent $∑|c_k|^2$ est convergente donc $∑_{k≥1}c_kφ_k$ est convergente dans $M$. Soit $z=∑_{k=1}c_kφ_k$ alors $(z|e_c)=c_e$. Alors on a montre que $\forall C\in \N^*$
+	 $(z_n|e_c)\to c_e=(z|e_c)$
+	 En utilisant que $\overline{vect(e_k, k\in \N^*}=M$ et $(x_n)_{n\in\N}$ est bornée alors cela entraine la convergence faible sur $M$.
+	 $\forall y\in M: (x_n^n|y)\to(z|y)$
+	 On a couverture une sous suite de $(x_n)_{n\in\N}$ qui conv faiblement sur $M$ vers $z\in H$. On étend la propriété sur $H$: $M$ est un sous espace fermé on lui applique le théorème des ces projection. $\forall η\in H M \exists!y_0\in M$ projection de $y$ sur $M$.
+	 
+	 Alors $y=y_0+(y-y_0)$ et $(x^n|y)=(x_n|y)=(x_n|y_0)+(z_n|y-y_0)$ mais $(z_n|y-y_0)=0$. $z_n\in M$ et $y-y_0\in Π^\perp$ => $limit_n (z_n|y)=(z|y_0)$ ( ce que l'on a démontré précédent)
+	 mais $z\in M$, donc $(z|y-y_0)=0$: $\lim_n(x_n|y)=(z|y_0)+(z|y-y_0)=(z|y)$ ce qui montre la conv faible sur $H$.
+\end{proof}
