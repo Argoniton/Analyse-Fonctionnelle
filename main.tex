@@ -12,7 +12,7 @@ $\mathbb{K}=\C$ ou $\mathbb{K}=\R$.
 \end{definition}
 
 \begin{definition}
-	Un \textsc{Produit Scalaire} est une forme hermitienne \texttt{définie positive}: $\forall e\in E\ φ(x,x)≥0$; $φ(x,x)=0$ $\Leftrightarrow$ $x=0_E$. Notation:
+	Un \textsc{Produit Scalaire} est une forme hermitienne \texttt{définie positive}: $\forall e\in E\ φ(x,x)≥0$; $φ(x,x)=0$ $\iff$ $x=0_E$. Notation:
 		$$φ(x,y):=(x|y)$$
 \end{definition}
 \begin{definition}
@@ -48,13 +48,13 @@ Soit $(f_n)_{n\in\N}$ une suite de Cauchy dans $l^2(\N)$:
 	
 \textbf{Question.} $\exists f\in l^2(\N)$ telle que $\lim\limits_{n\to ∞}f_n=f$?
 
-\eqref{eqn:cauchy-suite} $\Leftrightarrow$ $\forall \eps >0\ \exists N\ t.q.\ \forall n>p\geq N\ ||f_n-f_p||^2=\sum\limits_{j\geq 0}|f_n(j)-f_p(j)|^2\leq \eps^2$\\
-$\Rightarrow \quad |f_n(j)-f_p(j)|\leq \eps\ \forall j\in \N$.\\
-$\Rightarrow \forall j\in \N\ (f_n(j)))_{n\in \N}$ est de Cauchy dans $\C$ qui est complet, donc $\exists f(j)\in \C$ telle que $\lim\limits_{n\to \infty} |f_n(j)-f(j)|=0$.
+\eqref{eqn:cauchy-suite} $\iff$ $\forall \eps >0\ \exists N\ t.q.\ \forall n>p\geq N\ ||f_n-f_p||^2=\sum\limits_{j\geq 0}|f_n(j)-f_p(j)|^2\leq \eps^2$\\
+$\implies \quad |f_n(j)-f_p(j)|\leq \eps\ \forall j\in \N$.\\
+$\implies \forall j\in \N\ (f_n(j)))_{n\in \N}$ est de Cauchy dans $\C$ qui est complet, donc $\exists f(j)\in \C$ telle que $\lim\limits_{n\to \infty} |f_n(j)-f(j)|=0$.
 
 Il faut montrer que $f$ est la limite dans $l^2(\N)$ de la suite $f_n$.\\
 $\forall \eps>0\ \exists N$ t.q. $\forall n>p\geq N \sum\limits_{j\geq 0}|f_n(j)-f_p(j)|^2\leq \eps^2$\\
-$\Rightarrow$ $\forall J\in\N\ \underbrace{\sum\limits_{j=0}^J |f_n(j)-f_p(j)|^2}_{\text{somme partielle}}\leq \eps^2$, par passage à la limite sur $p$: $\sum_{j=0}^J|f_n(j)-f(j)|^2\leq \eps^2$
+$\implies$ $\forall J\in\N\ \underbrace{\sum\limits_{j=0}^J |f_n(j)-f_p(j)|^2}_{\text{somme partielle}}\leq \eps^2$, par passage à la limite sur $p$: $\sum_{j=0}^J|f_n(j)-f(j)|^2\leq \eps^2$
 
 Conclusion: $\forall \eps>0\ \exists N$ telle que $\forall n\geq N\ ||f_n-f||<\eps \Longrightarrow \lim\limits_{n\to ∞}f_n=f$.	
 
@@ -64,47 +64,45 @@ Vérifions que $f\in l^2(\N)$:\\$( \sum_{j\geq 0}|f(j)|^2 )^{1/2}=(\sum_{j\geq 0
 \end{example}
 
 
-
-\begin{theorem}[Projection orthogonale]
+\newcommand{\etiquette}[2]{{\color{red} \ref{#1} #2}}
+\newcommand{\TIth}{Projection orthogonale}
+\begin{theorem}[\TIth]\label{th1}
 	Soit $H$ un espace de Hilbert et $C$ une partie \texttt{convexe} \texttt{fermée} et \texttt{non vide} de $H$. Alors $\forall x\in H\ \exists ! y_0\in C$ t.q.
 	\begin{enumerate}
 		\item $\dist(x, C):=\inf\{d(x,y), y\in C\}=\inf\{||x-y||_H, y\in C\} = ||x-y_0||_H$
-		\item $\forall y\in C\ \Re(x-y_0| y-y_0)\leq 0$ \question{why in the world would scalar product have values other than real}
-	\end{enumerate} 
+		\item $\forall y\in C\ \Re(x-y_0| y-y_0)\leq 0$ 	\end{enumerate} 
 	$y_0$ est la projection orthogonale de $x$ sur $C$.
-	
 \end{theorem}
 
+\etiquette{th1}{\TIth}
 
 \begin{remark}
 	\leavevmode
-	\begin{enumerate}
+	\begin{enumerate}[(i)]
 		\item $C$ est convexe si $\forall x, y \in C$ $[x,y]=\{tx+(1-t)y, t\in[0,1]\}\in C$
-		% img convexity
 		\item $H=\R^2:\ [x,y]\in C$
 		\item si $x_0\in C$ dans le cas $y_0=x_0$ et $\dist(x_0, C)=0=||x_0-x_0||_H$
 	\end{enumerate}
 \end{remark}
 
-
-
-
-
 \begin{proof}
-	Notons par $d=d(x,C)>0\ (x\in H\diagdown C)$. Soit $y, z\in C$ on pose $b=x-\frac12(y+z),\ c=\frac12(y-z):\ ||b||=||x-\frac12\underbrace{(y+z)}_{\in C}||\geq d$. On a aussi $b-c=x-y$ et $b+c=x-z$ $\Rightarrow ||x-y||^2+||x-z||^2=||b-c||^2+||b+c||^2=(b-c| b-c)+(b+c|b+c)=||b||^2+||c||^2-(b|c)-(c|b)+||b||^2+||c||^2 + (b|c)+(c|b)$.
+	Notons par $d=d(x,C)>0\ (x\in H\diagdown C)$. Soit $y, z\in C$ on pose $b=x-\frac12(y+z),\ c=\frac12(y-z):\ ||b||=||x-\frac12\underbrace{(y+z)}_{\in C}||\geq d$.
 	
-	$||x-y||^2+||x-z||^2=2(||b||^2+||c||^2)\geq 2 d^2+2\frac14||y-z||^2 \Rightarrow ||y-z||^2\leq 2(||x-y||^2-d^2)+2(||x-z||^2-d^2)$. Pour $n\in N$ $C_n=\{y\in C ||x-y||^2\leq d^2+\frac1n\}$ est fermée dans H (boule fermée).
+	On a aussi $b-c=x-y$ et $b+c=x-z$ $\implies ||x-y||^2+||x-z||^2=||b-c||^2+||b+c||^2=(b-c| b-c)+(b+c|b+c)=||b||^2+||c||^2-(b|c)-(c|b)+||b||^2+||c||^2 + (b|c)+(c|b)$.
+	
+	$||x-y||^2+||x-z||^2=2(||b||^2+||c||^2)\geq 2 d^2+2\frac14||y-z||^2 \implies ||y-z||^2\leq 2(||x-y||^2-d^2)+2(||x-z||^2-d^2)$. Pour $n\in N$ $C_n=\{y\in C ||x-y||^2\leq d^2+\frac1n\}$ est fermée dans H (boule fermée).
 	
 	Puisque $C$ est fermé, $C_n=\{y\in H ||x-y||^2\leq d^2+\frac1n\}\cap C$ est fermé dans $C$.
-	De plus: $\delta (n):=sup\{||y-z||, (y,z)\in C_n\times C_n\}\leq * sup\{[2(||x-y||^2-d^2)+2(||x-z||^2-d^2)]^\frac12, y,z\in C_n$ $\Rightarrow$ $\delta (n)\leq \frac2{n^\frac12}\to 0$ quand $n\to +\infty$.
+	
+	De plus: $\delta (n):=\sup\{||y-z||, (y,z)\in C_n\times C_n\}\leq \sup\{[2(||x-y||^2-d^2)+2(||x-z||^2-d^2)]^\frac12, y,z\in C_n$ $\implies$ $\delta (n)\leq \frac2{\sqrt n}\to 0$ quand $n\to +\infty$.
 
 $H$ est complet et $C\subset H_x$ $c$ est fermé. $C$ est un espace métrique complet. Il satisfait le critère de Cantor: $\bigcap\limits_n C_n=\{y_0\}$.
 
 
-$y_0\in\cup_n C_n\ d^2\leq ||x-y_0||^2\leq d^2+\frac1n\ \forall n\in\N*=\N\\\{0\}$
-$\Rightarrow ||x-y_0||=d^2$.
+$y_0\in\cup_n C_n\ d^2\leq ||x-y_0||^2\leq d^2+\frac1n\ \forall n\in\N^*=\N\setminus\{0\}$\\
+$\implies ||x-y_0||=d^2$.
 
-Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)}_{\in C}-x||^2 = ||y_0-x||^2+2tRe(y_0-x|y-y_0)+t^2||y-y_0||^2$. $\phi(0)=d^2\leq \phi(t)\ \forall t\in(0,1]$ $\Rightarrow \phi'(0)\geq 0$. $\phi'(t)=2Re(y_0-x|y-y_0)+2t||y-y_0||^2$. $\phi'(0)\leq 0 \Rightarrow 2Re(y_0-x|y-y_0)\leq 0\Rightarrow (i)$.
+Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y_0)}_{\in C}-x||^2 = ||y_0-x||^2+2t\Re(y_0-x|y-y_0)+t^2||y-y_0||^2$. $\phi(0)=d^2\leq \phi(t)\ \forall t\in(0,1]$ $\implies \phi'(0)\geq 0$. $\phi'(t)=2\Re(y_0-x|y-y_0)+2t||y-y_0||^2$. $\phi'(0)\leq 0 \implies 2\Re(y_0-x|y-y_0)\leq 0\implies (i)$.
 
 \end{proof}
 
@@ -113,28 +111,31 @@ Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y
 	Soit $F$ un sous-espace \texttt{fermé} de $H$ alors: $H=F\oplus F^\perp$.
 \end{theorem}
 \begin{proof}
-	\begin{itemize}
-		\item $F$ est convexe puisque $\forall \alpha,\beta\in\C \forall x, y\in F\ \alpha x+\beta y\in F$ $\Rightarrow$ Cela est vrai si $\alpha = t,\ \beta=1-t\ t\in[0,1]$.
+\leavevmode
+
+	$F$ est convexe puisque $\forall \alpha,\beta\in\C\ \forall x, y\in F\ \alpha x+\beta y\in F$ $\implies$ cela est vrai si $\alpha = t,\ \beta=1-t,\ t\in[0,1]$.
 	
-	On peut ceci appliquer le Thm 1:
-		\item On a toujours $F+F^\perp \subset H$ et $F+F^\perp = F\bigoplus F^\perp$ car si $x\in F\cap F^\perp$ $\Rightarrow$ $(x|x)=0=||x||^2$ $\Rightarrow$ $x=0_H$
+	On peut ceci appliquer le théorème \etiquette{th1}{\TIth}:
+	
+	On a toujours $F+F^\perp \subset H$ et $F+F^\perp = F\oplus F^\perp$ car si $x\in F\cap F^\perp$ $\implies$ $(x|x)=0=||x||^2$ $\implies$ $x=0_H$
 		
-		Soit $x\in H$, et $y_0\in F$ sa projection orthogonale: $\forall d\in \C, y\in F, y_0+dy\in F$ et donc $Re(x-y_0| y_0+dy-y_0)\leq 0$ $\Rightarrow$ $Re(x-y_0|dy)\leq 0$
+		Soit $x\in H$, et $y_0\in F$ sa projection orthogonale: $\forall d\in \C, y\in F, y_0+dy\in F$ et donc $\Re(x-y_0| y_0+dy-y_0)\leq 0$ $\implies$ $\Re(x-y_0|dy)\leq 0$
 		
-		$d=(x-y_0|y)$ $\Rightarrow$ $(x-y_0)$
+		$d=(x-y_0|y)$ $\implies$ $(x-y_0)$
 		...
 		
-	Conclusion $Re(x-y_0|dy)$.. donc $H=F\bigoplus F^\perp$.
-	\end{itemize}
+	Conclusion $\Re(x-y_0|dy)$... donc $H=F\oplus F^\perp$.
 \end{proof}
 
 \begin{definition}
-	Dans ces conditions, l'application $P:x\in H, x=x_1+x_2, x_1\in F, x_2\in F^\perp $ $$x \overset{P}{\mapsto} x_1\in F$$ est le \textsc{Projecteur Orthogonal} sur $F$.
+	Dans ces conditions, l'application $P:x\in H$ => $x=x_1+x_2$ où $x_1\in F$ et $x_2\in F^\perp $
+	$$x \overset{P}{\mapsto} x_1\in F$$
+	 est le \textsc{Projecteur Orthogonal} sur $F$.
 \end{definition}
 
-\begin{examplebox}
-	Montrer que P est linéaire continue et satisfait $P^2=P$.
-\end{examplebox}
+\begin{example}
+	Montrer que $P$ est linéaire continue et satisfait $P^2=P$.
+\end{example}
 
 \begin{definition}
 	Une partie $A$ de $H$ est dite \textsc{Totale} si le plus petit sous espace fermé contenant $A$ et $H$.
@@ -142,16 +143,16 @@ Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y
 	$H$ est \textsc{Séparable} si $H$ admet une famille totale dénombrable.
 \end{definition}
 
-\begin{examplebox}
+\begin{example}
 	$H=l^2(\N): \mathcal{F}=\{e_0, e_1, ...\}$ avec $e_j(i)=\delta_{ij}\to (0,0,..., 0,1,0,... 0)$. $\mathcal{F}$ est totale. Elle est dénombrable, $l^2(\N)$ est séparable.
-\end{examplebox}
+\end{example}
 
 \begin{theorem}
 	Soit $H$ un espace de Hilbert et $A\subset H$:
 	\begin{enumerate}
 		\item $\overline{\vect(A)}=(A^\perp)^\perp$
 		\item $A$ est un sous-espace alors $(A^\perp)^\perp=\bar A$
-		\item $A$ est totale $\Leftrightarrow$ $A^\perp=\{0_H\}$
+		\item $A$ est totale $\iff$ $A^\perp=\{0_H\}$
 	\end{enumerate}
 \end{theorem}
 
@@ -159,8 +160,11 @@ Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y
 
 Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 \begin{definition}
-	On appelle \textsc{Série} de terme général $u_n\in E$ la suite $(S_N)_{N\in \N}$ de $E$ t.q.  $S_N=\sum\limits_{n=0}^Nu_n$.
-	La série est \textsc{Convergente} dans $(E, ||\cdot||_E)$ si la suite $(S_N)_{N\in\N}$ admet une limite dans $E$: $S$ --- c'est la somme de la série.
+	On appelle \textsc{Série} de terme général $u_n\in E$ la suite $(S_N)_{N\in \N}$ de $E$ t.q.  
+	
+	$$S_N=\sum\limits_{n=0}^Nu_n.$$
+	
+	La série est \textsc{Convergente} dans $(E, ||\cdot||_E)$ si la suite $(S_N)_{N\in\N}$ admet une limite dans $E$: $S$---c'est la somme de la série.
 \end{definition}
 
 
@@ -170,145 +174,144 @@ Soit $(E, ||\cdot||_E)$ un \texttt{espace vectoriel normé} (e.v.n).
 \end{definition}
 
 \begin{theorem}
-	Si $E$ est \texttt{complet} (espace de Banach/Hilbert) Alors toute série AC est convergente et $||\sum\limits_{n=0}^\infty||\leq \sum\limits_{n=0}^\infty||u_n||$.
+	Si $E$ est \texttt{complet} (espace de Banach/Hilbert), alors toute série AC est convergente et $$\norm{\sum\limits_{n=0}^\infty u_n}\leq \sum\limits_{n=0}^\infty||u_n||.$$
 \end{theorem}
 \begin{proof}
-	$J_n=\sum\limits_{n=0}^N||u_n||$ et convergente $\Leftrightarrow$ $(J_n)_{N\in\N}$ est de Cauchy $\forall \eps >0\ \exists K\ t.q.\ \forall N>P\geq K\Rightarrow |J_n-J_p|\leq \eps$. $\sum_{j=p+1}^N||u_j||\leq \eps$. meus $||S_n-S_p||=||\sum_{j=p+1}^Nu_j||\leq\sum_{j=p+1}^N ||u_j||$ inégalité triangulaire.
+	$J_n=\sum\limits_{n=0}^N||u_n||$ et convergente $\iff$ $(J_n)_{N\in\N}$ est de Cauchy $\forall \eps >0\ \exists K\ t.q.\ \forall N>P\geq K\: |J_n-J_p|\leq \eps$ $\implies$ $\sum_{j=p+1}^N||u_j||\leq \eps$. 
 	
-	$\Rightarrow N>p\leq K\Rightarrow ||S_N-S_P||\leq \eps \Leftrightarrow (S_N)_{N\in \N}$ est de Cauchy dans $E$ et donc convergente.
+	Mais $||S_n-S_p||=||\sum_{j=p+1}^Nu_j||\leq\sum_{j=p+1}^N ||u_j||$ inégalité triangulaire.
 	
-	D'autre part $||S_n||=||\sum_{j=0}^n u_j||\leq\sum_{j=0}^n\leq \sum_{j=0}||u_j||$ $\Rightarrow\ ||\sum_{j=0}u_j||\leq \sum_{j=0}||u_j||$. Cfd.
+	$\implies N>P\geq K:\ ||S_N-S_P||\leq \eps \iff (S_N)_{N\in \N}$ est de Cauchy dans $E$ et donc convergente.
+	
+	D'autre part $||S_n||=||\sum_{j=0}^n u_j||\leq\sum_{j=0}^n||u_j||\leq \sum_{j=0}^∞||u_j||$ $\implies$ $\norm{\sum_{j=0}^∞u_j}\leq \sum_{j=0}^∞||u_j||$.
 \end{proof}
 
 \begin{definition}
 
-	Une suite $(x_n)_{n\in\N}{n\in \N}$ de H est dite \textsc{Orthogonal} si $(x_i|x_j)=0\ \forall i≠j$.
+	Une suite $(x_n)_{n\in\N}{n\in \N}$ de H est dite \textsc{Orthogonal} si 
+		$$(x_i|x_j)=0\ \forall i≠j.$$
 \end{definition}
 
 \begin{theorem}
-	Soit $(a_n)_{n\in \Z}$ une suite orthogonale dans un espace de Hilbert $H$. Alors la série $∑x_n$ est convergente $\Longleftrightarrow$ $∑_{n≥0}||x_n||_H^2$ est convergente et \[ ||∑_{n≥0}x_n||^2_H=∑_{n≥0}||x_n||_H^2.\]
+	Soit $(a_n)_{n\in \Z}$ une suite orthogonale dans un espace de Hilbert $H$. Alors la série $∑x_n$ est convergente $\Longleftrightarrow$ $∑_{n≥0}||x_n||_H^2$ est convergente et \[ \norm{∑_{n≥0}x_n}^2_H=∑_{n≥0}||x_n||_H^2.\]
 \end{theorem}
 \begin{proof}
-	$\forall$ $l>p$ on a $||∑_{n=l}^p||^2=(∑_n=e^p x_n | ∑_n=e^p x_n)=∑_n,n'=l(x_n|x_n')=∑_n=l^p||x_n||^2$ Alors $(x_n)_{n\in\N}{n\in \N}$ est de Cauchy $\Leftrightarrow$ $(||x_n||^2)_{n\in \N}$ est de Couchy dans $\R$.
+	$\forall$ $l>p$ on a $||∑_{n=l}^p||^2=(∑_{n=l}^p x_n | ∑_{n=l}^p x_n)=∑_{n,n'=l}^p(x_n|x_n')=∑_{n=l}^p||x_n||^2$. Alors $(x_n)_{n\in\N}$ est de Cauchy $\iff$ $(||x_n||^2)_{n\in \N}$ est de Couchy dans $\R$.
 
-D'autre part $S_N=∑_{n≥0}^N x_n$ $\Rightarrow$  $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
-Alors $S=lim S_N=∑x_n$ $||S||^2=||lim N S_N||^2=lim ||S_N||^2$ par continuité de la $||•||$ et donc $||S||^2=lim_N∑_n≥0^N||x_n||^2=∑_{n≥0}||x_n||^2$
+D'autre part $S_N=∑_{n≥0}^N x_n$ $\implies$  $||S_N||^2=∑_{n≥0}^N||x_n||^2$.
+Alors $S=\lim_N S_N=∑x_n$ $||S||^2=||\lim_N S_N||^2=\lim ||S_N||^2$ par continuité de la $||•||$ et donc $||S||^2=\lim_N∑_{n≥0}^N||x_n||^2=∑_{n≥0}||x_n||^2$
 \end{proof}
 
 \section{Bases Hilbertiennes} % section #3
 
 \begin{definition}
-
-	On appelle \textsc{Base Hilbertienne}, une suite de vecteur $(x_n)_{n\in\N}{n\in \N}$ telle que 
-
+	On appelle \textsc{Base Hilbertienne}, une suite de vecteur $(x_n)_{n\in \N}$ telle que: 
 	\begin{enumerate}
-		\item $\forall n, m (x_n|x_m)=δ_{nm}$,
-		\item $\vect\{(x_n)_{n\in\N}n\in\N\}=H$ $\Leftrightarrow$ $\vect{(x_n)_{n\in\N}{n\in \N}}^\perp=\{0_H\}$ $\Leftrightarrow$ $(x_n)_{n\in\N}{n\in \N}$ est totale.
+		\item $\forall n, m: (x_n|x_m)=δ_{nm}$,
+		\item $\vect\{(x_n)_{n\in\N}\}=H$ $\iff$ $\vect{(x_n)_{n\in\N}}^\perp=\{0_H\}$ $\iff$ $(x_n)_{n\in\N}$ est totale.
 	\end{enumerate}
 \end{definition}
 
 \begin{theorem}[Inégalité de Bessel]
-	Soit $(x_n)$ une suite \texttt{orthonormale} ($\forall n, m (x_n|x_m)=δ_{nm}$) dans $H$. Alors $\forall x\in H ∑_{n≥0}|(x|x_n)|^2$ est convergente et $∑_{n≥0}|(x|x_n)|^2≤||x||^2$.
+	Soit $(x_n)$ une suite \texttt{orthonormale} ( $\forall n, m (x_n|x_m)=δ_{nm}$) dans $H$. Alors $\forall x\in H ∑_{n≥0}|(x|x_n)|^2$ est convergente et $∑_{n≥0}|(x|x_n)|^2≤||x||^2$.
 \end{theorem}
 
-\textbf{Exemple:} $H=l^2(\N)$. $(e_n|e_m)=∑_{k≥0}e_n(k)\overline{e_m(k)}=∑_{k≥0}δ_{nk}δ_{mk}=δ_{nm}$. En fait on montre que $∑_{n≥0}|(e_n|x)|^2=||x||^2$ c'est une base Hilbertienne.
+\begin{example} $H=l^2(\N)$. Considérons $(e_n)_{n\in\N}$. $(e_n|e_m)=∑_{k≥0}e_n(k)\overline{e_m(k)}=∑_{k≥0}δ_{nk}δ_{mk}=δ_{nm}$. En fait on montre que $∑_{n≥0}|(e_n|x)|^2=||x||^2$; c'est une base Hilbertienne.
+\end{example}
+
 \begin{proof}
-	Soit $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ $\Rightarrow$  $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
+	Soit $x\in H$ on pose $y_i=(x|e_i)e_i$ et $Y_N=∑_1^Ny_i$, $Z_N=X-Y_N$. Alors: $(Z_N|y_i)=(X-Y_N|y_i)=(X|y_i)-(Y_N|y_i)$. $(x|y)=(x|(x|e_i)e_i)=\overline{(x|e_i)}(x|e_i)=|(x|e_j)|^2$. $(Y_N|y_i)=∑_{j=1}^N(y_j|y_i)$ mais $y_j\perp y_i$ $\implies$  $(Y_N|y_i) =||y_i||^2$ si $N≥i$.
 	(autrement =0)
 
-Dans ces conditions puisque $||y_i||^2=|(x|e_i)|^2$. Alors $(Z_n|y_i)=0$ $\Rightarrow$  $(Z_N|Y_N)=0$ cas $Y_n=∑_{i=0}^Ny_i$ $\Rightarrow$  $||x||^2=||Z_n||^2+||Z_N||^2$ $(x=Zn+Yn et Z_n\perp Y_n)$
-$\Rightarrow$  $||y_n||^2=∑||y_n||^2≤||x||^2$
+Dans ces conditions puisque $||y_i||^2=|(x|e_i)|^2$. Alors $(Z_n|y_i)=0$ $\implies$  $(Z_N|Y_N)=0$ cas $Y_n=∑_{i=0}^Ny_i$ $\implies$  $||x||^2=||Z_n||^2+||Z_N||^2$ $(x=Zn+Yn et Z_n\perp Y_n)$
+$\implies$  $||y_n||^2=∑||y_n||^2≤||x||^2$
 
 
-La seuie $∑^N||y_n||^2$ est positive, majorée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$. QED
-
-
+La suite $∑^N||y_n||^2$ est positive, majorée donc convergente et par passage à la limite: $∑_{n≥0}||y_n||^2=∑|(x|e_n)|^2≤||x||^2$. QED
 \end{proof}
 
-
 \begin{theorem}[Egalité de Parseval]
-	Soit $(e_n)$ une base Hilbertienne de $H$ alors 
+	Soit $(e_n)$ une \texttt{base Hilbertienne} de $H$ alors 
 	\begin{enumerate}
-		\item La série $∑_{n≥0}|(x|e_n)|^2$ est convergente et $||X||^2=∑_{n≥0}|(x|e_n)|^2$,
+		\item La série $∑_{n≥0}|(x|e_n)|^2$ est convergente et $||x||^2=∑_{n≥0}|(x|e_n)|^2$,
 		\item La série $∑_{n≥0}(x|e_i)e_i$ est convergente dans $H$ et $∑_{i≥0}(x|e_i)e_i=x$.
 	\end{enumerate}
 \end{theorem}
 \begin{proof}
 	En utilisant le théorème précédent alors $∑|(x|e_i)|^2$ est convergent. On utilise l'identité de la médiane: $∑(x|e_i)e_i$ est convergente dans $H$ $(||(x|e_i)e_i||^2 =|(x|e_i)|^2)$.
-	On pose $y=∑_{i≥0}(x|e_i)e_i$ alors $||y||^2 =∑_{i≥0}|(x|e_i)|^2)$ mais $(y|e_j)=(∑(x|ei)ei|e_j)=∑(x|e_i)(e_i|e_j)=(x|e_j)$ ...
-	Conclusion $\forall j\in \N (x|e_j)=(y|e_j)$ $\Leftrightarrow$
-	$ (x-y|e_j)=0$ $\Rightarrow$  $x-y\in\vect((e_n)_{n\in\N})^\perp$
-	$\Rightarrow$  $x-y=0_H$ $\Leftrightarrow$ $x=y=∑(x|e_i) e_i ||x||^2=∑_{i≥0}|(x|e_i)|^2$
+	On pose $y=∑_{i≥0}(x|e_i)e_i$ alors $||y||^2 =∑_{i≥0}|(x|e_i)|^2)$ mais $(y|e_j)=(∑(x|ei)ei|e_j)=∑(x|e_i)(e_i|e_j)=(x|e_j)$
+	
+	Conclusion $\forall j\in \N$: $(x|e_j)=(y|e_j)$ $\iff$
+	$ (x-y|e_j)=0$ $\implies$  $x-y\in\vect((e_n)_{n\in\N})^\perp$
+	$\implies$  $x-y=0_H$ $\iff$ $x=y=∑(x|e_i) e_i ||x||^2=∑_{i≥0}|(x|e_i)|^2$
 \end{proof}
 \begin{remark}
-	Si $(e_n)_{n\in \N}$ est une suite orthonormale telle que $\forall x\in H x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ 
+	Si $(e_n)_{n\in \N}$ est une suite orthonormale telle que $\forall x\in H$ $x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ =>
+	$x \in \vect\{(e_n)_n\in \N\}; a_i=(x|e_i)$ $\implies$  $\vect\{(e_n)_n\in\N\}=H$. $(e_n)_n\in \N$ est une base Hilbertienne.
 	
+	ii) $(e_n)_n\in\N$ est base Hilbertienne de $H$ $\iff$ $\forall x\in H:\ ∑(x|e_i)e_i=x $
 	
-	$\in \vect\{(e_n)_n\in \N\}; a_i=(x|e_i)$ $\Rightarrow$  $\vect\{(e_n)_n\in\N\}=H$. $(e_n)_n\in \N$ est une base Hilbertienne.
-	ii)>> $(e_n)_n\in\N$ est base Hilbertienne de $H$ $\Leftrightarrow$ $\forall x\in H:\ ∑(x|e_i)e_i=x $
-	$∑(x|e_i)e_i=x$ $\Leftrightarrow$ $∑|(x|e_i)|^2=||x||^2 $i $>>$ $(e_n)$ est une base Hilbertienne de $H$ $\Leftrightarrow$ $∑|(x|e_i)|^2=||x||^2 \forall x\in H$
+	$∑(x|e_i)e_i=x$ $\iff$ $∑|(x|e_i)|^2=||x||^2 $ 
+	
+	i) $(e_n)$ est une base Hilbertienne de $H$ $\iff$ $∑|(x|e_i)|^2=||x||^2 \forall x\in H$
 \end{remark}
 
+Exemple (de la \texttt{base Hilbertienne}):
+$H=l^2(\N)$. $(e_n)_{n\in \N}$ t.q. $e_n(k) =δ_{nk}$.
 
-Exemple (suite):
-$H=l^2(\N)$. $(e_n)_{n\in \N} t.q. e_n(k) =δ_{nk}$.
-
-$u\in H$ $\Leftrightarrow$ $∑_{n≥0} |u(n)|^2=||u||^2$ mais $u(n)=(u|e_n)=∑u(k)e_n(k)$ $\Leftrightarrow$ $∑_n≥0 |(u|e_n)|^2=||u||^2$, $\Rightarrow$  c'est une base Hilbertienne. !?
+$u\in H$ $\iff$ $∑_{n≥0} |u(n)|^2=||u||^2$ mais $u(n)=(u|e_n)=∑u(k)e_n(k)$ $\iff$ $∑_n≥0 |(u|e_n)|^2=||u||^2$, $\implies$  c'est une base Hilbertienne. !?
 
 \section{Dual d'un espace de Hilbert} % (fold)
 
-On rappelle que si $S$ est un e.v.n. une \textsc{Forme Linéaire} sur $X$ est une application linéaire de $X$ dans $\C$. Soit $l: X \rightarrow  \C:\ \forall d \in \C\ \forall x, y\in X l(x+dy)=l(x)+dl(y)$. L'ensemble des formes linéaires de $X$: est un espace vectoriel $X^*$. On considère $X'$ dual topologique: c'est l'espace vectoriel des formes linéaires continues sur $X:\ \{l:(X,||•||_X)\rightarrow (\C, |•|)\}$.
+On rappelle que si $S$ est un e.v.n. une \textsc{Forme Linéaire} sur $X$ est une application linéaire de $X$ dans $\C$. Soit $l: X \rightarrow \C:\ \forall d \in \C\, \forall x, y\in X\ l(x+dy)=l(x)+dl(y)$. L'ensemble des formes linéaires de $X$ est un espace vectoriel---$X^*$. On considère $X'$ dual topologique: c'est l'espace vectoriel des formes linéaires continues sur $X$---$\{l:(X,||•||_X)\rightarrow (\C, |•|)\}$.
 
 \begin{exercise}	
-	$l$ est continue $\Leftrightarrow$ 
-	\[\exists C>0\ x \forall x\in X, |l(x)|≤C||x||\label{eq:cont} \tag{\textasteriskcentered}\]
+	$l$ est continue $\iff$ 
+	\[\exists C>0\ x\ \forall x\in X |l(x)|≤C||x||\label{eq:cont} \tag{\textasteriskcentered}\]
 \end{exercise}
 
-On définit $l\in X'$, $||l||=\inf\{C>0 \text{ t.q. \eqref{eq:cont} est satisfait}\} = \sup\{ |l(x)|\ |\ ||x||=1\}$.
-$(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet})
+On définit pour $l\in X'$ $||l||=\inf\{C>0 \text{ t.q. \eqref{eq:cont} est satisfait}\} = \sup\{ |l(x)|\ |\ ||x||=1\}$.
+$(X', ||•||)$ est un espace de Banach (un e.v.n. \texttt{complet}).
 
-
-
-\begin{theorem}[Théorème de représentation de Riez]. Soit $H$ un espace de Hilbert $H'$ son dual topologique. On définit $I :H\rightarrow H"$ par $\forall x\in H I(x)=(•|x)$. Alors $I$ est un isomorphisme isométrique de $H\rightarrow H'$.
+\begin{theorem}[Théorème de représentation de Riez] Soit $H$ un espace de Hilbert, $H'$ son dual topologique. On définit $I :H\rightarrow H"$ par $\forall x\in H\ I(x)=(•|x)$. Alors $I$ est un isomorphisme isométrique de $H\rightarrow H'$.
 \end{theorem}
 
 \begin{remark}
-	$H=\C^n$, une forme linéaire sur $\C^n$: $l$. 
+	$H=\C^n$, est une forme linéaire sur $\C^n$. 
 	$l(x_1,...\, ,x_n)=∑_{i=1}^n a_ix_i,\ a_i\in \C$
-	$|l(x)|=|∑_{i=1}^na_ix_i|≤sup\{a_i|\}•||x||_{\R^n}$. Ici $X^*=X'$ !?
+	$|l(x)|=|∑_{i=1}^na_ix_i|≤\sup\{a_i|\}•||x||_{\R^n}$. Ici $X^*=X' $ !?
 
-	$$l(x)=(a_1,a_2,...\,, a_n)\mqty(x_1\\x_2\\\vdots\\ x_n)$$
-	$=(\bar a|x) \forall x\in \C^n$
-	$\forall l\in X',\ \exists a\in \C:\quad l(x)=(x|\bar a)$
+	$$l(x)=(a_1,a_2,...\,, a_n)\mqty(x_1\\x_2\\\vdots\\ x_n)=(\bar a|x) $$
+	
+	$\forall x\in \C^n$ $\forall l\in X'\ \exists a\in \C:\ l(x)=(x|\bar a)$.
+	
 	Généralisation à la dimension quelconque c'est le théorème de Riez:
 	$\forall l\in H'\ \exists a\in H\  \forall x\in H:\ l(x)=(x|a)|$
 \end{remark}
  
 
 \begin{proof}
+	Soit $l\in H'$ $l≠0_h'$ $\iff$ $\ker l≠H$ puisque $\exists x \in X$ t.q. $l(x)≠0_H$. On sait que $\ker l$ est ferme, sait $(x_n)_{n\in\N}$ une suite de $\ker l$ convergente dans $H$: $x_n\to x\in H$. 
 	
+	Mais : $l(x_n)\to  l(x)$ et $l(x_n)=0\ \forall n$ $\implies$  $l(x)=0$ $\forall x\in \ker I$. Alors $H=\ker l \oplus (\ker l )^\perp$
 	
-	Soit $l\in H'$ $l≠0_h'$ $\Leftrightarrow$ 
+	Puisque $\ker l ≠H$ $\implies$  $(\ker l)^\perp≠0_H$. Soit $x\in \ker $ $l ^\perp$, $||x||=1$) $x≠0_H$
+	\question{Je ne comprends pas}
 	
-	lei $l≠H$ puisque $\exists \in tq l(x)≠0_h$ On sait que $\ker l$ est ferme sait $(x_n)_{n\in\N}$ une suite de kei $l$ convergente dans $H$: $x_n\rightarrow x\in H$ mais : $l(x_n)\rightarrow  l(l(x)$ mais $l(x_n)=0\ \forall n$. $\Rightarrow$  $l(x)=0$ $x\in \ker I$. Alors $H=\ker l \oplus (\ker l )^perp$
+	$\forall y\in H$ soit $z=-l(x)y_l)y)x\in H$ et $l(lx)=-l(x_l(y)+l(y)l(x)=0$ $x\in \ker I$ $\implies$  $(x|z)=0$
 	
-	Puisque $(\ker l)≠H$ $\Rightarrow$  $\ker l^\perp =0_H$. Soit $x\in \ker $ $\phi ^\perp$, $||x||=1$) $x≠0_H$
-
-	
-	$\forall y\in H$ soit $z=-l(x)y_l)y)x\in H$ et $l(lx)=-l(x_l(y)+l(y)l(x)=0$ $x\in \ker I$ $\Rightarrow$  $(x|z)=0$
-	
-	$\Rightarrow$  )x|-l(x)y+l(y)x) $\Rightarrow$  $l(x) \rightarrow  l(x)(y|x)=l(y)(X|X)$ $\Rightarrow$ $\forall y\in H$ $l(y)=(y|\overline{l(x)}X)|)|))$
+	$\implies$  )x|-l(x)y+l(y)x) $\implies$  $l(x) \implies  l(x)(y|x)=l(y)(X|X)$ $\implies$ $\forall y\in H$ $l(y)=(y|\overline{l(x)}X)|)|))$
 	
 
 	$\forall l\in H' \exists a\in H$ t.q. $\forall x\in H l(x)=(x|a)|$ $I$ est surjective. Montrons que $I$ est injective.
-	Soit $x\in H$ t.q. $I(x)=O_H'$ $\Leftrightarrow$ $\forall y\in H I(x)(y)=(y|x)=0$ $\Rightarrow$  $x\perp H$ $\Rightarrow$  $X=0_H$ $\ker I=\{O_h\}$ $I$ est injective donc bijection.
+	Soit $x\in H$ t.q. $I(x)=O_H'$ $\iff$ $\forall y\in H I(x)(y)=(y|x)=0$ $\implies$  $x\perp H$ $\implies$  $X=0_H$ $\ker I=\{O_h\}$ $I$ est injective donc bijection.
 
 
-Enfin: $||I(x)||=\sup\{|(y|x)|, ||y||=1\} -||x||\text{ isométrieß})|$
+Enfin: $||I(x)||=\sup\{|(y|x)|, ||y||=1\} -||x||\text{ isométrie})|$
 
 Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=||x||$
-
 \end{proof}
+
 \begin{remark}
 	Si l est anti-linéaire: $\forall d\in \C\ \forall x,y\in H\ l(x+dy)=l(x)+\bar d l(y)$ et $\exists u $ t.q. $\forall x\in H:\  l(x)=(u|x)$
 \end{remark}
@@ -320,157 +323,182 @@ Parce que $|(y|x)|≤||y||$ $||x||=||x||$ $y=\frac x{||x||}$ $||y||=1$ $|(y|x)|=
 \label{sub:definition_et_premieres_proprietes}
 
 \begin{definition}
-	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}$ de $H$ est dit \textsc{Converge Faiblement vers} $x\in H$ si $\forall y\in H (x_n|y)\rightarrow (x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}$.
+	Soit $H$ un espace de Hilbert. Une suit$ (x_n)_{n\in\N}$ de $H$ est dit \textsc{Converge Faiblement vers} $x\in H$ si $\forall y\in H\ (x_n|y)\to (x|y)$. On notera $x_n\rightharpoonup x$, $x$ est dite limite faible de $(x_n)_{n\in\N}$.
 \end{definition}
-Exp. $H=l^2(\N)$, $x_n\in l^2(\N^*)$ t.q. $x_n(j)=δ_{nj}$.
 
-$(x_n)_{n\in\N}n\in\N$ est une base hilbertienne de H. On regarde la convergence faible. Soit $y\in l^2(\N^*)$ on doit calculer $\lim_{n\to +∞}(x_n|y)$, $(x_n|y)=∑_j x_n(j)\overline{y(j)}=\overline{y(n)}$. $|(x_n|y)|≤|y(n)|$ on sait $∑_j|y(j)|^2<+∞$ $\Rightarrow$ $|y(j)|\to 0$ qd $j\to+∞$ et donc $|(x_n|y)|=|y(n)|\to 0$ qd $n\to +∞$. On ercit $0=(0_H|y)$ alors $\lim_n(x_n|y)=(0_H|y)$. $0_H$ est une limite de la suite $(x_n)_{n\in\N}{n\in \N}$ (On montrera la limite faible est unique).
-$\norm{x_n}^2=∑_j|x_n(j)|^2=1$ $\Rightarrow$ $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. $0_H$ n'est pas limite de la suite $(x_n)_{n\in\N}$.
+\begin{example} $H=l^2(\N)$, $x_n\in l^2(\N^*)$ t.q. $x_n(j)=δ_{nj}$.
+
+$(x_n)_{n\in\N}n\in\N$ est une base hilbertienne de H. On regarde la convergence faible. 
+
+Soit $y\in l^2(\N^*)$ on doit calculer $\lim_{n\to +∞}(x_n|y)$, $(x_n|y)=∑_j x_n(j)\overline{y(j)}=\overline{y(n)}$. $|(x_n|y)|≤|y(n)|$ on sait $∑_j|y(j)|^2<+∞$ $\implies$ $|y(j)|\to 0$ qd $j\to+∞$ et donc $|(x_n|y)|=|y(n)|\to 0$ qd $n\to +∞$. On ercit $0=(0_H|y)$.
+
+Alors $\lim_n(x_n|y)=(0_H|y)$. $0_H$ est une \texttt{limite faible} de la suite $(x_n)_{n\in\N}$ (On montrera la limite faible est unique).
+
+$\norm{x_n}^2=∑_j|x_n(j)|^2=1$ $\implies$ $x_n\not\to 0$ puisque $\lim_n\norm{x_n-0_H}=\lim_n\norm{x_n}=1\not\to 0$. Ainsi $0_H$ n'est pas \texttt{limite} de la suite $(x_n)_{n\in\N}$.
+\end{example}
 
 \begin{proposition}
 	La limite faible, si elle existe elle est unique.
 \end{proposition}
 \begin{proof}
-	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons $x\neq x'$ $\Leftrightarrow$ $x-x'≠0_H$ $\Rightarrow$ $\exists y\in H$ t.q. $(x|y)≠(x'|y)$ (*)
+	Supposons que $\forall y\in H (x_n|y)\to (x|y)$ et $(x_n|y)\to (x'|y),\ x,x'\in H$. Supposons $x\neq x'$ $\iff$ $x-x'≠0_H$ $\implies$ $\exists y\in H$ t.q. $(x|y)≠(x'|y)$ (*)
 		\begin{remark}
-			On suppose (*) faux: $\forall y\in H (x|y)=(x'|y)$ $\Leftrightarrow$ $(x-x'|y)=0$ $\Rightarrow$ $x-x'\perp H$ $\Rightarrow$ $x-x'=0_H$ c'est Absurde.
+			On suppose (*) faux: $\forall y\in H (x|y)=(x'|y)$ $\iff$ $(x-x'|y)=0$ $\implies$ $x-x'\perp H$ $\implies$ $x-x'=0_H$ c'est Absurde.
 		\end{remark}
-	On pose $u_n=(x_n|y)$ $u=(x|y)$ $u'=(x'|y)$
-	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frac{|u-u'|}2$ $\Rightarrow$ $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ $\Rightarrow$ $|u_n-u'|\not\to 0$ $\Leftrightarrow$ $u_n\not\to u'$ QED.
+	On pose $u_n=(x_n|y)$, $u=(x|y)$ et $u'=(x'|y)$
+	
+	$u_n\to u:\ \forall  ε>0\ \exists N$ t.q. $\forall n≥N |u_n-u|≤ε$. On choisit $ε<|u-u'|$ alors on a toujours si $n≥N$ $|u_n-u'|=|u_n-u+u-u'|=||u-u'|-|u_n-u|| ≥|u-u'|-ε≥\frac{|u-u'|}2$ $\implies$ $\forall n≥N |u_n-u'|≥\frac{|u-u'|}{2}$ $\implies$ $|u_n-u'|\not\to 0$ $\iff$ $u_n\not\to u'$ QED.
 \end{proof}
-Dans l'exemple précédent $0_H$ est la limite unique de la suite $(x_n)_{n\in\N}$
+Dans l'exemple précédent $0_H$ est la limite faible unique de la suite $(x_n)_{n\in\N}$
 
-Exemple. $H=L^2(\R)$. Soit $H_0\in C^∞_c(\R)$ On pose $\forall n\in \N$, $φ_n(x)=φ_0(x-n)\ x\in\R$.
+\begin{example} $H=L^2(\R)$. Soit $H_0\in C^∞_c(\R)$, on pose $\forall n\in \N$, $φ_n(x)=φ_0(x-n)\ x\in\R$.
 
 \begin{rappel}
+	$C_c^∞(\R)$ ensemble des fonctions $f:\R\mapsto  \C$:
+	\begin{enumerate}
+	\item support $f$ est compact (borne et ferme)
+	\item $\forall n\in\N$ $f\in C^n_(\R)$ $\iff$ $f\in C_X^∞(\R)$
+	\end{enumerate}
 	
-	$C_c^∞(\R)$ ensemble des fonctions $f:\R\mapsto  \C$. \\
-	* support $f$ compact : borne et ferme.\\
-	* $f\in C^n_(\R)$
-	$\Leftrightarrow$ $f\in C_X^∞(\R)$
-	support $f=\overline{\{x\in \R, f(x)≠0\}}$
-	
-	$L^2(\R)=\overline{C_x^∞(\R)}|_{\norm{•}_{L^2(\R)}}$
+	où support $f=\overline{\{x\in \R, f(x)≠0\}}$; $L^2(\R)=\overline{C_X^∞(\R)}|_{\norm{•}_{L^2(\R)}}$.
 \end{rappel}
 
-$φ_0\in C_C^∞(\R)$, $\forall n\in\N φ_n(x)=φ_0(x-n)$.
+    \question{Je ne comprends pas}
+$φ_0\in C_C^∞(\R)$, $\forall n\in\N\ φ_n(x)=φ_0(x-n)$. $\forall \psi\in L^2(\R)$: 
+	$$(φ_n|\psi) \to 0=(0_H|\psi)$$
+$(φ_n|ψ) = ∫_\R \dd{x} φ_n(x) \overline{ψ(x)} = ∫_{n-1}^{n+1} \dd{x} φ_0(x-n)\bar ψ(x)$.  $|(•|•)|_{L^2((n-1,n+1))}≤\norm{•}\norm{•}$ $\implies$  $∫_{n-1}^{n+1} |φ_0(x-n)|^2 \dd{x} = ∫_{-1}^{+1} |φ_0(t)|^2 \dd{t} =1$ $\implies$ $|(φ_n|ψ)|≤(∫_{n-1}^{n+1}|ψ(x)|^2\dd{x})^{\frac 12}$
 
-$\forall \psi\in L^2(\R)$: $(φ_n|\psi) \to 0=(0_H|\psi)$ $(φ_n|ψ) = ∫_\R \dd{x} φ_n(x) \overline{ψ(x)} = ∫_{n-1}^{n+1} \dd{x} φ_0(x-n)\bar ψ(x)$.  $|(.|.)|_{L^2((n-1,n+1))}≤\norm{•}\norm{•}$ $\Rightarrow$  $∫_{n-1}^{n+1} |φ_0(x-n)|^2 \dd{x} = ∫_{-1}^{+1} |φ_0(t)|^2 \dd{t} =1$ $\Rightarrow$ $|(φ_n|ψ)|≤(∫_{n-1}^{n+1}|ψ(x)|^2\dd{x})^{\frac 12}$
+$ψ\in L^2(\R)$ $\implies$ $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\to +∞$. $\norm{ψ}=∑_n∫_{n-1}^{n+1}$ $|ψ|^2\dd{t}<∞$.
 
-$ψ\in L^2(\R)$ $\Rightarrow$ $∫_{n-1}^{n+1} |ψ(t)|^2 \dd{t} \to 0$ quand $n\to +∞$. $\norm{ψ}=∑_n∫_{n-1}^{n+1}$ $|ψ|^2\dd{t}<∞$.
+\end{example}
 
 \begin{proposition}
+        \leavevmode
 	\begin{enumerate}
-		\item soit $(x_n)_{n\in\N}$ t.q. $x_n\rightharpoonup x \in H $alors $(x_{k(n))})_{n\in\N}$ Converge faiblement et $x_{k(n)}\rightharpoonup x$
-		\item si $(x_n)_n\in\N$ et $(y_n)_{n\in\N}$ sait deux suites t.q. $x_n\rightharpoonup x$ et $y_n \rightharpoonup y$ alors $x_n+y_n\rightharpoonup x+y$
-		\item si $x_n\rightharpoonup x$ et soit $(d_n)_{n\in\N}$ une suite des $\C$ t.q. $d_n\to d \in \C$ $\Rightarrow$ $d_nx_n\rightharpoonup dx$.
+		\item soit $(x_n)_{n\in\N}$ t.q. $x_n\rightharpoonup x \in H $, alors $(x_{k(n)})_{n\in\N}$ Converge faiblement et $x_{k(n)}\rightharpoonup x$
+		\item si $(x_n)_{n\in\N}$ et $(y_n)_{n\in\N}$ sait deux suites t.q. $x_n\rightharpoonup x$ et $y_n \rightharpoonup y$ alors $x_n+y_n\rightharpoonup x+y$
+		\item si $x_n\rightharpoonup x$ et soit $(d_n)_{n\in\N}$ une suite des $\C$ t.q. $d_n\to d \in \C$ $\implies$ $d_nx_n\rightharpoonup dx$.
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
+\leavevmode
 	\begin{enumerate}
-		\item i est évident $\forall y\in H$ si $u_n=(y|x_n)$ $\Rightarrow$ $u=(y|x)$ $\Rightarrow$ $u_{k(n)}\to u$ $\Rightarrow$ i)
+		\item est évident $\forall y\in H$ si $u_n=(y|x_n)$ $\to$ $u=(y|x)$ $\implies$ $u_{k(n)}\to u$ $\implies$ 1).
 		\item $\forall y\in H (y|x_n+z_n)=(y|x_n)+ (y|x_n) \to (y|x)+(y|z)=(y|x+z)$.
-		\item On suppose $\forall y\in H (x_n|y)\to (x|y)$ et $d_n\to d$.
-		$(d_nx_n-dx|y)=(d_nx_n-dx_n+dx_n-dx|y)=(d_n-d)(x_n|y)+d(x_n-x|y)$ $\Rightarrow$ $|(d_nx_n-dx|y)|≤|d_n-d||(x_n|y)|+|d||(x_n-x|y)|$
-		\begin{enumerate}
-			\item $(x_n|y)\to (x|y)$ $\Rightarrow$ $\exists M$ t.q. $|(x_n|y)|≤M\ \forall n\in\N$ $\Rightarrow$ $|d_n-d||(x_n|x)|≤|d_n-d|M\to 0 qd n\to +∞$. 
-			$|(x_n-x|y)|\to 0 qd n\to +∞$ par (*) la proposition est démontrer.
-		\end{enumerate}
+		\item On suppose $\forall y\in H\ (x_n|y)\to (x|y)$ et $d_n\to d$.
+		$(d_nx_n-dx|y)=(d_nx_n-dx_n+dx_n-dx|y)=(d_n-d)(x_n|y)+d(x_n-x|y)$ $\implies$ $|(d_nx_n-dx|y)|≤|d_n-d||(x_n|y)|+|d||(x_n-x|y)|$
+		
+		$(x_n|y)\to (x|y)$ $\implies$ $\exists M$ t.q. $|(x_n|y)|≤M\ \forall n\in\N$ $\implies$ $|d_n-d||(x_n|x)|≤|d_n-d|M\to 0$ qd $n\to +∞$. 
+		
+		$|(x_n-x|y)|\to 0$ qd $n\to +∞$ par (*) la proposition est démontrer.
 	\end{enumerate}
 \end{proof}
 \begin{remark}
-	On a toujours que $|(x_n-x|y)|≤\norm{x_n-x}_H\norm{y}_H$. Si $\lim_n\norm{x_n-x}=0$ $\Leftrightarrow$ $\lim_n x_n=x$ $\Rightarrow$ $x_n\rightharpoonup x$
-	! l'inverse est faux en général.
+	On a toujours que $|(x_n-x|y)|≤\norm{x_n-x}_H\norm{y}_H$. Si $\lim_n\norm{x_n-x}=0$ $\iff$ $\lim_n x_n=x$ $\implies$ $x_n\rightharpoonup x$ mais l'inverse est faux en général.
 \end{remark}
 \begin{proposition}
 	Si $x_n\rightharpoonup x$ dans $H$ alors $\lim_{n\to + ∞}\inf\norm{x_n}≥\norm{x}$.
 \end{proposition}
 \begin{remark}
-	Si $(x_n)_{n\in\N}$ converge $\exists x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ $\Rightarrow$ $\lim_{n\to ∞}\norm{x_n}=\norm{x}$.
-	Mais si on a que $x_n\rightharpoonup x$ on ne sait pas que la suite $\norm{x_n}$ converge, c.a.d. que la limite existe par contre $\lim_n\inf\norm{x_n}$ = $\lim_{n\to ∞}\inf\{\norm{x_k}, k≥n\}$ et $\lim_n\sup\norm{x_n}-\lim_{n\to +∞} \sup\{\norm{x_k}, k≥n\}$ existe toujours.
+	Si $(x_n)_{n\in\N}$ converge $\exists x\in H$ et $\lim_{n\to +∞}\norm{x_n-x}=0$ alors par $|\norm{x}-\norm{x_n}|≤\norm{x-x_n}$ $\implies$ $\lim_{n\to ∞}\norm{x_n}=\norm{x}$.
+	Mais si on a que $x_n\rightharpoonup x$ on ne sait pas que la suite $\norm{x_n}$ converge, c.a.d. que la limite existe par contre $\lim_n\inf\norm{x_n}$ = $\lim_{n\to ∞}\inf\{\norm{x_k}, k≥n\}$ et $\lim_n\sup\norm{x_n}=\lim_{n\to +∞} \sup\{\norm{x_k}, k≥n\}$ existe toujours.
 \end{remark}
 \begin{proof}
-	Puisque $x_n\rightharpoonup x$, alors $(x_n|x)\to (x|x)=\norm{x}^2$ en utilisant Cauchy Schwartz $|(x_n|x)|≤\norm{x_n}{x}$.
-	$\Rightarrow$ $\norm{x}^2≤\norm{x_n}\norm{x}$ $\Leftrightarrow$ $\norm{x}≤\norm{x_n}$ $\Rightarrow$ $\norm{x}≤\lim_{n\to∞}\inf\norm{x_n}$.
+	Puisque $x_n\rightharpoonup x$, alors $(x_n|x)\to (x|x)=\norm{x}^2$ en utilisant Cauchy Schwartz $|(x_n|x)|≤\norm{x_n}\norm{x}$ $\implies$ $\norm{x}^2≤\norm{x_n}\norm{x}$ $\iff$ $\norm{x}≤\norm{x_n}$ $\implies$ $\norm{x}≤\lim_{n\to∞}\inf\norm{x_n}$.
 \end{proof}
 \begin{proposition}
 	Soit $(x_n)_{n\in\N}$ une suite dans $H$. Alors 
-		$x_n\to x$ $\Leftrightarrow$ $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
+		$x_n\to x$ $\iff$ $x_n\rightharpoonup x$ et $\lim_n\sup\norm{x_n}≤\norm{x}$
 \end{proposition}
 \begin{proof}
-	($\Rightarrow$) $x_n\to x$ $\Rightarrow$ $x_n\rightharpoonup x_n$ et $\norm{x_n}\to \norm{x}$
-	($\Leftarrow$) $\norm{x-x_n}^2 = \norm{x}^2+\norm{x_n}^2 - 2\Re (x|x_n)$
-	$\lim_n\sup \norm{x-x_n}^2≤ \norm{x}^2+\lim_n\sup\norm{x_n}^2 - 2\norm{x}^2$.
-	$\lim_n\sup \norm{x-x_n}^2≤\lim_n\sup \norm{x_n}^2-\norm{x}^2 ≤0$
-	$\Rightarrow$ $\lim_n\sup \norm{x-x_n}^2=0 ≥\lim_n\inf \norm{x-x_n}^2≥0$
-	$\Rightarrow$ $\lim_n\sup \norm{x-x_n}^2 =\lim_n\inf\norm{x-x_n}^2=\lim_n\norm{x}$
+	($\Rightarrow$) $x_n\to x$ $\implies$ $x_n\rightharpoonup x_n$ et $\norm{x_n}\to \norm{x}$ 
+	
+	($\Leftarrow$) 
+	\begin{multline*}
+		\norm{x-x_n}^2 = \norm{x}^2+\norm{x_n}^2 - 2\Re (x|x_n)\\	
+		\lim_n\sup \norm{x-x_n}^2≤ \norm{x}^2+\lim_n\sup\norm{x_n}^2 - 2\norm{x}^2\\	
+		\lim_n\sup \norm{x-x_n}^2≤\lim_n\sup \norm{x_n}^2-\norm{x}^2 ≤0\\	
+		\implies\ \lim_n\sup \norm{x-x_n}^2=0 ≥\lim_n\inf \norm{x-x_n}^2≥0\\	
+		\implies\ \lim_n\sup \norm{x-x_n}^2 =\lim_n\inf\norm{x-x_n}^2=\lim_n\norm{x}
+	\end{multline*}
 \end{proof}
 
 \begin{example}
-	Soit $(x_n)_{n\in\N}$ une suite bornée de H. Soit $D\subset H$ dense ($\bar D=H$). Alors $x_n\rightharpoonup x$ sur $H$ $\Leftrightarrow$ $(x_n|y)\to (x|y)\ \forall y\in D$.
+	Soit $(x_n)_{n\in\N}$ une suite bornée de H. Soit $D\subset H$ dense ($\bar D=H$). Alors $x_n\rightharpoonup x$ sur $H$ $\iff$ $(x_n|y)\to (x|y)\ \forall y\in D$.
 \end{example}
 
 \begin{exercise}
-	On considère $H=L^2(\R, dx)$, soit $φ\in H $$\Leftrightarrow$ $∫_\R|φ|^2\dd{x}=\norm{φ}^2_{L^2(\R)}$. $H=\overline{C_c^∞(\R)}$
+	On considère $H=L^2(\R, \dd{x})$, soit $φ\in H $$\iff$ $∫_\R|φ|^2\dd{x}=\norm{φ}^2_{L^2(\R)}$, $H=\overline{C_c^∞(\R)}$.
 \end{exercise}
-Soit $φ_0\in C_0^∞(\R)$ tq $\norm{φ_0}_{L^2(\R)}=1$ (sinon on pose $φ=\frac{φ_0}{\norm{φ_0}}, \norm{φ}=1$)
+Soit $φ_0\in C_C^∞(\R)$ t.q. $\norm{φ_0}_{L^2(\R)}=1$ (sinon on pose $φ=\frac{φ_0}{\norm{φ_0}}, \norm{φ}=1$). 
+
 On pose $φ_n(x)=φ_0(x-n)$, on veut montrer que $φ_n\rightharpoonup φ\in L^2(\R)$
+
 On remarque que:
-$\norm{φ_n}^2=∫_\R|φ_0(x-n)|^2\dd{x}$
+$\norm{φ_n}^2=∫_\R|φ_0(x-n)|^2\dd{x}$.
 On pose $u=x-n$:
-$\norm{φ_n}^2=∫_\R\dd{u}|φ_0(u)|^2=1$
-$φ_n\not\to0 \norm{f_n-0}=1$.
+$\norm{φ_n}^2=∫_\R\dd{u}|φ_0(u)|^2=1$, $φ_n\not\to0,\ \norm{f_n-0}=1$.
 
-Est ce que la suite conv faiblement?
-$\exists φ\in H, (φ_n|ψ)\rightarrow (φ|ψ)\forall ψ\in H.$
-
+Est ce que la suite converge faiblement? C-à-d
+$\exists φ\in H, (φ_n|ψ)\implies (φ|ψ)\ \forall ψ\in H$?
+\question{Je ne comprends pas}
 Soit $ψ$: $ψ(x)=1$ ssi $x\in[-1,1]$ $ψ(x)=0$ sinon.
 $∫_\R|ψ(x)|^2\dd{x}=∫_{-1}^11\dd{x}=2$
-On choisit $n≥N$ avec $N$ tq $a+N≥$
-$\Rightarrow$ $∫_\Rφ_nψ\dd{x}=0$
-On a montré $(f_c|ψ)\rightarrow 0=(0|ψ)$. Question $φ_n\rightharpoonup 0_{L^2(\R)}$?
+On choisit $n≥N$ avec $N$ t.q. $a+N≥$
+$\implies$ $∫_\Rφ_nψ\dd{x}=0$
+On a montré $(f_c|ψ)\implies 0=(0|ψ)$. Question $φ_n\rightharpoonup 0_{L^2(\R)}$?
 
 \begin{proposition}
-	Soit $H$ un espace de Hilbert $D\subset H$ dense dans $H$: $\bar D=H$. Alors soit $(x_n)_{n\in\N}$ une suite borné dans $H$, $x_n\rightharpoonup x\in H$ $\Leftrightarrow$ $(x_n|y)\to(x|y)$ $\forall y\in D$.
+	Soit $H$ un espace de Hilbert $D\subset H$ dense dans $H$: $\bar D=H$. Alors soit $(x_n)_{n\in\N}$ une suite borné dans $H$, $x_n\rightharpoonup x\in H$ $\iff$ $(x_n|y)\to(x|y)$ $\forall y\in D$.
 \end{proposition}
-Exercice(suite) On doit monter que $\forall ψ\in C^2(\R)$: $(φ_n|ψ)\to0$. On remarque que $\norm{φ_n}=1$ $\forall n\in\N $donc elle est bornée.
-(Suite bornée: $\exists Π tq\forall n \norm{x_n}≤Π$)
-Il suffit de montrer $(φ_n|φ)\to 0 \forall ψ\in C_0^∞(\R)$.
+
+\begin{exercise}
+On doit monter que $\forall ψ\in C^2(\R)$: $(φ_n|ψ)\to0$. On remarque que $\norm{φ_n}=1$ $\forall n\in\N$ donc elle est bornée.
+(Suite bornée: $\exists C>0$ t.q. $\forall n\in\N\ \norm{x_n}≤C$)
+
+Il suffit de montrer $(φ_n|φ)\to 0\ \forall ψ\in C_0^∞(\R)$.
+
 Montrons a dernier point:
-$∫_\Rψ(x)φ_n(x)\dd{x}$; $\exists a,b \in \R, supp ψ\subset[A,B]$.
-On chοisit $Ν$ tq supp $φ_N=[a+N,b+N]$, $a+Ν>Β$
-$\Rightarrow$ $∫_\Rψφ_n=0$ $\Rightarrow$ $\lim_n(ψ|φ_n)=0=(ψ|0)$
+$∫_\Rψ(x)φ_n(x)\dd{x}$; $\exists a,b \in \R$, support $ψ\subset[a,b]$.
+On choisit $N$ t.q. support $φ_N=[a+n,b+n]$, $a+n>b$
+$\implies$ $∫_\Rψφ_n=0$ $\implies$ $\lim_n(ψ|φ_n)=0=(ψ|0)$.
+\end{exercise}
+
 \begin{proof}
-	Si $φ_n\rightharpoonup φ$ dans $H$ $\Rightarrow$ $φ_n\rightharpoonup φ$ dans $D$. Supposons que $(φ_n|ψ)\to (φ|ψ)\forall ψ\in D$.
-	Soit $η\in H \exists(η_k)_{k\in\N}$ suite de $D$ tq $\lim_n\norm{η_k-η}=0$.
+	Si $φ_n\rightharpoonup φ$ dans $H$ $\implies$ $φ_n\rightharpoonup φ$ dans $D$. 
+	
+	Supposons que $(φ_n|ψ)\to (φ|ψ)\ \forall ψ\in D$.
+	
+	Soit $η\in H$, $\exists(η_k)_{k\in\N}$ suite de $D$ t.q. $\lim_n\norm{η_k-η}=0$.
 	On calcul $(φ_n|η)=(φ_n|η_k)+(φ_n|η-η_k)$.
-	Soit $ε >0$, $\exists K$ tq si $k>K \norm{η-η_k}≤\fracε2$
-	alors $|(φ_n|η-η_k)|≤\norm{φ_ν}\norm{η-η_k}≤Πε$. On fixe un tel $k$.
-	On conclut que $\forallε>0$, $\exists N$ tq si $n≥N$; $|(φ_n|η)|≤(Π+1)ε$ $\Rightarrow$ $(φ_n|η)\to 0$.
+	Soit $ε >0$, $\exists K$ t.q. si $k>K$ on a $\norm{η-η_k}≤\fracε2$
+	alors $|(φ_n|η-η_k)|≤\norm{φ_ν}\norm{η-η_k}≤Cε$. On fixe un tel $k$.
+	
+	On conclut que $\forallε>0$, $\exists N$ t.q. si $n≥N$; $|(φ_n|η)|≤(C+1)ε$ $\implies$ $(φ_n|η)\to 0$.
 \end{proof}
-\begin{theorem}[1]
+\begin{theorem}
 	Toute suite faiblement convergente dans un espace de Hilbert est \texttt{bornée}.
 \end{theorem}
-\begin{theorem}[2, Banach-Alaoglu-Bourbaki]
-	Une espace de Hilbert vérifie la propriété de Bolzano-Weierstrass faible. De toute suite bornée de $H$, en peut extraire une sous suite.
+\begin{theorem}[Banach-Alaoglu-Bourbaki]
+	Une espace de Hilbert vérifie la propriété de Bolzano-Weierstrass faible. De toute suite bornée de $H$, on peut extraire une sous suite.
 \end{theorem}
 \begin{remark}
-	Dans $\R$, de toute suite borné on peut extraire une sous-suite c.v. (B.W.) c'est vrai si $p<+∞$. Mais c'est faux en dimension quelconque. Le Thm 2 \~> c'est vrai au sous faible.
+	Dans $\R^p$, de toute suite borné on peut extraire une sous-suite c.v. (B.W.) c'est vrai si $p<+∞$. Mais c'est faux en dimension quelconque. Le Théorème 2 => c'est vrai au sens faible.
 \end{remark}
 \begin{proof}
-	Soit $(x_n)n\in N$ une suite borné dans $H$: $\exists L>0$ tq $\forall n\in \norm{x_n}≤L$. Soit $M=\overline{\vect(x_n)}$. Si $M$ est de dimension fini, alors $(x_n)_{n\in \N}\subset B_f(0_M,L)\subset M$. qui est compact $\Leftrightarrow$ elle satisfait la propriété de B.W. $\exists (X_{k(n)})_{n\in\N}$ sous suite et $x\in B_f(0, L)$ tq $\lim_n\norm{x_{k(n)}-x}\to 0$ $\Rightarrow$ $x_{k(n)}\rightharpoonup x$ dans $H$. Alors le Theoreme 2 est démontré.
-	Supponons que $M$ n'est pas de dimension finie.
+	Soit $(x_n)n\in N$ une suite borné dans $H$: $\exists L>0$ t.q. $\forall n\in \norm{x_n}≤L$. Soit $M=\overline{\vect(x_n)}$. Si $M$ est de dimension fini, alors $(x_n)_{n\in \N}\subset B_f(0_M,L)\subset M$. qui est compact $\iff$ elle satisfait la propriété de B.W. $\exists (X_{k(n)})_{n\in\N}$ sous suite et $x\in B_f(0, L)$ t.q. $\lim_n\norm{x_{k(n)}-x}\to 0$ $\implies$ $x_{k(n)}\rightharpoonup x$ dans $H$. Alors le Théorème 2 est démontré.
+	Supposons que $M$ n'est pas de dimension finie.
 	$M$ est un espace Hilbert (sous espace ferme de $H$) Soit $(φ_k)_{k\in\N}$ une base hilbertiere de $M$. La suite $((x_n|e-1))_{n\in\N}$ est bornee car $|(x_n|e_1)|≤\norm{x_n}\norm{e_1}≤L•1=L$
-	On appleque la proprieté de B.W. dans $\C$: $\exists(a_{k(n)})_{n\in\N}$ et $c_1\in\C$ tq $a_{k(n)}\to c_1$ qd $n\to+∞$ on réécrit: $a_{k(n)}$ on pose $x_{k(n)}=x_n'$. $\forall n\in\N$ alors $(x_n^1|e_1)\to c_1$ qd $n\to+∞$.
-	2 la suite $(x_n'|e_2)$ est borné, $\exists$ une sous suite $(x_n^2)_{n\in\N}$ et $c_2\in\C$ tq $(x_n^2|e_2)\to c_2$ qd $n\to+∞$ etc...
+	On appleque la proprieté de B.W. dans $\C$: $\exists(a_{k(n)})_{n\in\N}$ et $c_1\in\C$ t.q. $a_{k(n)}\to c_1$ qd $n\to+∞$ on réécrit: $a_{k(n)}$ on pose $x_{k(n)}=x_n'$. $\forall n\in\N$ alors $(x_n^1|e_1)\to c_1$ qd $n\to+∞$.
+	2 la suite $(x_n'|e_2)$ est borné, $\exists$ une sous suite $(x_n^2)_{n\in\N}$ et $c_2\in\C$ t.q. $(x_n^2|e_2)\to c_2$ qd $n\to+∞$ etc...
 	
 	Canclusion: On a construit des sous suité
 	$(x_n)_{n\in\N}\subset(x^1_n)_{n\in\N}\subset...(x^k_n)_{n\in\N}...$
-	et des complexes $C_k$, $k=1,2,3...$ tq $(x_n^k|e_k)\to c_k$ qd $n\to+∞$.
+	et des complexes $C_k$, $k=1,2,3...$ t.q. $(x_n^k|e_k)\to c_k$ qd $n\to+∞$.
 	(présidé deogonal de Cantor): on pose $z_n=x_n^n$.
 	Montrer que $z_n\rightharpoonup ∑_kc_ke_k$ si $∑_kc_ke_k$ est conv dans $H$. Le thm 2 est démontré. Montrons que $∑_kc_ke_k=z\in M$ i.e (*).
 	Puisque $M$ est complet alors il faut montrer $S_n=∑_{k=1}^nc_ke_k$ est de Cauchy: $\norm{s_n-s_m}^2=\norm{∑_{k=n+1}^mc_ke_k}^2=∑_{k=n+1}^m|c_k|^2$ (Parseval).
-	$S_n$ est de Cauchy $\Leftrightarrow$ $\tilde S_n=∑_{k=1}^n|c_k|^2$ est de Cauchy $\Leftrightarrow$ $\tilde S_n$ est convergent dans $\C$.
+	$S_n$ est de Cauchy $\iff$ $\tilde S_n=∑_{k=1}^n|c_k|^2$ est de Cauchy $\iff$ $\tilde S_n$ est convergent dans $\C$.
 	Montrons ce dernier point. On utilise l'inégalité de Bessel. 
 	$∑_{k=1}^N|(x_n|e_k)|^2≤\norm{z_n}^2≤L^2$ mais: $(z_n|e_k)+(x_n^n|e_k)\to c_k$ qd $n\to+∞$. puisque $(x_n^n)_{n\in\N}$ est une sous suite de $(x_n^k)_{n\in\N}$ pour $n≥k$.
 	
@@ -485,7 +513,7 @@ $\Rightarrow$ $∫_\Rψφ_n=0$ $\Rightarrow$ $\lim_n(ψ|φ_n)=0=(ψ|0)$
 	 $\forall y\in M: (x_n^n|y)\to(z|y)$
 	 On a couverture une sous suite de $(x_n)_{n\in\N}$ qui conv faiblement sur $M$ vers $z\in H$. On étend la propriété sur $H$: $M$ est un sous espace fermé on lui applique le théorème des ces projection. $\forall η\in H M \exists!y_0\in M$ projection de $y$ sur $M$.
 	 
-	 Alors $y=y_0+(y-y_0)$ et $(x^n|y)=(x_n|y)=(x_n|y_0)+(z_n|y-y_0)$ mais $(z_n|y-y_0)=0$. $z_n\in M$ et $y-y_0\in Π^\perp$ $\Rightarrow$ $limit_n (z_n|y)=(z|y_0)$ ( ce que l'on a démontré précédent)
+	 Alors $y=y_0+(y-y_0)$ et $(x^n|y)=(x_n|y)=(x_n|y_0)+(z_n|y-y_0)$ mais $(z_n|y-y_0)=0$. $z_n\in M$ et $y-y_0\in Π^\perp$ $\implies$ $limit_n (z_n|y)=(z|y_0)$ ( ce que l'on a démontré précédent)
 	 mais $z\in M$, donc $(z|y-y_0)=0$: $\lim_n(x_n|y)=(z|y_0)+(z|y-y_0)=(z|y)$ ce qui montre la conv faible sur $H$.
 \end{proof}
 
@@ -507,47 +535,60 @@ $\Rightarrow$ $∫_\Rψφ_n=0$ $\Rightarrow$ $\lim_n(ψ|φ_n)=0=(ψ|0)$
 	\end{itemize}
 \end{theorem}
 
-\textbf{Procédé de Gram-Schmidt.}\\
+\paragraph{Procédé de Gram-Schmidt}
 Soit $u_1=v_1$, et $e_1=\frac{u_1}{\norm{u_1}}$; $u_2=v_2-\frac{(v_2|u_1)}{\norm{u_1}^2}u_1$, et $e_2=\frac{u_2}{\norm{u_2}}$; $u_3=v_3-\frac{(v_3|u_1)}{\norm{u_1}^2}u_1-\frac{(u_3|u_2)}{\norm{u_2}^2}u_2$ et $e_3=\frac{u_3}{\norm{u_3}}$ etc... 
 
 \chapter{Opérateurs sur un espace de Hilbert} % (fold)
 \label{cha:operateurs_sur_un_espace_de_hilbert}
 \section{Généralités} % (fold)
 \label{sec:generalites}
-Soit $X,Y$ deux espaces de Banach, on note par $L(X,Y)$ l'ensemble des applications linéaires de $X\rightarrow Y$, si $X=Y$ on note par L(X).
-Dans le cas d'espace de Hilbert l'ensemble des applications linéaires $L(\hs ,\hs')$ respectivement $L(\hs )$ si $\hs =\hs'$.\\
-$T\in L(X,Y) N(T)=\{x\in X, Tx=0_y\}$ noll of $T$.\\
-$R(T)=\{y\in Y,\exists x\in X et Tx=y\}$ range of $T$.\\
-$G(T)=\{(x,Tx)\ x\in X\}$ graphe de $T$.
+Soit $X,Y$ deux espaces de Banach, on note par $L(X,Y)$ l'ensemble des applications linéaires de $X\rightarrow Y$, si $X=Y$ on note par $L(X)$.
+Dans le cas d'espace de Hilbert l'ensemble des applications linéaires $L(\hs ,\hs')$ respectivement $L(\hs )$ si $\hs =\hs'$.
+
+$T\in L(X,Y)$ nous notons:\\
+$N(T)=\{x\in X, Tx=0_y\}$---noll of $T$.\\
+$R(T)=\{y\in Y,\exists x\in X\ Tx=y\}$---range of $T$.\\
+$G(T)=\{(x,Tx)\ x\in X\}$---graphe de $T$.
 \begin{proposition}
 	Soit $(X, \norm{•}_X)$ $(Y,\norm{•}_y)$ deux espaces du Banach soit $f\in L(X,Y)$, alors les assertions suivantes ont équivalentes.
-	\begin{enumerate}
+	\begin{enumerate}[(i)]
 		\item $f$ est continue sur $X$
 		\item $f$ est continue en un point $x_0\in X$
 		\item $\exists C>0$ t.q. $\forall x\in X$ on a $\norm{Tx}_Y≤C\norm{x}_X$. 
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	($\Rightarrow$) i)$\Rightarrow$ ii), montrons iii) $\Rightarrow$ i) on a $\forall x,y\in X\ \norm{f(x)-f(y)}_Y=\norm{f(x-y)}_Y≤C\norm{x-y}_X$ $\Rightarrow$ $f$ est Lipschitz sur $X$ donc continue.
-	Montrons ii) $\Rightarrow$ iii) On choisit $x_0=0_X$ alors $f$ est continue en $0_X$. $\forall ε>0 \existsη(ε)$ t.q. $\forall x\in X$ et $\norm{x}_X≤η$ $\Rightarrow$ $\norm{f(x)-f(0)}_Y=\norm{f(x)}_Y≤ε$.
-	Soit $ε=1$, soit $η=η(1)$, $\forall x\in X$ on pose $\tilde x=\frac η2\frac{1}{\norm{x}_X}$;
-	On a $\norm{\tilde x}=\fracη2\frac1{\norm{x}_X}\norm{x}_X=\frac{η}2≤η$ $\Rightarrow$ $\norm{f(\tilde x)}≤1.$ Mais $f(\tilde x)=f(η\frac x{\norm{x}}=η\frac 1{\norm{x}}f(x)$
-	et $\frac{η}{2\norm{x}_V}\norm{f(x)}_Y≤1$ $\Rightarrow$ $\norm{f(x)}_Y≤\frac 2η\norm{x}_X$ QED.
+	($\implies$) i)$\implies$ ii), montrons iii) $\implies$ i) on a $\forall x,y\in X\ \norm{f(x)-f(y)}_Y=\norm{f(x-y)}_Y≤C\norm{x-y}_X$ $\implies$ $f$ est Lipschitz sur $X$ donc continue.
+	
+	Montrons ii) $\implies$ iii) On choisit $x_0=0_X$ alors $f$ est continue en $0_X$. $\forall ε>0 \exists η=η(ε)$ t.q. $\forall x\in X$ et $\norm{x}_X≤η$ $\implies$ $\norm{f(x)-f(0)}_Y=\norm{f(x)}_Y≤ε$.
+	
+	Soit $ε=1$, soit $η=η(1)$, $\forall x\in X$ on pose $\tilde x=\frac η2\frac{1}{\norm{x}_X}x$. On a $\norm{\tilde x}=\fracη2\frac1{\norm{x}_X}\norm{x}_X=\frac{η}2≤η$ $\implies$ $\norm{f(\tilde x)}≤1$.
+	
+	 Mais $f(\tilde x)=f(η\frac x{\norm{x}})=η\frac 1{\norm{x}}f(x)$
+	et $\frac{η}{2\norm{x}_V}\norm{f(x)}_Y≤1$ $\implies$ $\norm{f(x)}_Y≤\frac 2η\norm{x}_X$ QED.
+	
 \end{proof}
 \begin{remark}
-	iii) $\exists C>0$ tq $\forall x\in X: \norm{f(x)}_Y≤C\norm{x}_X$ $\Leftrightarrow$ $\norm{f(\frac{x}{\norm{x}_X})}≤C$ si $\norm{x}_X≠0$ $\Leftrightarrow$ $x≠0_X$ $\Leftrightarrow$ $\forall x\in X \norm{x}_X=1$; $\norm{f(x)}_Y≤C$. $f(B_f(0_X, 1))\subset B_f(0_Y,C)$.\\
-	* Un opérateur de $X\rightarrow Y$ et une application linéaire de $X\rightarrow Y$.\\
-	* Une application linéaire $X\rightarrow Y$ continue est un opérateur borné de $X\rightarrow Y$.\\
-	* On notera par $\mathcal{B}(X,Y)$ l'ensemble des opérateurs bornés de $X\mapsto Y$.
-	
-	Exp. $\hs=\hs'=l^2(\Z)$ on considère l'application $T:\hs\rightarrow \hs' \forall u\in \hs\ (Tu)(n)=u(n-1)$ shift a droite.
-	$T$ est linéaire: $T(λu+μv)(n)=(λu+μv)(n-1)=λu(n-1)+μv(n-1)=λTu(n)+μTv(n)$
-	$T$ est borné (donc continue) $\forall u\in \hs$
-	$\norm{Tu}^2_\hs=(Tu|Tu)_\hs=∑_{n\in \Z}Tu(n)\overline{Tu(n)}=∑_{n\in\Z}u(n-1)\overline{u(n-1)}=∑_{l\in\Z}u(e)\overline{u(e)}=\norm{u}^2_\hs$ $\Rightarrow$ $\norm{Tu}_\hs=\norm{u}_\hs$ $T$ est une isométrie.
-	
-	$B(X,Y)$ est un espace normé, muni de la norme naturelle.
-	$T\in B(X,Y)\ \norm{T}=\inf\{C>0 tq l'inégalité suivant est satisfait, \norm{Tx}≤C\norm{X}_X \forall x\in X\} \rightarrow  \norm{T}≥0$.
+	iii) $\exists C>0$ t.q. $\forall x\in X: \norm{f(x)}_Y≤C\norm{x}_X$ $\iff$ $\norm{f(\frac{x}{\norm{x}_X})}≤C$ si $\norm{x}_X≠0$ ($x≠0_X$).
+	$\norm{f(x)}_Y≤C$; $f(B_f(0_X, 1))\subset B_f(0_Y,C)$.\\
+	-* Un opérateur de $X\rightarrow Y$ est une application linéaire de $X\rightarrow Y$.\\
+	-* Une application linéaire $X\rightarrow Y$ continue est un opérateur borné de $X\rightarrow Y$.\\
+	-* On notera par $\mathcal{B}(X,Y)$ l'ensemble des opérateurs bornés de $X\rightarrow Y$.
 \end{remark}
+
+        	\begin{example}
+        	$\hs=\hs'=l^2(\Z)$ on considère l'application $T:\hs\rightarrow \hs'$. $\forall u\in \hs\ (Tu)(n)=u(n-1)$ shift a droite.
+        	
+        	$T$ est linéaire: $T(λu+μv)(n)=(λu+μv)(n-1)=λu(n-1)+μv(n-1)=λTu(n)+μTv(n)$.
+        	
+        	$T$ est borné (donc continue): $\forall u\in \hs$
+        	$\norm{Tu}^2_\hs=(Tu|Tu)_\hs=∑_{n\in \Z}Tu(n)\overline{Tu(n)}=∑_{n\in\Z}u(n-1)\overline{u(n-1)}=∑_{l\in\Z}u(e)\overline{u(e)}=\norm{u}^2_\hs$ $\implies$ $\norm{Tu}_\hs=\norm{u}_\hs$ $T$ est une isométrie.
+        	
+        	$B(X,Y)$ est un espace normé, muni de la norme naturelle.
+        	
+        	$T\in B(X,Y)\ \norm{T}=\inf\{C>0\text{ t.q. l'inégalité suivant est satisfait, }\norm{Tx}≤C\norm{X}_X \forall x\in X\} \implies  \norm{T}≥0$ (*). 
+        	\end{example}
+
 \begin{exercise}
 	Montrer que (*) définie une norme sur $B(X,Y)$.
 \end{exercise}
@@ -559,23 +600,26 @@ $G(T)=\{(x,Tx)\ x\in X\}$ graphe de $T$.
 	&=\sup\{\norm{Tx}_Y, \norm{x}_X<1\}
 	\end{align*}
 	\begin{align*}
-	\norm{T}&=\inf\{C>0 tq \norm{Tx}_Y≤C\norm{x}_X\}\\
-	&=\inf\{C>0 tq \norm{T\frac x{\norm{x}_X}}_Y≤C \forall x\in X\}\\
-	&=\inf\{C>0 tq \norm{Tx}_Y≤C \forall x:\ \norm{x}=1\}\\
-	&=\sup\{\norm{Tx}_y \forall x:\ \norm{x}=1\}
-	\end{align*}
-	
+	\norm{T}&=\inf\{C>0\text{ t.q. }\norm{Tx}_Y≤C\norm{x}_X\}\\
+	&=\inf\{C>0 \text{ t.q. } \norm{T\frac x{\norm{x}_X}}_Y≤C \forall x\in X\}\\
+	&=\inf\{C>0\text{ t.q. }\norm{Tx}_Y≤C\ \forall x:\ \norm{x}=1\}\\
+	&=\sup\{\norm{Tx}_Y\ |\  \forall \in X:\ \norm{x}=1\}
+	\end{align*}	
 \end{proposition}
+
 Soit $X$ un espace de Banach.
+
 \begin{proposition}
 	Si $Y$ est un espace de Banach, alors $(B(X,Y),\norm{•})$ est lui même un espace de Banach.
 \end{proposition}
 
-Application: $X'$ le dual topologique de $X$:
-$φ\in X'$ si $φ\in L(X,\C)$ qui satisfait $\exists C>0\ \forall x\in X$: $|φ(x)|≤C\norm{x}_X$. $\C$ est complet alors par la prop. 3 $X'$ est complet.
+\paragraph{Application}
+
+$X'$ le dual topologique de $X$:
+$φ\in X'$ si $φ\in L(X,\C)$ qui satisfait $\exists C>0\ \forall x\in X$: $|φ(x)|≤C\norm{x}_X$. $\C$ est complet alors par la Proposition 3 $X'$ est complet.
 
 \begin{exercise}
-	Montrer la proposition 3. Soit $(T_n)_{n\in\N}$ une suite du Cauchy des $B(X,Y)$ il faut montrer $\exists T\in B(X,Y)$ tq $\lim_{n\to∞}\norm{T_n-T}=0.$
+	Montrer la proposition 3. Soit $(T_n)_{n\in\N}$ une suite du Cauchy des $B(X,Y)$ il faut montrer $\exists T\in B(X,Y)$ t.q. $\lim_{n\to∞}\norm{T_n-T}=0.$
 \end{exercise}
 
 \section{Adjoint d'un opérateur} % (fold)
@@ -587,50 +631,62 @@ Soit $\hs$, $\hs'$ deux espaces de Hilbert (séparables).
 \end{proposition}
 
 \begin{example}
-	$\hs=\hs'=l^2(\Z)$ $T$ shift adjointe, calculons $T^*$.$\forall u,v\in\hs$, $(Tu|v)=∑_{n\in\Z}Tu(n)•\overline{v(n)}=∑_{n\in\Z}u(n-1)\overline{v(n)}=∑_{e\in\Z}u(e)\overline{v(e+1)}=(u|w)$ avec $w(e)=v(e+1)$. On pose $T^*v=w$.
+	$\hs=\hs'=l^2(\Z)$ $T$ shift adjointe, calculons $T^*$.$\forall u,v\in\hs$, $(Tu|v)=∑_{n\in\Z}Tu(n)•\overline{v(n)}=∑_{n\in\Z}u(n-1)\overline{v(n)}=∑_{l\in\Z}u(l)\overline{v(l+1)}=(u|w)$ avec $w(l)=v(l+1)$. On pose $T^*v=w$.
 \end{example}
 \begin{proof}
 	Dans ces conditions $x\in\hs\mapsto (Tx|y)$ est une forme linéaire sur $\hs$ comme la composition de $T$ et $(•|y)$. De plus on a que $|(Tx|y)|≤\norm{Tx}_{\hs'}\norm{y}_{\hs}≤\norm{T}\norm{x}_{\hs}\norm{y}_{\hs'}$
 	$|φ(x)|≤\const\norm{x}_{\hs'}, \const=\norm{T}\norm{y}_{\hs'}$
-alors $φ$ est continue (bornée). D'après le Théorème de Riez
-$\exists!\in\hs tq φ(x)=(x|z) \forall x\in \hs$. On pose $z=T^*y$, montrons que $T^*\in L(\hs',\hs)$.
-Soit $y_1,y_2\in\hs d_1,d_2\in\C$ on calcule $T^*(d_1y_1+d_2y_2)$:\\
-* $\forall x\in \hs (x|T^*(d_1y_1+d_2y_2))=(Tx|d_1y_1+d_2y_2)$ (def)
+alors $φ$ est continue (bornée).
 
-$\bar d_1(Tx|y_1)+\bar d_2(Tx|y_2)=\bar d_1(x|T^*y_1)+\bar d_2(x|T^*y_2)=(x|d_1T^*y_1+d_2T^*y_2)$ $\Rightarrow$ $\forall x\in\hs (x|T^*(d_1y_1+d_2y_2)-d_1T^*y_1-d_2T^*y_2)=0$ $\Rightarrow$ $T^*(d_1y_1+d_2y_2)-d_1T^*y_1-d_2T^*y_2=0_\hs$.
+D'après le Théorème de Riez
+$\exists! z\in\hs$ t.q. $φ(x)=(x|z)\ \forall x\in \hs$. On pose $z=T^*y$, montrons que $T^*\in L(\hs',\hs)$.
 
-Montrons que $T^*\in B(\hs,\hs') \forall y\in \hs'$.
-$\norm{T^*y}^2_\hs=(T^*y|T^*y)_\hs=(T(T^*y)|y)_{\hs'}$ $\Rightarrow$ $\norm{T^*y}^2_{\hs}≤\norm{T(T^*y)}_{\hs'}\norm{y}_{\hs'}≤\norm{T}\norm{T^*y}_\hs\norm{y}_\hs$
-$\Rightarrow$ $\norm{T^*y}_\hs≤\norm{T}\norm{y}_{\hs'} \forall y\in \hs'$ tq $T^*y≠0_\hs$. Si $y\in N(T^*)$ on a que $0≤\norm{T}\norm{y}_{\hs'}$ donc $T^*\in B(\hs',\hs)$, $\norm{T^*}≤\norm{T}$.
+Soit $y_1,y_2\in\hs d_1,d_2\in\C$ on calcule $T^*(d_1y_1+d_2y_2)$: $\forall x\in \hs (x|T^*(d_1y_1+d_2y_2))=(Tx|d_1y_1+d_2y_2)$ (def)
 
-\underline{Unicité.} $\exists S\in B(\hs',\hs)$ tq $\forall(x,y)\in\hs\times\hs' (Tx|y)=(x|Sy)=(x|T^*y)$ $\Rightarrow$ $\forall x\in\hs\ (x|Sy-T^*y)=0$ $\Rightarrow$ $Sy=T^*y$.
+$\bar d_1(Tx|y_1)+\bar d_2(Tx|y_2)=\bar d_1(x|T^*y_1)+\bar d_2(x|T^*y_2)=(x|d_1T^*y_1+d_2T^*y_2)$ $\implies$ $\forall x\in\hs (x|T^*(d_1y_1+d_2y_2)-d_1T^*y_1-d_2T^*y_2)=0$ $\implies$ $T^*(d_1y_1+d_2y_2)-d_1T^*y_1-d_2T^*y_2=0_\hs$.
+
+Montrons que $T^*\in B(\hs,\hs')\ \forall y\in \hs'$.
+$\norm{T^*y}^2_\hs=(T^*y|T^*y)_\hs=(T(T^*y)|y)_{\hs'}$ $\implies$ $\norm{T^*y}^2_{\hs}≤\norm{T(T^*y)}_{\hs'}\norm{y}_{\hs'}≤\norm{T}\norm{T^*y}_\hs\norm{y}_\hs$
+$\implies$ $\norm{T^*y}_\hs≤\norm{T}\norm{y}_{\hs'} \forall y\in \hs'$ t.q. $T^*y≠0_\hs$. Si $y\in N(T^*)$ on a que $0≤\norm{T}\norm{y}_{\hs'}$ donc $T^*\in B(\hs',\hs)$, $\norm{T^*}≤\norm{T}$.
+
+\emph{Unicité.} $\exists S\in B(\hs',\hs)$ t.q. $\forall(x,y)\in\hs\times\hs'\quad (Tx|y)=(x|Sy)=(x|T^*y)$ $\implies$ $\forall x\in\hs\ (x|Sy-T^*y)=0$ $\implies$ $Sy=T^*y$.
 \end{proof}
 
 \begin{example}
-	$\hs=\hs'=L^2(\R)$. Soit $f\in C^0(\R)\cap L^∞(\R)$. On définit l'action de $T$ sur $C^∞_0(\R)\ni φ: Tφ(x)=f(x)φ(x)$ $f•φ\in C^∞_0(\R)$: $T:C_0^∞(\R)\mapsto C_0^∞(\R)$. $T$ est linéaire $\Rightarrow$ $fφ\in L^2(\R)$. $T:C_0^∞(\R)\rightarrow L^2(\R)$ est continue.
-	$\norm{Tφ}^2=(Tφ|Τφ)=∫_\R f^2(x)φ(x)\bar φ(x)\dd{x}=∫_\R f^2(x)|φ(x)|^2\dd{x}≤\norm{f}^2_∞∫_\R|φ(x)|^2\dd{x}$ $\Rightarrow$ $\norm{Tφ}^2≤\norm{f}_∞^2\norm{φ}^2$. $T$ est continue sur $C_0^∞(\R)\mapsto L^2(\R)$.
-	$T$ est uniformément continue car $\norm{Tφ-Tψ}=\norm{T(φ-ψ)}≤\norm{f}\norm{φ-ψ}$. $\norm{f}_∞$ Lipstitz. On utilise que toute applications $T$ uniformément continue sur $D$ et $\bar D=\hs$, admet un prolongement par continuité sur $\hs$ défini comme:
+	$\hs=\hs'=L^2(\R)$. Soit $f\in C^0(\R)\cap L^∞(\R)$. On définit l'action de $T$ sur $C^∞_0(\R)\ni φ: Tφ(x)=f(x)φ(x)$ $f•φ\in C^∞_0(\R)$
+	
+	$T:C_0^∞(\R)\mapsto C_0^∞(\R)$. $T$ est \texttt{linéaire} $\implies$ $fφ\in L^2(\R)$ aussi $T:C_0^∞(\R)\rightarrow L^2(\R)$ est \texttt{continue}.
+	
+	$\norm{Tφ}^2=(Tφ|Τφ)=∫_\R f^2(x)φ(x)\bar φ(x)\dd{x}=∫_\R f^2(x)|φ(x)|^2\dd{x}≤\norm{f}^2_∞∫_\R|φ(x)|^2\dd{x}$ $\implies$ $\norm{Tφ}^2≤\norm{f}_∞^2\norm{φ}^2$. $T$ est continue sur $C_0^∞(\R)\mapsto L^2(\R)$.
+	
+	$T$ est uniformément continue car $\norm{Tφ-Tψ}=\norm{T(φ-ψ)}≤\norm{f}\norm{φ-ψ}$. $\norm{f}_∞$ Lipstitz.
+	
+	On utilise que toute applications $T$ uniformément continue sur $D$ et $\bar D=\hs$, admet un prolongement par continuité sur $\hs$ défini comme:
+	
 	$\forall φ\in\hs$, $\exists (φ_n)_{n\in\N}$ Suite de $D$ et $\lim_nφ_n=φ$.
 	
 	On pose $Tφ=\lim_nTφ_n$.
+	
 	T est borne et $\norm{T}≤\norm{f}_∞$. $\norm{T_φ}\def \norm{\lim_n Tφ_n}=\lim_n\norm{Tφ_n}$ mais $\norm{Tφ_n}≤\norm{f}_∞\norm{φ_n}$. $\norm{Tf}≤\norm{f}_∞\norm{φ}$.
+	
 	Calculons. $T^*$
-	$\forallφ, ψ\in \hs (Tφ|ψ)=∫_\R f(x)φ(x)\bar ψ(x)\dd{x}=∫φ(x)\overline{f(x)ψ(x)}\dd{x}=(φ|Tψ)$ $\Rightarrow$ $T^*=T$.	
+	
+	$\forallφ, ψ\in \hs\ (Tφ|ψ)=∫_\R f(x)φ(x)\bar ψ(x)\dd{x}=∫φ(x)\overline{f(x)ψ(x)}\dd{x}=(φ|Tψ)$ $\implies$ $T^*=T$.	
 \end{example}
 \begin{remark}
-	Dans le preuve de la proposition III21 On peut inverser la rôle de $T$ et $T^*$, alors on montre aussi que $\norm{T^*}≥\norm{T}$ alors $\norm{T^*}=\norm{T}$ (ex)
+	Dans le preuve de la proposition 1 On peut inverser la rôle de $T$ et $T^*$, alors on montre aussi que $\norm{T^*}≥\norm{T}$ alors $\norm{T^*}=\norm{T}$ (ex)
 \end{remark}
 \begin{definition}
 	Un opérateur $T\in B(\hs)$ est dit auto adjoint si $T=T^*$.
 	$T\in B(\hs)$ est dit unitaire si $TºT^*=T^*ºT=\ind_\hs$.
 \end{definition}
 \begin{remark}
-		Si $T=T^* \forall x\in\hs (Tx|x)=(x|Tx)$ $\Rightarrow$ $(Tx|x)=\overline{(Tx|x)}$ $\Rightarrow$ $(Tx|x)\in\R$.
+		Si $T=T^*\ \forall x\in\hs (Tx|x)=(x|Tx)$ $\implies$ $(Tx|x)=\overline{(Tx|x)}$ $\implies$ $(Tx|x)\in\R$.
 \end{remark}
 \begin{definition}
 	$T=T^*$ est positif si $\forall x\in\hs (Tx|x)≥0$
 	$T=T^*$ est définit positif si $\forall x\in\hs$, $x≠0_X (Tx|x)>0$.
-	$T$ est défini positif si $T$ est positif et $(Tx|x)=0$ $\Leftrightarrow$ $x=0_X$.
+	$T$ est défini positif si $T$ est positif et $(Tx|x)=0$ $\iff$ $x=0_X$.
 \end{definition}
 \begin{example}
 	$H=l^2(\Z)$ $φ\in H$ $(T_+ρ)(n)=φ(n-1)$, $(T^*ρ)(n)=φ(n+1):=(T_-φ)(n)$. 
@@ -649,7 +705,7 @@ $\Rightarrow$ $\norm{T^*y}_\hs≤\norm{T}\norm{y}_{\hs'} \forall y\in \hs'$ tq $
 	\end{enumerate} 
 \end{example}
 \begin{remark}
-	$T_-=Τ_+^*$ $\implies$ $Τ_-^*=Τ_+$ et $T_-^*=T_+^{**}$ $\implies$ $T_+=T_+^{**}$
+	$T_-=T_+^*$ $\implies$ $T_-^*=T_+$ et $T_-^*=T_+^{**}$ $\implies$ $T_+=T_+^{**}$
 \end{remark}
 C'est vrai en général: $A^{**}=A$
 $\forall(•,v)\in H\times H$, $(A^*u,v)=(u,A^{**}v)=(u,Av)$.
@@ -701,7 +757,7 @@ $\implies$ $A^{**}=A$
 	$\implies$$ Δ=12(|\Re (Tv|w)|^2-γ^2\norm{v}^2\norm{w}^2)≤0$
 	
 	Supposons la dernière inégalité fausse: 
-	$P$ a deux racines $λ_1$, $λ_2$ tq $λ_1+λ_2=4\frac{|\Re(Tu|v)|}{2γ\norm{w}^2}≥0$ et donc une des deux racines est positive:
+	$P$ a deux racines $λ_1$, $λ_2$ t.q. $λ_1+λ_2=4\frac{|\Re(Tu|v)|}{2γ\norm{w}^2}≥0$ et donc une des deux racines est positive:
 	alors $P(d)=2γλ^2\norm{w}^2-4λ|\Re(Tv|w)|+2γ\norm{w}^2$ doit changer de signe pour $λ\in\R^+$ ce qui est absurde, $\implies$ (**).
 	
 	et donc $|\Re(Tv|w)|^2≤γ^2\norm{v}^2\norm{w}^2$.
@@ -717,24 +773,24 @@ $\implies$ $A^{**}=A$
 	On sait que: $\norm{Tφ}^2=∫|f(x)|^2$ $|φ(x)|^2\dd{x}≤\norm{f}_∞^2\norm{φ}^2$ $\implies$ $\norm{T}≤\norm{f}_∞$
 \end{example}
 \begin{example}
-	En utilisant une suite bien choisie dans H, montrer que $\norm{T}=\norm{f}_∞$, ici $\exists x_0$ tq $|f(x_0)|=\norm{f}_∞$. On peut choisir.
+	En utilisant une suite bien choisie dans H, montrer que $\norm{T}=\norm{f}_∞$, ici $\exists x_0$ t.q. $|f(x_0)|=\norm{f}_∞$. On peut choisir.
 \end{example}
 \begin{proposition}
 	Soit $H,H'$ deux espaces de Hilbert et $T\in L(H,H')$. Alors les 4 assertions suivantes sont équivalentes :
 	\begin{enumerate}[(i)]
-		\item $\forall(u_n)_{n\in\N}$ de $H$, tq $u_n\to u\in H$ $\implies$ $Tu_n\to Tu$ dans $H'$ ($T\in B(H,H')$)
-		\item $\forall(u_n)_{n\in\N}$ de $H$, tq $u_n\rightharpoonup u\in H$ $\implies$ $Tu_n\rightharpoonup Tu$ dans $H'$
-		\item $\forall(u_n)_{n\in\N}$ de $H$, tq $u_n\to u\in H$ $\implies$ $Tu_n\rightharpoonup Tu$ dans $H'$
+		\item $\forall(u_n)_{n\in\N}$ de $H$, t.q. $u_n\to u\in H$ $\implies$ $Tu_n\to Tu$ dans $H'$ ($T\in B(H,H')$)
+		\item $\forall(u_n)_{n\in\N}$ de $H$, t.q. $u_n\rightharpoonup u\in H$ $\implies$ $Tu_n\rightharpoonup Tu$ dans $H'$
+		\item $\forall(u_n)_{n\in\N}$ de $H$, t.q. $u_n\to u\in H$ $\implies$ $Tu_n\rightharpoonup Tu$ dans $H'$
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	i) $\implies$ ii) si i) est vérifié, $T\in B(H,H')$ et donc $T^*\in B(H',H)$ tq $\forall u\in H$, $v\in H'$ $(Tu|v)_H=(u|T^*v)_H$
+	i) $\implies$ ii) si i) est vérifié, $T\in B(H,H')$ et donc $T^*\in B(H',H)$ t.q. $\forall u\in H$, $v\in H'$ $(Tu|v)_H=(u|T^*v)_H$
 	
 	soit $(u_n)_{n\in\N}$ une suite dans $H$ $u_n\rightharpoonup\in H $alors par (*)
 	$\forall v\in H'$: $(Tu_n-Tu|v)=(T(u_n-u)|v)=(u_n-u|T^*v)\to 0$ qd $n\to _∞$ puisque  $u_n\rightharpoonup u$ $\implies$ $Tu_n\rightharpoonup Tu$.
-	ii) $\implies$ iii) Supposons ii). Alors soit $(u_n)_{n\in\N}$ une suite de $H $tq $u_n\to u\in H$ $\implies$ $u_n \rightharpoonup u$ $\implies$ $Tu_n\rightharpoonup Tu$.
+	ii) $\implies$ iii) Supposons ii). Alors soit $(u_n)_{n\in\N}$ une suite de $H $t.q. $u_n\to u\in H$ $\implies$ $u_n \rightharpoonup u$ $\implies$ $Tu_n\rightharpoonup Tu$.
 	
-	Montrons en fin que iii) $\implies$ i). On suppose iii) et i) faux. $\forall C>0,\ \exists u\in H$ tq $\norm{Tu}>C\norm{u}$, on peut construire $(u_n)_{n\in\N}$ suite de $H$ tq $\forall n \norm{Tu_n}>n^2\norm{u_n}$ $\iff$ $\norm{T\frac{u_n}{n\norm{u_n}}}>n$.
+	Montrons en fin que iii) $\implies$ i). On suppose iii) et i) faux. $\forall C>0,\ \exists u\in H$ t.q. $\norm{Tu}>C\norm{u}$, on peut construire $(u_n)_{n\in\N}$ suite de $H$ t.q. $\forall n \norm{Tu_n}>n^2\norm{u_n}$ $\iff$ $\norm{T\frac{u_n}{n\norm{u_n}}}>n$.
 	
 	Conclusion: $v_n=\frac{u_n}{n\norm{u_n}}$ on a donc $\norm{v_n}=\frac 1n \to 0$ qd $n\to+∞$, $\norm{Tv_n}>n$ cette suite non borné $\implies$ $Tu_n\not\rightharpoonup 0_h$ iii) es faux  ce qui est absurde. 
 \end{proof}
@@ -743,21 +799,22 @@ $\implies$ $A^{**}=A$
 % chapter operateurs_sur_un_espace_de_hilbert (end)
 \chapter{rappels sur la compacité} % (fold)
 \label{cha:rappels_sur_la_compacite}
-Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propriété de Belzane.-Weirstrass: De toute suite de $A$ : $(u_n)_{n\in\N}$ il existe une sous-suite $(u_{k(n)})_{n\in\N}$ et $u\in A$ tq $u_{k(n)}\to u$: $\lim_n\norm{u_{k(n)}-u}_H=0$.
+Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propriété de Belzane.-Weirstrass: De toute suite de $A$ : $(u_n)_{n\in\N}$ il existe une sous-suite $(u_{k(n)})_{n\in\N}$ et $u\in A$ t.q. $u_{k(n)}\to u$: $\lim_n\norm{u_{k(n)}-u}_H=0$.
 
 \begin{example}
 	En dimension finie les sous-ensembles compact sont les sous ensembles bornés et fermés.
 \end{example}
 \begin{definition}
-	$A\subset H$ es précompact si $\bar A$ est compact $A$ est compact si de toute suite de $A$ $(v_n)_{n\in\N}$ il existe une sous-suite $(u_{k(n)})_{n\in\N}$ et $u\in H$ tq $u_{k(n)}\to u\in H\diagdown A$
+	$A\subset H$ est précompact si $\bar A$ est compact. $A$ est compact si de toute suite de $A$ $(v_n)_{n\in\N}$ il existe une sous-suite $(u_{k(n)})_{n\in\N}$ et $u\in H$ t.q. $u_{k(n)}\to u\in H\diagdown A$
 \end{definition}
 \begin{example}
 	En dimension finie, les sous ensembles précompact sont les sous ensembles bornes.
 \end{example}
 \begin{lemme}
+	\leavevmode
 	\begin{enumerate}
-		\item $A\subset H$ est précompact si $\forallε>0$, soit $F\subset A$ tq $\forall(x,y)\in F^2$, $\norm{x-y}>ε$ $\implies$ $F$ est fini
-		\item $A\subset H$ est précompact si $\forall ε> 0$ $\exists$ une famille finie de partie $\{E_i\}_{i\in I}$ de $H$, $diam(E_i)<ε$ tq $A\subset \cup_{i\in I }E_i$.
+		\item $A\subset H$ est précompact si $\forallε>0$, soit $F\subset A$ t.q. $\forall(x,y)\in F^2$, $\norm{x-y}>ε$ $\implies$ $F$ est fini
+		\item $A\subset H$ est précompact si $\forall ε> 0$ $\exists$ une famille finie de partie $\{E_i\}_{i\in I}$ de $H$, $diam(E_i)<ε$ t.q. $A\subset \cup_{i\in I }E_i$.
 	\end{enumerate}
 \end{lemme}
 \begin{proof}[Element de preuve]
@@ -766,7 +823,7 @@ Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propr
 	Tout suite $(u_n)_{n\in\N}$ de $F$ ne contient aucune sous suite convergent.
 	
 	$A$ n'est pas précompact, absurde. 
-	i)$\implies$ii) Soit $ε >0$ et $F$ le sous ensemble de $H$ tq $\forall(x,y)\in l$ $d(x,y)>ε$. d'après i) $F$ est fini $F=\{x_1x_2...x_N\}$ $\forall x\in H\diagdown F$ des $\exists x_i\in F$ tq $d(x_i,x)<ε$. 
+	i)$\implies$ii) Soit $ε >0$ et $F$ le sous ensemble de $H$ t.q. $\forall(x,y)\in l$ $d(x,y)>ε$. d'après i) $F$ est fini $F=\{x_1x_2...x_N\}$ $\forall x\in H\diagdown F$ des $\exists x_i\in F$ t.q. $d(x_i,x)<ε$. 
 	(autrement $x\in F$ par hypothèse faux) $x\in B(x_i,ε)$ $\implies$ $A\subset \cup B(x_i,ε)$
 	
 	ii) $\implies$ i) supposons ii) $A\subset \cup_{i\in I}E_i$ avec diamètre $E_i<ε$
@@ -782,7 +839,7 @@ Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propr
 	En particulier $T(B_f(0_H,1))$ est borné dans $H'$, $\exists r>0$ t.q. $T(B_f(0_H,1))\subset B_f(0_{H'},r)$ $\iff$ $\forall x$, $\norm{x}_H≤1$ $\implies$ $\norm{Tx}_{H'}≤r$ $\implies$ $\forall x\in H$, $\norm{\frac x{\norm{x}_H}}=1$ $\implies$ $\norm{T\frac x{\norm{x}_H}}_{H'}≤r$ $\implies$ $\norm{Tx}_{H'}≤r\norm{x}$. Alors $T$ est borné (continu).
 \end{remark}
 \begin{example}
-	Soit $T\in L(H,H')$ continu de rang fini: $\dim R(T)<+∞$. $\exists C>0$ tq $\forall x\in H$, $\norm{Tx}_{H'}≤C\norm{x}_H$ $\implies$ $T(B_f(0_H,1))\subset B_f(0_{H'},C)$ mais $TB_f(0_H,1)\subset R(T)$ c'est borné dans une espace de dimension finie: c'est précompact.
+	Soit $T\in L(H,H')$ continu de rang fini: $\dim R(T)<+∞$. $\exists C>0$ t.q. $\forall x\in H$, $\norm{Tx}_{H'}≤C\norm{x}_H$ $\implies$ $T(B_f(0_H,1))\subset B_f(0_{H'},C)$ mais $TB_f(0_H,1)\subset R(T)$ c'est borné dans une espace de dimension finie: c'est précompact.
 	Soit $p$ un projecteur sur $H$ sur sous-espace de dimension 1. $D_n=\{λu,λ\in\C\} \forall x\in H$: $Px=(x|u)u$. Alors $\dim\R(P)=1$ de plus on a que $\norm{Px}=|(x|u)|\norm{u}=((x|u)u|(x|u)u)$ alors $\norm{Px}≤\norm{x}\norm{u}^2$ (Cauchy-Schwartz) $P$ est continue de rang 1. Il est compact.
 \end{example}
 \begin{proposition}
@@ -791,10 +848,11 @@ Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propr
 Cette proposition découle de la définition de loi precompacité.
 
 \begin{proposition}
-	Dans le mêmes conditions, $T$ est compact $\iff$ pour toute suite $(x_n)_{n\in \N}$ de $H$ tq $x_n\rightharpoonup x\in H$ alors $tx_n\to Tx$ dans $H'$.
+	Dans le mêmes conditions, $T$ est compact $\iff$ pour toute suite $(x_n)_{n\in \N}$ de $H$ t.q. $x_n\rightharpoonup x\in H$ alors $tx_n\to Tx$ dans $H'$.
 \end{proposition}
 \begin{remark}
 	\begin{itemize}
+	\leavevmode
 		\item si $x_n\to x$ $\implies$ $Tx_n\to Tx$, $T$ est borné
 		\item si $x_n\rightharpoonup x$ $\implies$ $Tx_n\rightharpoonup Tx$, $T$ est borné
 		\item si $x_n\rightharpoonup x$ $\implies$ $Tx_n\rightharpoonup Tx$, $T$ est borné
@@ -803,17 +861,18 @@ Cette proposition découle de la définition de loi precompacité.
 \end{remark}
 Pour démontrer la proposition 2 on utilise le lemme de Cantor.
 \begin{lemme}
-	Dans $u$ espace topologique: $x_n\to x$ $\iff$ toute sous-suite $(x_{k(n)})_{n\in\N)}$ contient à son tour une sous suite convergent vers $x$.
+	Dans $u$ espace topologique: $x_n\to x$ $\iff$ toute sous-suite $(x_{k(n)})_{n\in\N}$ contient à son tour une sous suite convergent vers $x$.
 \end{lemme}
 \begin{proof}
 	Exercice.
 \end{proof}
 \begin{proof}
-	Supposons $T$ compact. Soit $(x_n)_{n\in\N}$ une suite de $H$ tq $x_n\rightharpoonup x$ montrons que $Tx_n\to Tx$. Soit $(x_{k(n)})_{n\in\N}$ une sous suite on pose $y_n=x_{k(n)}$, $n\in\N $alors $y_n\rightharpoonup x$ et puisque $T$ est borné $Ty_n\rightharpoonup Tx$. D'après la proposition 1, la suite $(y_n)_{n\in\N}$ est bornée, alors il existe une sous suite $(y_{k(n)})_{n\in\N}$ tq $Ty_{k(n)}\to y\in\H$. $\implies$ $Ty_{k(n)}\rightharpoonup y$, par unicité de la limite faible alors $Tx=y$. D'après le lemme de Canter $Tx_n\to Tx$.
+	Supposons $T$ compact. Soit $(x_n)_{n\in\N}$ une suite de $H$ t.q. $x_n\rightharpoonup x$ montrons que $Tx_n\to Tx$. Soit $(x_{k(n)})_{n\in\N}$ une sous suite on pose $y_n=x_{k(n)}$, $n\in\N $alors $y_n\rightharpoonup x$ et puisque $T$ est borné $Ty_n\rightharpoonup Tx$. D'après la proposition 1, la suite $(y_n)_{n\in\N}$ est bornée, alors il existe une sous suite $(y_{k(n)})_{n\in\N}$ t.q. $Ty_{k(n)}\to y\in\H$. $\implies$ $Ty_{k(n)}\rightharpoonup y$, par unicité de la limite faible alors $Tx=y$. D'après le lemme de Canter $Tx_n\to Tx$.
 	
 	Réciproquement: Soit $(x_n)_{n\in\N}$ une suite bornée dans $H$. D'après B.W. faible elle contient une suite convergente faiblement $x_{k(n)}\rightharpoonup x\in H$, Test continue: $Tx_{k(n)}\to Tx$. D'après la proposition 1, la suite $(y_n)_{n\in\N}$ est bornée, alors: de toute suite bornée $(x_n)_{n\in\N}$, $(Tx_n)_{n\in\N}$ contient une sous suite cv.
-	
-	On notera par $B_0(H,H')$; l'ensemble de opérateurs compacts de $H\rightarrow H'$ ($B_0(H)$ si $H=H'$).
+\end{proof}
+
+	On notera par $B_0(H,H')$; l'ensemble de opérateurs compacts de $H\implies H'$ ($B_0(H)$ si $H=H'$).
 	\begin{exercise}
 		Montrer que $B_0(H)$ est un sous-espace vectorielle normé de $B(H')$.
 	\end{exercise}
@@ -822,10 +881,10 @@ Pour démontrer la proposition 2 on utilise le lemme de Cantor.
 	\begin{exercise}
 		Montrer que si $T_1\in B(H)$, $T_2\in B(H)$; $T_1$,$T_2$ et $T_2T_1\in B_0(H)$.
 	\end{exercise}
-\end{proof}
-\begin{proposition}
-	Soit $(T_n)_{n\in\N}$ une suite de $B_0(H,H')$ convergente dans $B(H,H')$: $\exists t\in B(H,H')$ tq $\lim_{n\to ∞}\norm{T_n-T}=0$ alors $T\in B_0(H,H')$.
-\end{proposition}
+
+\begin{theorem}
+	Soit $(T_n)_{n\in\N}$ une suite de $B_0(H,H')$ convergente dans $B(H,H')$: $\exists t\in B(H,H')$ t.q. $\lim_{n\to ∞}\norm{T_n-T}=0$ alors $T\in B_0(H,H')$.
+\end{theorem}
 \begin{remark}
 	$B_0(H,H')$ est une sous espace fermé de $B(H,H')$.
 \end{remark}
@@ -841,22 +900,22 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 \end{corollary}
 
 \begin{proof}
-	Soit $B=B(0_H,1)$ la boule unité dans $H$ montrons que $TB$ est précompact dans $H'$. soit $ε>0$ et $n$ tq $\norm{T-T_n}<ε/2$. $T_nB$ est précompact: $\exists \{E_i\}_{i\in I}$, $I$ inie, diamètre $E_i=\{\sup\norm{x-y}_{H'},\ x,y\in E_i\}≤\frac ε2$ tq $T_nB\subset \cup_{i\in I}E_i$ (il rappels).
+	Soit $B=B(0_H,1)$ la boule unité dans $H$ montrons que $TB$ est précompact dans $H'$. soit $ε>0$ et $n$ t.q. $\norm{T-T_n}<ε/2$. $T_nB$ est précompact: $\exists \{E_i\}_{i\in I}$, $I$ inie, diamètre $E_i=\{\sup\norm{x-y}_{H'},\ x,y\in E_i\}≤\frac ε2$ t.q. $T_nB\subset \cup_{i\in I}E_i$ (il rappels).
 	
 	On pose $\tilde E_i=\{x\in H',\ \dist(x,E_i)=\inf_{y\in E_i}\norm{x-y}_{H'}≤\frac{ε}2\}$ $E_i\subset \tilde E_i$ et diamètre $\tilde E_i<ε$ diamètre $\tilde E_i=\sup\{\norm{x-y}_{H'},\ x,y\in \tilde E_i\}$
 	
 	$z,z'\in E_i$ $\norm{x-y}_H≤\norm{x-z+x-z'+z'-y}≤\norm{x-z}+\norm{z-z'}+\norm{z'-y}<\frac ε2+\frac ε2+\frac ε2$.
 	
-	Alors soit $y-Tx$, $x\in B$, existe $i\in I$ tq $T_nx\in E_i$ mais $\norm{T_nx-Tx}≤\frac ε2$ $\implies$ distance $(tx,E+i)<\frac ε2$ $\implies$ $Tx\in\tilde E_i$ $\implies$ $TB\subset \cup_{i\in I}\tilde E_i$ il est précompact.
+	Alors soit $y-Tx$, $x\in B$, existe $i\in I$ t.q. $T_nx\in E_i$ mais $\norm{T_nx-Tx}≤\frac ε2$ $\implies$ distance $(tx,E+i)<\frac ε2$ $\implies$ $Tx\in\tilde E_i$ $\implies$ $TB\subset \cup_{i\in I}\tilde E_i$ il est précompact.
 	
 \end{proof}
 \begin{proposition}
 	Dans les mêmes conditions que la proposition précédente. $T\in B_0(H,H')$ $\iff$ $\exists (T_n)_{n\in\N}$ des $B(H,H')$, $\dim R(T_n)<+∞$ et $T=\lim_nTn$ $\iff$ $\lim_n\norm{T-T_n}=0$.
 \end{proposition}
 \begin{proof}
-	Le sens $\Leftarrow$ est implique par le corollaire précédent. Montrons $\implies$. On suppose $T$ compact soit $B = B_H(0,1)$ pour tout $ε>0$ il existe une partie finie de $TB$: $I_ε$ tq $TB_H\subset \cup_{x_i\in I_ε}B_{H'}(x_i, ε)$ (precompacité) Soit $G=\vect\{x_1,x_2, ...,x_n\}=\bar G$. ($\dim G≤N$). Soit $P_G$ la projection orthogonale sur $G$. On pose $T_ε=P_GºT$, Alors $\dim \R(T_ε)<+∞$, car $R(T_ε)\subset R(P_G)$. 
+	Le sens $\Leftarrow$ est implique par le corollaire précédent. Montrons $\implies$. On suppose $T$ compact soit $B = B_H(0,1)$ pour tout $ε>0$ il existe une partie finie de $TB$: $I_ε$ t.q. $TB_H\subset \cup_{x_i\in I_ε}B_{H'}(x_i, ε)$ (precompacité) Soit $G=\vect\{x_1,x_2, ...,x_n\}=\bar G$. ($\dim G≤N$). Soit $P_G$ la projection orthogonale sur $G$. On pose $T_ε=P_GºT$, Alors $\dim \R(T_ε)<+∞$, car $R(T_ε)\subset R(P_G)$. 
 	
-	Montrons que $\norm{T-T_ε}< 2ε$. Soit $x\in B$ $\exists x_i\in I_ε$ tq $\norm{Tx-x_i}<ε$ (2), $Tx\in TB$ $\implies$ $\norm{P_GºTxf-P_GX_i}≤\norm{P_G}\norm{Tx-x_i}≤\norm{Tx-x_i}<ε$.
+	Montrons que $\norm{T-T_ε}< 2ε$. Soit $x\in B$ $\exists x_i\in I_ε$ t.q. $\norm{Tx-x_i}<ε$ (2), $Tx\in TB$ $\implies$ $\norm{P_GºTxf-P_GX_i}≤\norm{P_G}\norm{Tx-x_i}≤\norm{Tx-x_i}<ε$.
 	
 	Mais $P_Gx_i=x_i, x_i\in G$$\implies$ $\norm{P_GºT-x_i}<ε$ (2)
 	(1) $\implies$ $\norm{P_GºTx-Tx}<2ε$:
@@ -886,7 +945,7 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 	Alors $X_N^2=X_N$ c'est un projecteur $\dim R(X_N)=N+1$. Alors $T_N=X_NºT=X_NT$
 \end{remark}
 \begin{example}
-	Les opérateurs Hilbert Schmidt. Soit $H$, $H'$ deux espace se Hilbert, $T \in(H,H')$ tq $∑_{k=1}^∞\norm{Te_k}^2<+∞$ au $(e_k)_{k\in\N}$ est une base helbertiene de $H$. On note par $B_2(H,H')$ l'ensemble des opérateurs Hilbert-Schmidt. $B_2(H,H')$ c'est un sous espace de $B(H,H')$ (ex) $\forall T\in B_2(H,H')$, on note $\norm{T}_2=(∑_{k=1}^{+∞}\norm{Te_k}^2)^{\frac 12}$.
+	Les opérateurs Hilbert Schmidt. Soit $H$, $H'$ deux espace se Hilbert, $T \in(H,H')$ t.q. $∑_{k=1}^∞\norm{Te_k}^2<+∞$ au $(e_k)_{k\in\N}$ est une base helbertiene de $H$. On note par $B_2(H,H')$ l'ensemble des opérateurs Hilbert-Schmidt. $B_2(H,H')$ c'est un sous espace de $B(H,H')$ (ex) $\forall T\in B_2(H,H')$, on note $\norm{T}_2=(∑_{k=1}^{+∞}\norm{Te_k}^2)^{\frac 12}$.
 	$\norm{•}_2$ est une norme (ex): c'est la norme Hilbert-Schmidt et $(B_2(H,H'),\norm{•}_2)$ est un espace de Banach. De plus $\forall j\in\N \ \norm{Te_j}^2≤∑_{k=1}^∞\norm{Te_k}^2$ $\implies$ $\norm{Te_j}≤\norm{T}_2$. Plus généralement sot $u\in H$, $\norm{u}=1$, $u=∑_{k≥0}α_ke_k$, $1=\norm{u}^2=∑_{k≥0}|α_k|^2$.
 	$\norm{Tu}^2=(Tu|Tu)=∑_k(Te_k|Tu)≤∑_k|α_k|\norm{Te_k}\norm{Tu}$ $\implies$ $\norm{Tu}≤∑_k|α_k|\norm{Te_k}≤|(∑_k|α_k|^2)^{\frac 12}(∑_k\norm{Te_k}2)^{\frac 12}|=1•\norm{T}_2$
 	en utilisant Cauchy-Schwartz: $\norm{Tu}≤\norm{T}_2$ $\implies$ $\norm{T}≤\norm{T}_2$.
@@ -895,20 +954,20 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 	
 	$\forall ε\ \exists M t$. $\forall N≥M\ ∑_{N≥M}\norm{Te_k}^2≤ε$.
 	
-	Soit $T_M\in B(H,H')$ tq $(T_Mu)(n)=(Tu)(n)$ si $n≤M$, $(T_Mu)(n)=0$ sinon.
+	Soit $T_M\in B(H,H')$ t.q. $(T_Mu)(n)=(Tu)(n)$ si $n≤M$, $(T_Mu)(n)=0$ sinon.
 	
 	$\dim (R(T_M))<+∞$ (il est de rang finie) On a que $\norm{T-T_M}^2≤\norm{T-T_M}^2_2=∑_{k≥M}^{+∞}\norm{Te_k}^2\to 0 qd M\to +∞$. L'opérateur de l'exemple 1:
 	$\norm{T}^2_2=∑_{k≥0}\norm{Te_k}^2=∑_{k≥0}\frac1{(k+1)^2}<+∞$.
 \end{example}
 \begin{example}
-	$H=L^2(\R)$ soit $f:\R\times\R\mapsto \R$ continue tq $∫_{\R\times\R}|f(x,y)|^2\dd{x}\dd{y}<+∞$, soit $T$ l'opérateur définie par $\forall φ\in H\ (Tφ)(x)=∫_\R\dd{y}\underbrace{f(x,y)}_{\text{noyau de $T$}}φ(y) $
+	$H=L^2(\R)$ soit $f:\R\times\R\mapsto \R$ continue t.q. $∫_{\R\times\R}|f(x,y)|^2\dd{x}\dd{y}<+∞$, soit $T$ l'opérateur définie par $\forall φ\in H\ (Tφ)(x)=∫_\R\dd{y}\underbrace{f(x,y)}_{\text{noyau de $T$}}φ(y) $
 	$T$ est compact. (cas important dans l'étude des EDO)
 \end{example}
 % chapter le_theoreme_de_lax_milgram (end)
 \chapter{Le Théorème de Lax Milgram} % (fold)
 \label{cha:le_theoreme_de_lax_milgram}
 \begin{theorem}
-	Soit $H$ un espace de Hilbert et $T\in B(H)$. Supposons que $\exists α>0$ tq $\forall u\in H$ $|(Tu|u)|≥α\norm{u}^2$ ($T$ est coercif) alors $T\dmo$ existe, $T\dmo \in B(H)$ et $\norm{T\dmo}≤\frac1α$.
+	Soit $H$ un espace de Hilbert et $T\in B(H)$. Supposons que $\exists α>0$ t.q. $\forall u\in H$ $|(Tu|u)|≥α\norm{u}^2$ ($T$ est coercif) alors $T\dmo$ existe, $T\dmo \in B(H)$ et $\norm{T\dmo}≤\frac1α$.
 \end{theorem}
 \begin{example}
 	$H=L^2(\R)$, $f\in C^0\cap L^∞ f≥C>0$. $(Tφ)(x)=f(x)φ(x)$: $(Tφ|φ)=∫_\R\dd{x}f(x)|φ(x)|^2≥C\norm{φ}^2$
@@ -918,9 +977,9 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 \begin{proof}
 	Soit $u\in H$, on a: $\norm{Tu}\norm{u}≥|(Tu|u)|≥α\norm{u}^2$ et donc $\norm{Tu}≥α\norm{u}$ (*) $T$ est injectif, soit $u\in N(T)$, $Tu=0_H$, alors $0=\norm{Tu}≥α\norm{u}$ $\implies$ $\norm{u}=0$ $\iff$ $u=0_H N(T)=\{ 0_H\}$. Montrons que $T$ est surjectif: $R(T)$ est fermé et $R(T)^\perp=\{e_H\}$ $\implies$ $R(t)= H$.
 	
-	Montrons 1) Soit $(Tu_n)_{n\in\N}$ une suite convergent dans $H$: $\exists u tq Tu_n\to u$, montrons que $u\in R(T)$, elle est de Caucy et par (*) $α\norm{u_n-u_p}≤\norm{Tu_n-Tu_p}$ alors $(u_n)_{n\in\N}$ et de Cauchy: $\exists n\in H tq u_n\to u$ $\implies$ $Tu_n\to Tu$ Par continuité: alors $v=Tu$ et $v\in R(T)$. 
+	Montrons 1) Soit $(Tu_n)_{n\in\N}$ une suite convergent dans $H$: $\exists u t.q. Tu_n\to u$, montrons que $u\in R(T)$, elle est de Caucy et par (*) $α\norm{u_n-u_p}≤\norm{Tu_n-Tu_p}$ alors $(u_n)_{n\in\N}$ et de Cauchy: $\exists n\in H t.q. u_n\to u$ $\implies$ $Tu_n\to Tu$ Par continuité: alors $v=Tu$ et $v\in R(T)$. 
 	
-	Montrons 2) $R(T)^\perp=\{v\in H\text{ tq }(Tu|v)=0 \forall u\in H\} $
+	Montrons 2) $R(T)^\perp=\{v\in H\text{ t.q. }(Tu|v)=0 \forall u\in H\} $
 	En particulier $(Tv|v)=0$ mais $0=|(Tv|v)|≥α\norm{v}^2$ $\implies$ $\norm{v}=0$ $\iff$ $v=0_H$: $R(T)^\perp =\{0_H\}$.
 \end{proof}
 % chapter operateurs_compacts (end)
@@ -935,6 +994,7 @@ $H$ désigné un espace de Hilbert, $T\in B(H)$.
 	\end{enumerate}	
 \end{definition}
 \begin{remark}
+\leavevmode
 	\begin{itemize}
 		\item si $λ$ est valeur propre de $T$: $N(T-λ\ind_H)≠\{0_H\}$
 	$\iff$ $T-λ\ind_H$ est non injectif donc non inversible $\implies$ $λ\in σ(T)$.
@@ -1027,12 +1087,12 @@ On a conduit une famille maximale que n'était pas totale (possible car F n'est 
 \section{exercice  2.12} % (fold)
 \label{sec:exercice_2_12}
 $H$ -un espace
-$\dim(H)<∞$ $\implies$ $\exists\{\tilde e_n\}_{n=0}^N$ base de H, $φ:H\rightarrow l^2(\N)$, $\tilde e_n\mapsto e_n=(0,0,...,1,0,..)\in l^2(\N)$
+$\dim(H)<∞$ $\implies$ $\exists\{\tilde e_n\}_{n=0}^N$ base de H, $φ:H\implies l^2(\N)$, $\tilde e_n\mapsto e_n=(0,0,...,1,0,..)\in l^2(\N)$
 
 $\forall u\in H:\ \norm{u}=\sqrt{∑_{i=0}^Nu_i^2}=\norm{φ(u)}$
 
 $\dim(H)=∞$ $\implies$ $\exists\{\tilde e_n\}_{n=0}^∞$ base de $H$
-$φ:H\rightarrow l^2(\N)$
+$φ:H\implies l^2(\N)$
 $\tilde e_n\mapsto e_n=(0,...,0,1,0, 0,...)$
 $u\in H$: $\norm{u}^2=∑_{n=0}^∞u_n^2 <∞$ $\implies$ $φ(u)\in l^2(\N)$ d'inégalité de Parceval. $\norm{u}_u=\norm{φ(u)}_{l^2(\N)}$.
 % section exercice_2_12 (end)
@@ -1067,11 +1127,83 @@ $\forall f\in E\  |(u_n-u|f)|=|(u_n-u|g_n)|+|(\underbrace{u_n-u}_{bornée}|f-g_m
 \label{cha:exercices_3}
 Opérateurs bornés. 
 (adjoint, inverse, spectre) Apres Opérateurs compacts.
+\section{3.1} % (fold)
+\label{sec:3_1}
+$T\in L(\hs_1,\hs_2)$
+On va montrer i)=>ii)=>iii)
+On suppose:
+$\forall x\in \hs_1, \forall(x_n)$ suite de $\hs_1$
+	$$ (x_n\to x \implies Tx_n\to Tx) $$
+Montrons qu'alors, ii) est vrai. D'après le cours, la propriété i) implique que l'opérateur $T$ est \texttt{borné}: $T\in B(\hs_1,\hs_2)$. Ceci implique que l'adjoint $T^*$ existe et est \texttt{borné}.
+Supposons $x_n\rightharpoonup x$. Alors: $\forall y\in \hs_2$, $(Tx_n|y)-(Tx|y)=(Tx_n-tx|y)=(T(x_n-x)|y)=((x_n-x)|T^*y)$ (par définition de l'adjudant que est bien définie sur tout $\hs_2$ car $T$ est borné)
+$((x_n-x)|T^*y)->0 (n\to +∞)$. Car $x_n\rightharpoonup x$. (ou encore $x_n-x\rightharpoonup 0$)
+Donc $Tx_n\rightharpoonup Tx$. Donc ii) est vraie.
+
+Montrons que ii)=>iii). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$
+$x_n\rightharpoonup x$ => $Tx_n\rightharpoonup Tx$.
+
+Soit $(x_n)$ telle que $x_n\to x$. Alors $x_n\rightharpoonup x$. et d'après ii) 
+$Tx_n\rightharpoonup Tx$.
+
+Donc iii) est vraie
+Montrons que iii)=> i). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$, ($x_n\to x$ => $Tx_n \rightharpoonup Tx$)
+
+On va montrer résultat par l'absurde. Supposons iii) vraie mais i) faux.
+Si i) est faux, alors, l'opérateur n'est pas borné. Donc $\forall C>0$, $\exists x\in\hs_1$, tel que $\norm{Tx}_{\hs_2}>C\norm{x}_{\hs_1}$.
+
+En particulier, il existe une suite $(x_n)$ de $\hs_1$ telle que $\norm{Tx_n}_{\hs_2}≥n^2\norm{x_n}_{\hs_1}$
+
+=> $\frac{\norm{Tx_n}}{n\norm{x_n}}≥n$. Soit $\tilde x_n=\frac{x_n}{n\norm{x_n}}$.
+Alors $\norm{\tilde x_n}=\frac 1n -> 0$. Donc $\tilde x_n->0$.
+
+Mais $T\tilde x_n$ ne converge pas faiblement vers $0$, car $\norm{T\tilde x_n}=\norm{\frac{Tx_n}{n\norm{x_n}}} =\frac{\norm{Tx_n}}{\norm{n\norm{x_n}}}>n\to +∞$.
+
+(Rappel: toute suite faiblement convergente est bornée)
+
+On a donc construit une suite ($\tilde x_n$) telle que $\tilde x_n$ converge fortement. Mais $T\tilde x_n$ ne converge pas faiblement. Ceci contredit iii): Absurde. Conclusion  i) est vraie.
+
+Rappel: fortement => faiblement, faiblement => borné.
+% section 3_1 (end)
+\section{3.2} % (fold)
+\label{sec:3_2}
+\begin{definition}
+	Soit $A\in B(\hs)$ (opérateur borné de $\hs$ Hilbert, vers $\hs$). Le rayon spectral de A est	$r(A)=\sup\{λ\ |\ λ\in\sigma(A)\}$
+\end{definition}
+\begin{remark}
+	$r(A)$ est finie, car $A$ est supposé borné.
+\end{remark}
+\begin{theorem}
+	Si $A\in B(\hs)$, alors
+		$$r(A)=\lim_{n\to∞}(\norm{A^n})^{\frac 1n}.$$
+\end{theorem}
+\begin{rappel}
+	A étant une application linéaire de $\hs->\hs$, on note $A^n=\underbrace{AºAº...ºA}_{n\text{ fois}}$
+	Donc $A^n(x)=A(A(...(Ax)))$.
+\end{rappel}
+
+Allusion: Montre que $r(AB)≤r(BA)$ et $r(BA)≤r(AB)$.
+% section 3_2 (end)
 \section{3.3} % (fold)
 \label{sec:3_3}
-Soit $H$ un espace de Hilbert séparable. Soit $(e_n)_{n\in\N}$ base de $H$ on considère l'opérateur $T$ défini par:
-$forall u=∑_{n\in\N}λ_ne_n$, $Tu:=∑_{n\in\N}λ_ne_{n+1}$. En particulier, $Te_n=e_{n+1}$.
+Soit $\hs$ un espace de Hilbert séparable. Soit $(e_n)_{n\in\N}$ base orthonormale Hilbertienne de $\hs$ on considère l'opérateur $T$ sur $\hs$, défini par:
+$\forall u=∑_{n\in\N}λ_ne_n$, $Tu:=∑_{n\in\N}λ_ne_{n+1}$. En particulier, $Te_n=e_{n+1}$.
+($(λ_n)$ suite de $l^2$)
 
-Montrer que $T$ est un opérateur borné, de norme.
+Montrer que $T$ est un opérateur borné, de norme 1 ($\norm{T}=1$).
+
+Montrons que $T$ est bien définie sur tout $\hs$. Soit $y\in\hs$, alors, $\exists (λ_n)\in l^2(\N)$ tell que $y=\lim_{n\to∞}∑_{k=0}^nλ_ke_k=∑_{k=0}^∞λ_ke_k$.
+
+Alors $\norm{Ty}^2=\norm{∑_{k=0}^∞λ_ke_{k+1}}^2=\norm{∑_{k=0}^∞μ_ke_k}^2=∑_{k=0}^∞|μ_k|^2=∑_{k=1}^∞|λ_k|^2<+∞$ où $μ_0=0$ et $μ_k=λ_{k-1}$ si $k≥1$. Car $(λ_k)\in l^2(\N)$. Donc $Ty\in\hs$ (donc est bien défini).
+
+Soit $x\in\hs$. Alors $x=∑λ_ke_k$.
+
+$\frac{\norm{Tx}}{x}=\frac{T(∑λ_ke_k)}{∑λ_ke_k}=\frac{\norm{∑_kλ_ke_{k+1}}}{∑_kλ_ke_k}=\frac{\norm{∑_{k=1}^∞λ_{k-1}}e_k}{\norm{∑_{k=0}^∞λ_ke_k}}=\frac{(∑_{k=1}^∞(λ_{k-1})^2)^{\frac 12}}{(∑_{k=0}^∞λ_k^2)^{\frac 12}}=1$
+
+L'opérateur $T$ est l'opérateur de translation ver la droite..
 % section 3_3 (end)
+\section{3.4} % (fold)
+\label{sec:3_4}
+
+% section 3_4 (end)
 % chapter exercices_3 (end)
+\tableofcontents
