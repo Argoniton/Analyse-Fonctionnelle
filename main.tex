@@ -128,7 +128,7 @@ Montrons ii): $\forall t\in[0,1],\ \forall\in H\ \phi(t)=||\underbrace{y_0+t(y-y
 \end{proof}
 
 \begin{definition}
-	Dans ces conditions, l'application $P:x\in H$ => $x=x_1+x_2$ où $x_1\in F$ et $x_2\in F^\perp $
+	Dans ces conditions, l'application $P:x\in H$ $\implies$ $x=x_1+x_2$ où $x_1\in F$ et $x_2\in F^\perp $
 	$$x \overset{P}{\mapsto} x_1\in F$$
 	 est le \textsc{Projecteur Orthogonal} sur $F$.
 \end{definition}
@@ -246,7 +246,7 @@ La suite $∑^N||y_n||^2$ est positive, majorée donc convergente et par passage
 	$\implies$  $x-y=0_H$ $\iff$ $x=y=∑(x|e_i) e_i ||x||^2=∑_{i≥0}|(x|e_i)|^2$
 \end{proof}
 \begin{remark}
-	Si $(e_n)_{n\in \N}$ est une suite orthonormale telle que $\forall x\in H$ $x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ =>
+	Si $(e_n)_{n\in \N}$ est une suite orthonormale telle que $\forall x\in H$ $x=∑_{i≥0}(x|e_i)e_i:\ x=\lim_N ∑_{i≥0}^N a_ie_i$ où $a_i=(x|e_i)\in\C$ $\implies$
 	$x \in \vect\{(e_n)_n\in \N\}; a_i=(x|e_i)$ $\implies$  $\vect\{(e_n)_n\in\N\}=H$. $(e_n)_n\in \N$ est une base Hilbertienne.
 	
 	ii) $(e_n)_n\in\N$ est base Hilbertienne de $H$ $\iff$ $\forall x\in H:\ ∑(x|e_i)e_i=x $
@@ -483,7 +483,7 @@ $\implies$ $∫_\Rψφ_n=0$ $\implies$ $\lim_n(ψ|φ_n)=0=(ψ|0)$.
 	Une espace de Hilbert vérifie la propriété de Bolzano-Weierstrass faible. De toute suite bornée de $H$, on peut extraire une sous suite.
 \end{theorem}
 \begin{remark}
-	Dans $\R^p$, de toute suite borné on peut extraire une sous-suite c.v. (B.W.) c'est vrai si $p<+∞$. Mais c'est faux en dimension quelconque. Le Théorème 2 => c'est vrai au sens faible.
+	Dans $\R^p$, de toute suite borné on peut extraire une sous-suite c.v. (B.W.) c'est vrai si $p<+∞$. Mais c'est faux en dimension quelconque. Le Théorème 2 $\implies$ c'est vrai au sens faible.
 \end{remark}
 \begin{proof}
 	Soit $(x_n)n\in N$ une suite borné dans $H$: $\exists L>0$ t.q. $\forall n\in \norm{x_n}≤L$. Soit $M=\overline{\vect(x_n)}$. Si $M$ est de dimension fini, alors $(x_n)_{n\in \N}\subset B_f(0_M,L)\subset M$. qui est compact $\iff$ elle satisfait la propriété de B.W. $\exists (X_{k(n)})_{n\in\N}$ sous suite et $x\in B_f(0, L)$ t.q. $\lim_n\norm{x_{k(n)}-x}\to 0$ $\implies$ $x_{k(n)}\rightharpoonup x$ dans $H$. Alors le Théorème 2 est démontré.
@@ -571,9 +571,9 @@ $G(T)=\{(x,Tx)\ x\in X\}$---graphe de $T$.
 \begin{remark}
 	iii) $\exists C>0$ t.q. $\forall x\in X: \norm{f(x)}_Y≤C\norm{x}_X$ $\iff$ $\norm{f(\frac{x}{\norm{x}_X})}≤C$ si $\norm{x}_X≠0$ ($x≠0_X$).
 	$\norm{f(x)}_Y≤C$; $f(B_f(0_X, 1))\subset B_f(0_Y,C)$.\\
-	-* Un opérateur de $X\rightarrow Y$ est une application linéaire de $X\rightarrow Y$.\\
-	-* Une application linéaire $X\rightarrow Y$ continue est un opérateur borné de $X\rightarrow Y$.\\
-	-* On notera par $\mathcal{B}(X,Y)$ l'ensemble des opérateurs bornés de $X\rightarrow Y$.
+	\textbullet  Un opérateur de $X\rightarrow Y$ est une application linéaire de $X\rightarrow Y$.\\
+	\textbullet  Une application linéaire $X\rightarrow Y$ continue est un opérateur borné de $X\rightarrow Y$.\\
+	\textbullet  On notera par $\mathcal{B}(X,Y)$ l'ensemble des opérateurs bornés de $X\rightarrow Y$.
 \end{remark}
 
         	\begin{example}
@@ -719,8 +719,8 @@ $\implies$ $A^{**}=A$
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	-* $u\in N(T)$ $\iff$ $Tu=0_{H'}$ $\iff$ $\forall v\in H'\ (Tu|v)=0$ $\iff$ $(u|T^*v)=0$ $\iff$ $u\in R(T^*)^\perp$
-	-* $R(T)$ n'est pas nécessairement fermé, mais $N(T^*)$ est fermé puisque le noyau d'un opérateur borné est toujours fermé alors l'égalité doit s'écrire avec $\overline{R(T)}$ $\implies$ a finir en exercice. 
+	\textbullet  $u\in N(T)$ $\iff$ $Tu=0_{H'}$ $\iff$ $\forall v\in H'\ (Tu|v)=0$ $\iff$ $(u|T^*v)=0$ $\iff$ $u\in R(T^*)^\perp$
+	\textbullet  $R(T)$ n'est pas nécessairement fermé, mais $N(T^*)$ est fermé puisque le noyau d'un opérateur borné est toujours fermé alors l'égalité doit s'écrire avec $\overline{R(T)}$ $\implies$ a finir en exercice. 
 \end{proof}
 \begin{proposition}
 	Dons le même conditions que la proposition 2, si $T\in B(H)$ est inversible: $T\dmo$ existe et $T\dmo\in B(H)$ on a: $(T^*)\dmo$ existe et $(T^*)\dmo=(T\dmo)^*$.
@@ -797,7 +797,7 @@ $\implies$ $A^{**}=A$
 % section adjoint_d_un_operateur (end)
 % section generalites (end)
 % chapter operateurs_sur_un_espace_de_hilbert (end)
-\chapter{rappels sur la compacité} % (fold)
+\chapter{Rappels sur la compacité} % (fold)
 \label{cha:rappels_sur_la_compacite}
 Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propriété de Belzane.-Weirstrass: De toute suite de $A$ : $(u_n)_{n\in\N}$ il existe une sous-suite $(u_{k(n)})_{n\in\N}$ et $u\in A$ t.q. $u_{k(n)}\to u$: $\lim_n\norm{u_{k(n)}-u}_H=0$.
 
@@ -1028,6 +1028,16 @@ $H$ désigné un espace de Hilbert, $T\in B(H)$.
 
 \chapter{La pratique} % (fold)
 \label{cha:la_pratique}
+\section{2.21} % (fold)
+\label{sec:2_21}
+$φ_n(x)=\frac{n^{\frac 32}}{n^2+x^2} \hs=L^2$.
+$\forall x\in\R$, $|φ_n(x)|≤\frac{n^{\frac 32}}{n^2}=\frac 1{\sqrt{n}}\to 0$.
+C'est juste convergence \emph{point par point}. (Pas fortement, pas faiblement)
+
+Montrons que $φ_n\rightharpoonup 0$. On va montrer que pour un ensemble dense $D$ de $L^2(\R)$ bien choisi, on a: $\forall g\in D$ $(φ_n|g)\to (0|g)=0$.
+
+$(φ_n|g)=∫_\R\frac{n^{\frac 32}}{n^2+x^2}g(x)\dd{x}$.
+% section 2_21 (end)
 \section{exercice 26} % (fold)
 \label{sec:exercice_26}
 \begin{itemize}
@@ -1130,31 +1140,31 @@ Opérateurs bornés.
 \section{3.1} % (fold)
 \label{sec:3_1}
 $T\in L(\hs_1,\hs_2)$
-On va montrer i)=>ii)=>iii)
+On va montrer i)$\implies$ii)$\implies$iii)
 On suppose:
 $\forall x\in \hs_1, \forall(x_n)$ suite de $\hs_1$
 	$$ (x_n\to x \implies Tx_n\to Tx) $$
 Montrons qu'alors, ii) est vrai. D'après le cours, la propriété i) implique que l'opérateur $T$ est \texttt{borné}: $T\in B(\hs_1,\hs_2)$. Ceci implique que l'adjoint $T^*$ existe et est \texttt{borné}.
 Supposons $x_n\rightharpoonup x$. Alors: $\forall y\in \hs_2$, $(Tx_n|y)-(Tx|y)=(Tx_n-tx|y)=(T(x_n-x)|y)=((x_n-x)|T^*y)$ (par définition de l'adjudant que est bien définie sur tout $\hs_2$ car $T$ est borné)
-$((x_n-x)|T^*y)->0 (n\to +∞)$. Car $x_n\rightharpoonup x$. (ou encore $x_n-x\rightharpoonup 0$)
+$((x_n-x)|T^*y)\rightarrow 0 (n\to +∞)$. Car $x_n\rightharpoonup x$. (ou encore $x_n-x\rightharpoonup 0$)
 Donc $Tx_n\rightharpoonup Tx$. Donc ii) est vraie.
 
-Montrons que ii)=>iii). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$
-$x_n\rightharpoonup x$ => $Tx_n\rightharpoonup Tx$.
+Montrons que ii)$\implies$iii). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$
+$x_n\rightharpoonup x$ $\implies$ $Tx_n\rightharpoonup Tx$.
 
 Soit $(x_n)$ telle que $x_n\to x$. Alors $x_n\rightharpoonup x$. et d'après ii) 
 $Tx_n\rightharpoonup Tx$.
 
 Donc iii) est vraie
-Montrons que iii)=> i). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$, ($x_n\to x$ => $Tx_n \rightharpoonup Tx$)
+Montrons que iii)$\implies$ i). On suppose que $\forall x\in\hs_1$, $\forall (x_n)$ suite de $\hs_1$, ($x_n\to x$ $\implies$ $Tx_n \rightharpoonup Tx$)
 
 On va montrer résultat par l'absurde. Supposons iii) vraie mais i) faux.
 Si i) est faux, alors, l'opérateur n'est pas borné. Donc $\forall C>0$, $\exists x\in\hs_1$, tel que $\norm{Tx}_{\hs_2}>C\norm{x}_{\hs_1}$.
 
 En particulier, il existe une suite $(x_n)$ de $\hs_1$ telle que $\norm{Tx_n}_{\hs_2}≥n^2\norm{x_n}_{\hs_1}$
 
-=> $\frac{\norm{Tx_n}}{n\norm{x_n}}≥n$. Soit $\tilde x_n=\frac{x_n}{n\norm{x_n}}$.
-Alors $\norm{\tilde x_n}=\frac 1n -> 0$. Donc $\tilde x_n->0$.
+$\implies$ $\frac{\norm{Tx_n}}{n\norm{x_n}}≥n$. Soit $\tilde x_n=\frac{x_n}{n\norm{x_n}}$.
+Alors $\norm{\tilde x_n}=\frac 1n \rightarrow  0$. Donc $\tilde x_n\rightarrow 0$.
 
 Mais $T\tilde x_n$ ne converge pas faiblement vers $0$, car $\norm{T\tilde x_n}=\norm{\frac{Tx_n}{n\norm{x_n}}} =\frac{\norm{Tx_n}}{\norm{n\norm{x_n}}}>n\to +∞$.
 
@@ -1162,7 +1172,7 @@ Mais $T\tilde x_n$ ne converge pas faiblement vers $0$, car $\norm{T\tilde x_n}=
 
 On a donc construit une suite ($\tilde x_n$) telle que $\tilde x_n$ converge fortement. Mais $T\tilde x_n$ ne converge pas faiblement. Ceci contredit iii): Absurde. Conclusion  i) est vraie.
 
-Rappel: fortement => faiblement, faiblement => borné.
+Rappel: fortement $\implies$ faiblement, faiblement $\implies$ borné.
 % section 3_1 (end)
 \section{3.2} % (fold)
 \label{sec:3_2}
@@ -1177,7 +1187,7 @@ Rappel: fortement => faiblement, faiblement => borné.
 		$$r(A)=\lim_{n\to∞}(\norm{A^n})^{\frac 1n}.$$
 \end{theorem}
 \begin{rappel}
-	A étant une application linéaire de $\hs->\hs$, on note $A^n=\underbrace{AºAº...ºA}_{n\text{ fois}}$
+	A étant une application linéaire de $\hs\rightarrow \hs$, on note $A^n=\underbrace{AºAº...ºA}_{n\text{ fois}}$
 	Donc $A^n(x)=A(A(...(Ax)))$.
 \end{rappel}
 
