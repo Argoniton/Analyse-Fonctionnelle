@@ -1,3 +1,7 @@
+% !TEX encoding = UTF-8 Unicode
+% !TEX TS-program = xelatex
+
+
 \chapter{Initiation} % (fold)
 
 % chapter cha (end)
@@ -843,7 +847,7 @@ Soit $H$ un espace de Hilbert, $A\subset H$ est compact si il satisfait la propr
 	Soit $p$ un projecteur sur $H$ sur sous-espace de dimension 1. $D_n=\{λu,λ\in\C\} \forall x\in H$: $Px=(x|u)u$. Alors $\dim\R(P)=1$ de plus on a que $\norm{Px}=|(x|u)|\norm{u}=((x|u)u|(x|u)u)$ alors $\norm{Px}≤\norm{x}\norm{u}^2$ (Cauchy-Schwartz) $P$ est continue de rang 1. Il est compact.
 \end{example}
 \begin{proposition}
-	Dans les mêmes conditions, $T$ est compact si de tout suite $(X_n)_{n\in\N}$ de $H$, bornée, il existe une sous-suite de $(Tx_n)_{n\in\N}$ fortement convergente dans $H$.
+	Dans les mêmes conditions, $T$ est compact si de tout suite $(x_n)_{n\in\N}$ de $H$, bornée, il existe une sous-suite de $(Tx_n)_{n\in\N}$ fortement convergente dans $H$.
 \end{proposition}
 Cette proposition découle de la définition de loi precompacité.
 
@@ -872,14 +876,14 @@ Pour démontrer la proposition 2 on utilise le lemme de Cantor.
 	Réciproquement: Soit $(x_n)_{n\in\N}$ une suite bornée dans $H$. D'après B.W. faible elle contient une suite convergente faiblement $x_{k(n)}\rightharpoonup x\in H$, Test continue: $Tx_{k(n)}\to Tx$. D'après la proposition 1, la suite $(y_n)_{n\in\N}$ est bornée, alors: de toute suite bornée $(x_n)_{n\in\N}$, $(Tx_n)_{n\in\N}$ contient une sous suite cv.
 \end{proof}
 
-	On notera par $B_0(H,H')$; l'ensemble de opérateurs compacts de $H\implies H'$ ($B_0(H)$ si $H=H'$).
+	On notera par $B_0(H,H')$; l'ensemble de opérateurs compacts de $H\rightarrow H'$ où $B_0(H)$ si $H=H'$.
 	\begin{exercise}
 		Montrer que $B_0(H)$ est un sous-espace vectorielle normé de $B(H')$.
 	\end{exercise}
 
 	Attention. Il faut montrer en particulier que si $T_1$, $T_2\in B_0(H)$, $T_1+T_2\in B_0(H)$.
 	\begin{exercise}
-		Montrer que si $T_1\in B(H)$, $T_2\in B(H)$; $T_1$,$T_2$ et $T_2T_1\in B_0(H)$.
+		Montrer que si $T_1\in B_0(H)$, $T_2\in B(H)$; $T_1$,$T_2$ et $T_2T_1\in B_0(H)$.
 	\end{exercise}
 
 \begin{theorem}
@@ -888,9 +892,6 @@ Pour démontrer la proposition 2 on utilise le lemme de Cantor.
 \begin{remark}
 	$B_0(H,H')$ est une sous espace fermé de $B(H,H')$.
 \end{remark}
-\begin{corollary}
-	Soit $(T_n)_{n\in\N}$ une suite de $B(H,H')$ convergente vers $T$. Supposons que $\forall n\ \dim R(T_n)<+∞$. (opérateurs de rang fini) alors T est compact.
-\end{corollary}
 
 $R, R^2, R^3, ..., R^n,..., R^∞=\{x_0,x_1,x_3,..., x_n,...,...\mbox{---suite}\}$
 $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$.
@@ -910,7 +911,7 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 	
 \end{proof}
 \begin{proposition}
-	Dans les mêmes conditions que la proposition précédente. $T\in B_0(H,H')$ $\iff$ $\exists (T_n)_{n\in\N}$ des $B(H,H')$, $\dim R(T_n)<+∞$ et $T=\lim_nTn$ $\iff$ $\lim_n\norm{T-T_n}=0$.
+	Dans les mêmes conditions que la proposition précédente. $T\in B_0(H,H')$ $\iff$ $\exists (T_n)_{n\in\N}$ des $B(H,H')$, $\dim R(T_n)<+∞$ et $T=\lim_nT_n$ $\iff$ $\lim_n\norm{T-T_n}=0$.
 \end{proposition}
 \begin{proof}
 	Le sens $\Leftarrow$ est implique par le corollaire précédent. Montrons $\implies$. On suppose $T$ compact soit $B = B_H(0,1)$ pour tout $ε>0$ il existe une partie finie de $TB$: $I_ε$ t.q. $TB_H\subset \cup_{x_i\in I_ε}B_{H'}(x_i, ε)$ (precompacité) Soit $G=\vect\{x_1,x_2, ...,x_n\}=\bar G$. ($\dim G≤N$). Soit $P_G$ la projection orthogonale sur $G$. On pose $T_ε=P_GºT$, Alors $\dim \R(T_ε)<+∞$, car $R(T_ε)\subset R(P_G)$. 
@@ -946,9 +947,14 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 \end{remark}
 \begin{example}
 	Les opérateurs Hilbert Schmidt. Soit $H$, $H'$ deux espace se Hilbert, $T \in(H,H')$ t.q. $∑_{k=1}^∞\norm{Te_k}^2<+∞$ au $(e_k)_{k\in\N}$ est une base helbertiene de $H$. On note par $B_2(H,H')$ l'ensemble des opérateurs Hilbert-Schmidt. $B_2(H,H')$ c'est un sous espace de $B(H,H')$ (ex) $\forall T\in B_2(H,H')$, on note $\norm{T}_2=(∑_{k=1}^{+∞}\norm{Te_k}^2)^{\frac 12}$.
-	$\norm{•}_2$ est une norme (ex): c'est la norme Hilbert-Schmidt et $(B_2(H,H'),\norm{•}_2)$ est un espace de Banach. De plus $\forall j\in\N \ \norm{Te_j}^2≤∑_{k=1}^∞\norm{Te_k}^2$ $\implies$ $\norm{Te_j}≤\norm{T}_2$. Plus généralement sot $u\in H$, $\norm{u}=1$, $u=∑_{k≥0}α_ke_k$, $1=\norm{u}^2=∑_{k≥0}|α_k|^2$.
-	$\norm{Tu}^2=(Tu|Tu)=∑_k(Te_k|Tu)≤∑_k|α_k|\norm{Te_k}\norm{Tu}$ $\implies$ $\norm{Tu}≤∑_k|α_k|\norm{Te_k}≤|(∑_k|α_k|^2)^{\frac 12}(∑_k\norm{Te_k}2)^{\frac 12}|=1•\norm{T}_2$
-	en utilisant Cauchy-Schwartz: $\norm{Tu}≤\norm{T}_2$ $\implies$ $\norm{T}≤\norm{T}_2$.
+	
+	$\norm{•}_2$ est une norme (ex): c'est la norme Hilbert-Schmidt et $(B_2(H,H'),\norm{•}_2)$ est un espace de Banach. De plus $\forall j\in\N \ \norm{Te_j}^2≤∑_{k=1}^∞\norm{Te_k}^2$ $\implies$ $\norm{Te_j}≤\norm{T}_2$. 
+	
+	Plus généralement soit $u\in H$, $\norm{u}=1$, $u=∑_{k≥0}α_ke_k$, $1=\norm{u}^2=∑_{k≥0}|α_k|^2$.
+	$\norm{Tu}^2=(Tu|Tu)=∑_k(Te_k|Tu)≤∑_k|α_k|\norm{Te_k}\norm{Tu}$ $\implies$\\ $\norm{Tu}≤∑_k|α_k|\norm{Te_k}≤|(∑_k|α_k|^2)^{\frac 12}(∑_k\norm{Te_k}2)^{\frac 12}|=1•\norm{T}_2$
+	en utilisant Cauchy-Schwartz.
+	
+	 $\norm{Tu}≤\norm{T}_2$ $\implies$ $\norm{T}≤\norm{T}_2$.
 	
 	Montrons que $B_2(H,H')\subset B_0(H,H')$. On suppose que $∑_{n≥0}^{+∞}\norm{Te_k}^2<+∞$ $\iff$ $\lim_{N\to +∞}∑_N^∞\norm{Te_k}^2=0$
 	
@@ -960,8 +966,8 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 	$\norm{T}^2_2=∑_{k≥0}\norm{Te_k}^2=∑_{k≥0}\frac1{(k+1)^2}<+∞$.
 \end{example}
 \begin{example}
-	$H=L^2(\R)$ soit $f:\R\times\R\mapsto \R$ continue t.q. $∫_{\R\times\R}|f(x,y)|^2\dd{x}\dd{y}<+∞$, soit $T$ l'opérateur définie par $\forall φ\in H\ (Tφ)(x)=∫_\R\dd{y}\underbrace{f(x,y)}_{\text{noyau de $T$}}φ(y) $
-	$T$ est compact. (cas important dans l'étude des EDO)
+	$H=L^2(\R)$ soit $f:\R\times\R\mapsto \R$ continue t.q. $∫_{\R\times\R}|f(x,y)|^2\dd{x}\dd{y}<+∞$, soit $T$ l'opérateur définie par $\forall φ\in H\ (Tφ)(x)=∫_\R\dd{y}\underbrace{f(x,y)}_{\text{noyau de $T$}}φ(y) $.
+	$T$ est compact (cas important dans l'étude des EDO).
 \end{example}
 % chapter le_theoreme_de_lax_milgram (end)
 \chapter{Le Théorème de Lax Milgram} % (fold)
@@ -970,12 +976,12 @@ $\norm{x}=\sqrt{x_1^2+x_2^2+x^2_3+...}=∑_{i=1}^∞x_i^2<+∞$ $\iff$ $l^2(\N)$
 	Soit $H$ un espace de Hilbert et $T\in B(H)$. Supposons que $\exists α>0$ t.q. $\forall u\in H$ $|(Tu|u)|≥α\norm{u}^2$ ($T$ est coercif) alors $T\dmo$ existe, $T\dmo \in B(H)$ et $\norm{T\dmo}≤\frac1α$.
 \end{theorem}
 \begin{example}
-	$H=L^2(\R)$, $f\in C^0\cap L^∞ f≥C>0$. $(Tφ)(x)=f(x)φ(x)$: $(Tφ|φ)=∫_\R\dd{x}f(x)|φ(x)|^2≥C\norm{φ}^2$
+	$H=L^2(\R)$, $f\in C^0\cap L^∞$: $f≥C>0$. $(Tφ)(x)=f(x)φ(x)$: $(Tφ|φ)=∫_\R\dd{x}f(x)|φ(x)|^2≥C\norm{φ}^2$
 	
 	$T\dmo$ existe, il est borné.
 \end{example}
 \begin{proof}
-	Soit $u\in H$, on a: $\norm{Tu}\norm{u}≥|(Tu|u)|≥α\norm{u}^2$ et donc $\norm{Tu}≥α\norm{u}$ (*) $T$ est injectif, soit $u\in N(T)$, $Tu=0_H$, alors $0=\norm{Tu}≥α\norm{u}$ $\implies$ $\norm{u}=0$ $\iff$ $u=0_H N(T)=\{ 0_H\}$. Montrons que $T$ est surjectif: $R(T)$ est fermé et $R(T)^\perp=\{e_H\}$ $\implies$ $R(t)= H$.
+	Soit $u\in H$, on a: $\norm{Tu}\norm{u}≥|(Tu|u)|≥α\norm{u}^2$ et donc $\norm{Tu}≥α\norm{u}$ (*) $T$ est injectif, soit $u\in N(T)$, $Tu=0_H$, alors $0=\norm{Tu}≥α\norm{u}$ $\implies$ $\norm{u}=0$ $\iff$ $u=0_H N(T)=\{ 0_H\}$. Montrons que $T$ est surjectif: (1) $R(T)$ est fermé et (2) $R(T)^\perp=\{e_H\}$ $\implies$ $R(t)= H$.
 	
 	Montrons 1) Soit $(Tu_n)_{n\in\N}$ une suite convergent dans $H$: $\exists u t.q. Tu_n\to u$, montrons que $u\in R(T)$, elle est de Caucy et par (*) $α\norm{u_n-u_p}≤\norm{Tu_n-Tu_p}$ alors $(u_n)_{n\in\N}$ et de Cauchy: $\exists n\in H t.q. u_n\to u$ $\implies$ $Tu_n\to Tu$ Par continuité: alors $v=Tu$ et $v\in R(T)$. 
 	
@@ -998,11 +1004,11 @@ $H$ désigné un espace de Hilbert, $T\in B(H)$.
 	\begin{itemize}
 		\item si $λ$ est valeur propre de $T$: $N(T-λ\ind_H)≠\{0_H\}$
 	$\iff$ $T-λ\ind_H$ est non injectif donc non inversible $\implies$ $λ\in σ(T)$.
-		\item  le cas de la dimension finie: $\dim H=n$ alors $T\in L(H)=B(H)$ est représenté par matrice: $\mat(T)\in M_{n,n}(\C)$. dans ce cas $T$ n'a que des valeurs propres que sont solution; de $P(λ)=\det(•T-λB_H)=0$ $\iff$ $T-λ\ind_H$ est non inversible.
+		\item  le cas de la dimension finie: $\dim H=n$ alors $T\in L(H)=B(H)$ est représenté par matrice: $\mat(T)\in M_{n,n}(\C)$. dans ce cas $T$ n'a que des valeurs propres que sont solution; de $P(λ)=\det(T-λB_H)=0$ $\iff$ $T-λ\ind_H$ est non inversible.
 	\end{itemize}	
 \end{remark}
 \begin{example}
-	Soit $T\in B(H) T=T^*$, soit $z\in\C$ $((T-z\ind_H)u|u)=((T-\Re z\ind_H)u|u)-i\Im z\norm{u}^2$. On sait que $(Tu|u)\in\R$ $\implies$ $\Im ((T_z\ind_H)u|u)=-\Im z\norm{u}^2$ $|(T-z\ind_H)u|u)|^2=|(T-\Re z\ind_H)u|u)|^2+(\Im z)^2\norm{u}^4≥(\Im z)^2\norm{u}^2$.
+	Soit $T\in B(H)$ $T=T^*$, soit $z\in\C$ $((T-z\ind_H)u|u)=((T-\Re z\ind_H)u|u)-i\Im z\norm{u}^2$. On sait que $(Tu|u)\in\R$ $\implies$ $\Im ((T_z\ind_H)u|u)=-\Im z\norm{u}^2$ $|(T-z\ind_H)u|u)|^2=|(T-\Re z\ind_H)u|u)|^2+(\Im z)^2\norm{u}^4≥(\Im z)^2\norm{u}^2$.
 	
 	Conclusion $\norm{(T-z\ind_H)u|u}≥|\Im z|\norm{u}^2$ il est coersif: $(T-z\ind_H)\dmo\in B(H)$ d'après Lac Milgram. Si $\Im z≠0$ $\implies$ $\C\setminus\R\subset ρ(T)$ $\iff$ $σ(T)\subset \R$.
 	
@@ -1018,12 +1024,157 @@ $H$ désigné un espace de Hilbert, $T\in B(H)$.
 	
 	0 n'est pas valeur propre de $T$.
 \end{example}
+
+\begin{proposition}
+	Soit $T\in B(\hs)$, $T=T^*$ alors
+	\begin{enumerate}[(i)]
+		\item les valeurs propres de $T$ sont réelles
+		\item $\forall z\in\C,\ \overline{R(T-z\ind_H)}=N(T-\bar z\ind_H)^\perp$
+		\item les espace propres associe a de valeurs propres différentes sont orthogonaux
+		
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	i) $\Leftarrow$ l'exemple dans la section iii 6 $σ(T)\subset \R$. On peut aussi précéder comme: Soit $u≠0_H$, $λ\in \C$ dq $Tu=λu$; $\norm{u}_H=1$. On écrit que 
+	
+	$(Tu|u)=(λu|u)=λ\norm{u}_H^2=λ$
+	$(Tu|u)=(u|λu)=\bar λ\norm{u}_H^2=\bar λ$
+	
+	$\implies$ $λ=\bar λ$ $\implies$ $λ\in \R$
+	
+	ii) D'après les relations d'orthogonalité: $R(T-z\ind_H)=N(T^*-\bar z\ind_H)^{\perp}=N(T-\bar z\ind_H)^\perp$.
+	
+	iii) $\Leftarrow$ Soit $λ_1,λ_2 \in \sigma_p(t)$ ( $σ_p(T)$ est l'ensemble des valeurs propres de $T$) $σ_p(T)\subset σ(T)$ , $λ_1≠λ_2$.
+	
+	$\exists u_i≠0_H$ tq $Tu_i=λ_iu_i$ alors
+	
+	$(Tu_1|u_2)=λ_1(u_1|u_2) $
+	$(u_1|Tu_2)=λ_2(u_1|u_2)$
+	
+	$\implies$ $(λ_1-λ_2)(u_1|u_2)=0$
+	
+	$\implies$ $u_1\perp u_2$.
+	
+\end{proof}
+\begin{proposition}
+	Dans les mêmes condition que dans la proposition 1 $λ\in σ(T)$ $\iff$ $\exists(u_n)_{n\in\N}$ suite de $H$, $\norm{u_n}_H=1$ et $\lim_n\norm{(T-λ\ind_H)u_n}=0$
+\end{proposition}
+\begin{remark}
+	Si $λ\in σ_p(T)$, $\exists u\in H\ \norm{u}_H=1$ et $Tu=λu$. On pose $u_n=u\ \forall n$: $\norm{(T-λ\ind_H)u_n}=\norm{(T-λ\ind_H)u}=0\ \forall n$
+\end{remark}
+\begin{proof}
+	p2 $\implies$ p1 supposons p1 faux. $λ\in ρ(T)$ $\iff$ $(T-λ\ind_H)\dmo\in B(H)$ alors
+	$1 =\norm{u_n}_H=\norm{(T-λ\ind_H)\dmo(T-λ \ind_H)u_n}\to 0$, $n\to +∞$.
+	
+	ce que est absurde.
+	
+	p1 $\implies$ p2 $\iff$ $\not\exists (u_n)_{n\in\N}$ dans $H$, $\norm{u_n}=1$ tq $\norm{(T-λ\ind_H)u_n}\to 0$ $\implies$ $λ\in ρ(T)$.
+	
+	$\forall (u_n)_{n\in\N}$ suite de $H$; $\norm{u_n}=1 \exists (u_{k(n)})_{n\in\N}$ sous suite et $ε>0$.
+	
+	$\norm{(T-λ\ind_H)u_{k(n)}}≥ε\norm{u_{k(n)}}$ $\implies$ $\forall u\in H$, $\norm{u}=1$ $\norm{(T-λ\ind_H)u}≥ε$.
+	
+	On choisissant $u_n=u\ \forall n$.
+	
+	On peut réécrire (*) comme $\norm{(T-λ\ind_H)u}≥ε\norm{u}$. (on utilise linéarité et divise par $\norm{u}$)
+	
+	$\implies$ $T$ est injectif: montrons que $T$ est surjectif.
+	
+	! on ne peut appliquer directement Lax-Milgram.
+	
+	$λ\in\R$ en utilisant Proposition 1 ii) $N(T-λ\ind_H)^\perp=\overline{R(T-λ\ind_H)}$
+	
+	$\exists ε>0 \forall u\in H$ mais $N(T-λ\ind_{H})=\{0_H\}$ $\implies$ $N(T-λ\ind_H)^\perp=H=R(T-λ\ind_H)$.
+	
+	$A^\perp=\{0_H\}$ $\iff$ A est dense $\{0_H\}^\perp=H$
+	
+	Montrons que $R(T-λ\ind_H)$ est fermée: Soit $(u_n)_{n\in\N}$ de $H$ tq $(T-λ\ind_H)u_n\to w\in H$ alors la suite $(u_n)_{n\in\N}$ est de Cauchy puisque $\norm{(T-λ\ind_A)(u_n-u_p)}≥ε\norm{u_n-u_p}$ et donc $\lim_{n,p\to ∞}\norm{u_n-u_p}=0$
+	
+	$\implies$ $\exists v\in H tq u_n\to v$ $\implies$ $(T-λ\ind_H)u_n\to (T-λ\ind_H)v=w$ par unicité de la limite.
+	
+	$R(T-λ\ind_H)=\overline{R(T-λ\ind_H)}=H$
+	
+	$(T-λ\ind)\dmo$ existe montrons que c'est un opérateur borne.
+	
+	On utilise que $\forall u\in H \norm{(T-λ\ind_H)u}≥ε\norm{u}$. On pose $u=(T-λ\ind_H)\dmo v$ $\implies$ $\norm{v}≥ε\norm{(T-λ\ind_H)\dmo v}$
+	
+	$\implies$ $(T-λ\ind_H)\dmo\in B(H)$ et $\norm{(T-λ\ind_H)\dmo}≤\frac 1ε$.
+	
+	et donc $λ\inρ(T)$ QED.
+\end{proof}
+\begin{remark}
+	Une telle suite s'appelle une suite caractéristique. 
+\end{remark}
+\begin{proposition}
+	Soit $T\in B(H$), $T=T^*$ alors soit $Θ_Τ=\{(Tu|u), u\in H, \norm{u}=1\}$ l'image numérique de $T$, on pose $M=\sup Θ_T$, $m=\inf Θ_T$ alors
+	\begin{enumerate}
+		\item $σ(T)\subset [m,M]$
+		\item $M,m\in σ(t)$
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	Dans ces conditions, $\forall u\in H$, $\norm{u}=1$ $|(Tu|u)|≤\norm{Tu}\norm{u}≤\norm{T}\norm{u}^2=\norm{T}$.
+	
+	$Θ_T$ est borné dans $\R$, l'$\inf$ et le $\sup$ existe.
+	
+	Choisissons $λ\in\R$ et $λ\in \R$ et $λ>M$ et montrons que $λ\inρ(Τ)$ (de la même mainiere on montrera que si  $λ<m$ $\implies$ $λ\inρ(T)$)
+	
+	On a $\forall u\in H$, $\norm{u}=1$, $|(T-λ\ind_H)u|u)|≥|(Tu|u)-λ|≥|M-λ|>0$, $λ>M$
+	
+	En utilisant Lax-Molgram: $λ\inρ(T)$. On a prouvé i).
+	
+	Montrons ii)
+	$T-m\ind_H≥0 $$\Leftarrow$ $(Tu|u)≥m\norm{u}^2$
+	$((T-m\ind_H)u|u)≥0$ alors $φ(u,v)=((T-m\ind)u|v)$ est une forme sesquilineaire (hermitienne)
+	
+	definie un semi-produit scalaire (semi car si $l(u,u)=(T-m\ind)u|u)=0 \not\implies u=0_H$ car $u\in N(T-λ\ind_H)$) 
+	
+	Elle satisfait $|φ(u,v)|≤\norm{u}_φ\norm{v}_φ$ avec $\norm{u}_φ=φ(u,u)^{\frac12}=((T-m\ind_H)u|u)^{\frac 12}$
+	
+	Puisque $m=\inf Θ_T \exists (u_n)_{n\in\N}$ suite de $H$ $\norm{u_n}_H=1$ tq $(Tu_n|u_n)\to m$ $\iff$ $((T-m\ind_H)u_n|u_n)\to 0$. Mais $\norm{(T-m\ind_H)u_n}^2_H=((T-m\ind_H)u_n|(T-m\ind_H)u_n)=φ(u_n,(T-m\ind_H)u_n)≤((T-m\ind_H)u_n|u_n)^{\frac 12}((T-m\ind_H)^2u_n|(T-m\ind_H)u_n)^{\frac 12}$
+	
+	Avec $(T-m\ind_H)^2u_n|(T-m\ind_H)u_n|≤\norm{(T-m\ind_H)^2u_n}_H\norm{(T-m\ind_H)u_n}_H≤\norm{(T-m\ind_H)}\norm{(T-m\ind_H)u_n}^2$
+	
+	Conclusion: $\norm{(T-m\ind_H)u_n}≤((T-m\ind_H)u_n|u_n)^{\frac 12}\norm{T-m\ind_H}^{\frac 12}\norm{(T-m\ind_H)u_n}$ ce que entraine que $\lim_n\norm{(T-m\ind_H)u_n}=0$ $\implies$ $m\in σ(T)$ d'après la Proposition 3.
+\end{proof} 
+\begin{example}
+	$T=T_++T_-+V$ au $(Vφ)(n)=V(n)φ(n)$, $l^2(\Z)$. V est périodique. $V(n+z)=V(n)$.
+\end{example}
 % chapter elements_spectraux (end)
+\chapter{Le théorème spectral de Hilbert} % (fold)
+\label{cha:le_theoreme_spectral_de_hilbert}
+L'espace de Hilbert $H$ admet toujours une base hilbertienne \texttt{denombrable}.
+\begin{theorem}
+	Soit $T$ un opérateur compact et autoadjoint sur un espace de Hilbert $H$: $T\in B_0(X)$. Alors il existe une base hilbertienne de $H$ $(e_k)_{k\in\N}$ et une suite de réels $(λ_k)_{k\in\N}$ tq $λ_k\to 0$ tq $k\to +∞$ et $T_ke_k=λ_ke_k$ ($T$ est diagonalisable).
+\end{theorem}
+\begin{remark}
+	Cas de la dimension fini. Soit $E$ un espace euclidien, $\dim E=n<+∞$ $T\in Φ(E)$ une application linéaire symétrique soit $B$ une base de $E$. $\mat_B(T)=^t\mat_B(T)$. T est diagonalisable: il existe une base de $E$ formée de vecteur propre de $T$.
+	
+	La correspondance: $E$ euclidien $\iff$ $H$ espace de Hilbert $T$
+	$T$ symétrique $\iff$ $T$ compact autoadjoint  
+	
+	$T$ est diagonal $T=\mqty(\dmat{λ_1,λ_2,λ_3,\ddots,λ_k,\ddots})$
+	
+	En particulier:
+	Soit $p_i$ les projection spectraux
+	$T=∑_{i=1}^{n}λ_ip_i$
+\end{remark}
+\begin{example}
+	$H=l^2(\N)$, $(Tu)(n)=\frac 1{n+1}u(n)$, $T\in B_0(H)$, $T=T^*$ $u=e_i$, $e_i(j)=δ_{ij}$. $(e_i)_{i\in\N}$ est une base hilbertienne de $H$.
+	
+	$Te_i(j)=\frac 1{n+1}e_i(j)=\frac 1{i+1}$ on vérifie le Théorème de Hilbert avec $λ_k=\frac 1{k+1}$ et $e_k$ les vecteurs définis ci-dessus. 
+	
+	$\mult(λ_k)=1 \forall k$.
+	$\mult(λ)=\dim N(T-λ\ind_H)$
+\end{example}
+% chapter le_theoreme_spectral_de_hilbert (end)
 
+\chapter{examen} % (fold)
+\label{cha:examen}
+Comment ca faite?
 
-
-
-
+Pur les exames, la programme, unicment, espace hilbert, pas Banach. basic definitions espace de hilb, projection ,suite ort, bse, parceval, ferme, convergance faible, faiblement, operateurs ,continu, comment calcul, adjoint, spectr, essenciel est compris. Je sais, je connais, lc'est long et difficile.
+% chapter examen (end)
 
 
 \chapter{La pratique} % (fold)
